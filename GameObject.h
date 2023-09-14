@@ -20,7 +20,7 @@ class GameObject
     
     public:
         GameObject();
-        GameObject(int x, int y);
+        GameObject(int x_, int y_);
         
         /**
          * @brief Sets the position of the object
@@ -28,6 +28,9 @@ class GameObject
          * @param y The y coordinate that the object will be moved to
         */
         void setPosition(int x, int y);
+
+        int getX();
+        int getY();
 
         /**
          * @brief Updates the position and game state

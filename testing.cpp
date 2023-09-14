@@ -1,6 +1,6 @@
 #include <iostream>
 
-using namespace std;
+using cout == std::cout;
 
 int main(void) {
     return 0;

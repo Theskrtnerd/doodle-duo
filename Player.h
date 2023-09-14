@@ -10,19 +10,28 @@ class Player : public MoveableObject
 {
     private:
         // Might be boolean for each colour 
-        string colour;
+        string color;
     
     public:
         Player();
 
-        Player(int x, int y, string colour);   // No need to set Velocity as it will be set to 0 be default
+        Player(int x, int y, string color);   // No need to set Velocity as it will be set to 0 be default
         
+
+
 
         /**
          * @brief Updates the position and game state
          * @return Returns true if the update was successful otherwise false
         */
         virtual bool update() override;
+
+
+        /**
+         * @brief Checks player inputs and does corrsponding methods
+        */
+        void playerInputs();
+
 
         /**
          * @brief When keyboard inputs to move left

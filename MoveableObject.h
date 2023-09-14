@@ -8,9 +8,9 @@ class MoveableObject : public GameObject
     private:
         // Velocity is in Pixels per tick
         // Objects always stationary at game start
-        /// @brief x Coordinate
-        double VelocityX;
-        /// @brief y Coordinate
+        /// @brief x Velocity
+        double velocityX;
+        /// @brief y Velocity
         double velocityY;
     
     public:

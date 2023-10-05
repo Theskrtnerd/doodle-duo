@@ -66,7 +66,7 @@ void GameEngine::run()
         // Draw GameObjects
         for (int index = 0; index < 2048; index++)
         {
-            gameObjects[index]->draw(&window);
+            gameObjects[index]->draw(window);
         }
 
         // Display the contents of the window

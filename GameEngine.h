@@ -2,6 +2,7 @@
 #define GAMEENGINE_H
 #include <SFML/Graphics.hpp>
 #include "Map.h"
+#include "GameObject.h"
 
 class GameEngine
 {
@@ -10,6 +11,7 @@ public:
     void run();
 
 private:
+    GameObject *gameObjects;
     Map map;
     sf::RenderWindow window;
 };

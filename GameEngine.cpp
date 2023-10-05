@@ -12,7 +12,6 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 
 void GameEngine::run()
 {
-    
     while (window.isOpen())
     {
         // Exit look

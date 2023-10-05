@@ -8,7 +8,7 @@ class ImmoveableObject: public GameObject{
     ImmoveableObject();
     ImmoveableObject(int x_, int y_);
     ~ImmoveableObject();
-}
+};
 
 
 #endif

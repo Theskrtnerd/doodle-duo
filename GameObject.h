@@ -1,14 +1,15 @@
 #ifndef GAME_OBJECT_H
 #define GAME_OBJECT_H
+#include <SFML/Graphics.hpp>
+#include <string>
+#include <cstdlib>
+#include <iostream>
 
 class GameObject
 {
     protected:
         /// @brief Whether the player can interact with this object (Specifically using the 'Interact' button)
         bool isInteractable;
-
-        /// @brief Whether this object is triggered, default objects are triggered
-        bool isTriggered;
 
     private:
             // TODO: mention whether this is based on middle or a specific corner
@@ -17,6 +18,10 @@ class GameObject
         int x;
         /// @brief y Coordinate
         int y;
+
+        
+        sf::Texture texture;
+        sf::Sprite sprite;
     
     public:
         GameObject();
@@ -38,6 +43,11 @@ class GameObject
          * @return Returns true if the update was successful otherwise false
         */
         virtual bool update();
+
+        /**
+         * @brief Draws the object on the window
+        */
+        virtual void draw(sf::RenderWindow &window);
 
         ~GameObject();
 };

@@ -11,7 +11,9 @@ public:
     void run();
 
 private:
-    GameObject *gameObjects;
+    GameObject **gameObjects;
+
+    int *
     Map map;
     sf::RenderWindow window;
 };

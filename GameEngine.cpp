@@ -39,7 +39,7 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 {
     // Set the frame rate (60 frames per second)
     window.setFramerateLimit(20);
-    gameObjects = new GameObject*[2048];
+    GameObject* gameObjects = new GameObject[2048];
 }
 
 void GameEngine::run()
@@ -72,4 +72,9 @@ void GameEngine::run()
         // Display the contents of the window
         window.display();
     }
+}
+
+
+GameEngine::~GameEngine(){
+    delete[] gameObjects;
 }

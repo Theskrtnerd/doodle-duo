@@ -9,6 +9,7 @@ class GameEngine
 public:
     GameEngine(int width, int height, const std::string &title);
     void run();
+    ~GameEngine();
 
 private:
     GameObject **gameObjects;

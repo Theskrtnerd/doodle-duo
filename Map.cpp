@@ -27,10 +27,10 @@ Map::Map(int width, int height, int cellSize) : width_(width), height_(height), 
 		for (int y = 0; y < height_; ++y)
 		{
 			int index = x + y * width_;
-			cells_[index].setTexture(textures_[map_[x][y]]);
-			cells_[index].setScale(static_cast<float>(cellSize_) / cells_[index].getTexture()->getSize().x,
-								   static_cast<float>(cellSize_) / cells_[index].getTexture()->getSize().y);
-			cells_[index].setPosition(static_cast<float>(x * cellSize_), static_cast<float>(y * cellSize_));
+			cells_[index]->getSprite().setTexture(textures_[map_[x][y]]);
+			cells_[index]->getSprite().setScale(static_cast<float>(cellSize_) / cells_[index]->getSprite().getTexture()->getSize().x,
+								   static_cast<float>(cellSize_) / cells_[index]->getSprite().getTexture()->getSize().y);
+			cells_[index]->getSprite().setPosition(static_cast<float>(x * cellSize_), static_cast<float>(y * cellSize_));
 		}
 	}
 }
@@ -42,7 +42,7 @@ void Map::draw(sf::RenderWindow &window)
 		for (int y = 0; y < height_; ++y)
 		{
 			int index = x + y * width_;
-			window.draw(cells_[index]);
+			window.draw(cells_[index]->getSprite());
 		}
 	}
 }

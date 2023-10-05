@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ImmovebleObject.h";
+#include "ImmoveableObject.h"
 
 ImmoveableObject::ImmoveableObject(){};
 

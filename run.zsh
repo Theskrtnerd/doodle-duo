@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Compile the C++ code
-g++ -o doodle_duo gametest.cpp Map.cpp GameEngine.cpp -I/C:/SFML-2.5.1/include -lsfml-graphics -lsfml-window -lsfml-system -L/C:/SFML-2.5.1/lib
+g++ -o doodle_duo gametest.cpp Map.cpp GameObject.cpp ImmoveableObject.cpp GameEngine.cpp -lsfml-graphics -lsfml-window -lsfml-system -ljsoncpp
 
 # Check if compilation was successful
 if [ $? -eq 0 ]; then

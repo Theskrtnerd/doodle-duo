@@ -44,6 +44,13 @@ class GameObject
         */
         virtual bool update();
 
+        /*
+            Add getter and setter for sprite
+        */
+       sf::Sprite getSprite();
+       void setSprite(sf::Sprite sprite);
+
+
         /**
          * @brief Draws the object on the window
         */

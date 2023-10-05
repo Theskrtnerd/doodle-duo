@@ -46,9 +46,18 @@ bool GameObject::update()
         return true;
     }
 
+// add getter & setter for sprite
+sf::Sprite GameObject::getSprite(){
+    return sprite;
+}
+
+void GameObject::setSprite(sf::Sprite sprite){
+    this->sprite = sprite;
+}
+
 void GameObject::draw(sf::RenderWindow& window)
     {
         return;             //window.draw(sprite);
     }
 
-GameObject::~GameObject() {}
+GameObject::~GameObject(){}

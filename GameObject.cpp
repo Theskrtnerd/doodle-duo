@@ -48,7 +48,7 @@ bool GameObject::update()
 
 void GameObject::draw(sf::RenderWindow& window)
     {
-        window.draw(sprite);
+        return;             //window.draw(sprite);
     }
 
 GameObject::~GameObject() {}

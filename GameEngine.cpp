@@ -39,7 +39,7 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 {
     // Set the frame rate (60 frames per second)
     window.setFramerateLimit(20);
-    gameObjects = new gameObjects[128];
+    gameObjects = new gameObjects[2048];
 }
 
 void GameEngine::run()
@@ -55,7 +55,7 @@ void GameEngine::run()
         }
 
         // update GameObjects
-        for (int index = 0; index < 128; index++)
+        for (int index = 0; index < 2048; index++)
         {
             gameObjects[index]->update();
         }
@@ -64,7 +64,7 @@ void GameEngine::run()
         window.clear();
 
         // Draw GameObjects
-        for (int index = 0; index < 128; index++)
+        for (int index = 0; index < 2048; index++)
         {
             gameObjects[index]->draw(&window);
         }

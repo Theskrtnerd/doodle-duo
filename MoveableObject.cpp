@@ -1,22 +1,26 @@
 #include "MoveableObject.h"
 
-MoveableObject::MoveableObject()
-    : GameObject(), velocityX(0), velocityY(0)
+MoveableObject::MoveableObject():
+    GameObject(),
+    velocityX(0),
+    velocityY(0)
     {}
 
-MoveableObject::MoveableObject(int x, int y)
-    : GameObject(x, y), velocityX(0), velocityY(0)
+MoveableObject::MoveableObject(int x, int y):
+    GameObject(x, y),
+    velocityX(0),
+    velocityY(0)
     {}
 
 bool MoveableObject::update()
     {
-        bool parentUpdateSuccessful = GameObject::update();
-        
-        if (!parentUpdateSuccessful)
+        // Do parent update
+        if (!GameObject::update())
         {
             return false;
         }
 
+        // Get current location
         int currentX = getX();
         int currentY = getY();
 

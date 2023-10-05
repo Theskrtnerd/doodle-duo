@@ -24,6 +24,7 @@ class MoveableObject : public GameObject
          * @return Returns true if the update was successful otherwise false
         */
         virtual bool update() override;
+        virtual void draw(sf::RenderWindow &window)() override;
 
 
         /// @brief Used to stop all movement

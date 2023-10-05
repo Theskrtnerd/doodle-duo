@@ -10,6 +10,13 @@ MoveableObject::MoveableObject(int x, int y)
 
 bool MoveableObject::update()
     {
+        bool parentUpdateSuccessful = GameObject::update();
+        
+        if (!parentUpdateSuccessful)
+        {
+            return false;
+        }
+
         int currentX = getX();
         int currentY = getY();
 
@@ -18,11 +25,16 @@ bool MoveableObject::update()
         int newY = currentY + velocityY;
 
         setPosition(newX, newY);
+
+        return true;
     }
 
-
-void MoveableObject::stopMovement()
+bool MoveableObject::draw(sf::RenderWindow& window)()
     {
+        window.draw(sprite);
+    }
+
+void MoveableObject::stopMovement() {
         velocityY = 0;
         velocityX = 0;
     }

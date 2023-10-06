@@ -27,6 +27,7 @@ Map::Map(int width, int height, int cellSize) : width_(width), height_(height), 
 		for (int y = 0; y < height_; ++y)
 		{
 			int index = x + y * width_;
+			cells_[index] = new GameObject();
 			cells_[index]->getSprite().setTexture(textures_[map_[x][y]]);
 			cells_[index]->getSprite().setScale(static_cast<float>(cellSize_) / cells_[index]->getSprite().getTexture()->getSize().x,
 								   static_cast<float>(cellSize_) / cells_[index]->getSprite().getTexture()->getSize().y);

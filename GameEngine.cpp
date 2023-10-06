@@ -39,7 +39,15 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 {
     // Set the frame rate (60 frames per second)
     window.setFramerateLimit(20);
-    GameObject* gameObjects = new GameObject[2048];
+
+    // Create gameObjects array
+    gameObjects = new GameObject*[2048];
+
+    // Fill gameObjects with empty GameObjects
+    for (int index = 0; index < 2048; index++)
+    {
+        gameObjects[index] = new GameObject();
+    }
 }
 
 void GameEngine::run()
@@ -76,5 +84,12 @@ void GameEngine::run()
 
 
 GameEngine::~GameEngine(){
+    // Delete gameObjects content
+    for (int index = 0; index < 2048; index++)
+    {
+        delete gameObjects[index];
+    }
+    
+    // Delete gameObject Array
     delete[] gameObjects;
 }

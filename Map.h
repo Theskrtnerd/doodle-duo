@@ -14,7 +14,7 @@ private:
 	int cellSize_;
 	std::vector<std::vector<int>> map_;
 	std::vector<sf::Texture> textures_; // Store textures for each cell
-	std::vector<ImmoveableObject*> cells_;		// Store sprite objects for each cell
+	std::vector<GameObject*> cells_;		// Store sprite objects for each cell
 
 public:
 	Map(int width, int height, int cellSize);

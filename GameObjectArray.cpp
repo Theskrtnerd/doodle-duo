@@ -109,3 +109,10 @@ GameObject* createPlayerFromJson(Json::Value& jsonObject)
     std::string color = jsonObject["colour"].asString();
     return new Player(x, y, color);
 }
+
+GameObject* createCellFromJson(Json::Value& jsonObject)             //! Do not use until Cell is defined
+{
+    int x = jsonObject["x"].asInt();
+    int y = jsonObject["y"].asInt();
+    return nullptr;                                                  //new Cell(x, y);
+}

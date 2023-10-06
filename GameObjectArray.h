@@ -24,5 +24,6 @@ class GameObjectArray
 
 GameObject* createObjectFromJson(Json::Value root, int index);
 GameObject* createPlayerFromJson(Json::Value& jsonObject);
+GameObject* createCellFromJson(Json::Value& jsonObject);
 
 #endif

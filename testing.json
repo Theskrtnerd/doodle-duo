@@ -2,13 +2,13 @@
     {
         "type": "Player",
         "colour": "Red",
-        "x": 5,
-        "y": 5
+        "x": 600,
+        "y": 400
     },
     {
         "type": "Player",
         "colour": "Blue",
-        "x": 50,
-        "y": 50
+        "x": 600,
+        "y": 500
     }
 ]

@@ -16,6 +16,7 @@ public:
 private:
     GameObjectArray* gameObjects;
     sf::RenderWindow window;
+    sf::Sprite backgroundSprite;
 };
 
 #endif

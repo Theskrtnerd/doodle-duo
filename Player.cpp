@@ -26,11 +26,15 @@ bool isKeyPressed(sf::Keyboard::Key key)
 
 Player::Player()
     : MoveableObject(), color("Red")
-    {}
+    {
+        //this->setTexture("stick_figure.png");
+    }
 
 Player::Player(int x, int y, string color_)
     : MoveableObject(x, y), color(color_)
-    {}
+    {
+        //this->setTexture("stick_figure.png");
+    }
 
 bool Player::update()
     {
@@ -72,7 +76,7 @@ void Player::moveLeft()
         double acceleration = 2.0;
         double currentVelocity = getVelocityX();
 
-        if (currentVelocity < -maxSpeed)
+        if (currentVelocity > -maxSpeed)
         {
             setVelocityX(currentVelocity - acceleration);
         }
@@ -96,7 +100,7 @@ void Player::jump()
         
         if (NotOnGround) return;
 
-        setVelocityY(10);
+        setVelocityY(-10);
     }
     
 void Player::interact() {}

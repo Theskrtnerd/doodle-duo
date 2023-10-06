@@ -1,10 +1,5 @@
 #include "GameObject.h"
 
-sf::Sprite GameObject::getSpite()
-{
-    return sf::Sprite();
-}
-
 GameObject::GameObject() : x(0), y(0) {
   if (!texture.loadFromFile("brick.png")) {
     std::cout << "Error loading texture: brick.png" << std::endl;
@@ -26,8 +21,18 @@ GameObject::GameObject(int xPos, int yPos)
         sprite.setPosition(static_cast<float>(x), static_cast<float>(y));
     }
 
-void GameObject::setPosition(int x_, int y_) 
+void GameObject::setTexture(std::string filename)
+{
+    if(!texture.loadFromFile(filename))
     {
+        std::cout << "Error loading texture: " << filename << std::endl;
+        exit(1);
+    }
+    else { std::cout << "THIS IS WORKING" << std::endl;}
+    sprite.setTexture(texture);
+}
+
+void GameObject::setPosition(int x_, int y_) {
         x = x_;
         y = y_;
     }

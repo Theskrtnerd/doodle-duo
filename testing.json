@@ -8,7 +8,7 @@
     {
         "type": "Player",
         "colour": "Blue",
-        "x": 5,
-        "y": 5
+        "x": 50,
+        "y": 50
     }
 ]

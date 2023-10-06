@@ -11,6 +11,7 @@ class GameObject
         /// @brief Whether the player can interact with this object (Specifically using the 'Interact' button)
         bool isInteractable;
 
+
     private:
             // TODO: mention whether this is based on middle or a specific corner
             // ? Which should it be corner or middle ?
@@ -20,13 +21,16 @@ class GameObject
         int y;
 
         
-        sf::Texture texture;
+
         sf::Sprite sprite;
+        sf::Texture texture;
         sf::Sprite getSpite();
     
     public:
         GameObject();
         GameObject(int x_, int y_);
+
+        void setTexture(std::string filename);
         
         /**
          * @brief Sets the position of the object

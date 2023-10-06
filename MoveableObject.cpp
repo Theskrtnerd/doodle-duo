@@ -33,9 +33,9 @@ bool MoveableObject::update()
         return true;
     }
 
-bool MoveableObject::draw(sf::RenderWindow& window)()
+void MoveableObject::draw(sf::RenderWindow& window)
     {
-        window.draw(sprite);
+        window.draw(this->getSprite());
     }
 
 void MoveableObject::stopMovement() {

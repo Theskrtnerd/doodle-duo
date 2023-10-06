@@ -24,7 +24,7 @@ class MoveableObject : public GameObject
          * @return Returns true if the update was successful otherwise false
         */
         virtual bool update() override;
-        virtual void draw(sf::RenderWindow &window)() override;
+        void draw(sf::RenderWindow& window) override;
 
 
         /// @brief Used to stop all movement
@@ -55,7 +55,6 @@ class MoveableObject : public GameObject
          * @return The velocity on the y axis
         */
         double getVelocityY();
-
 
         ~MoveableObject();
 };

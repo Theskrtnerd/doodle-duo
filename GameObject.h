@@ -22,6 +22,7 @@ class GameObject
         
         sf::Texture texture;
         sf::Sprite sprite;
+        sf::Sprite getSpite();
     
     public:
         GameObject();

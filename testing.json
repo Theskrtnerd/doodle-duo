@@ -1,0 +1,14 @@
+[
+    {
+        "type": "Player",
+        "colour": "Red",
+        "x": 5,
+        "y": 5
+    },
+    {
+        "type": "Player",
+        "colour": "Blue",
+        "x": 5,
+        "y": 5
+    }
+]

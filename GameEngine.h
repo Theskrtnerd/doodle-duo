@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include "Map.h"
 #include "GameObject.h"
+#include "GameObjectArray.h"
+#include "functions.h"
 
 class GameEngine
 {
@@ -12,9 +14,7 @@ public:
     ~GameEngine();
 
 private:
-    GameObject **gameObjects;
-
-    Map map;
+    GameObjectArray* gameObjects;
     sf::RenderWindow window;
 };
 

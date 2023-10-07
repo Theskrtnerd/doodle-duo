@@ -3,6 +3,7 @@
 
 #include "GameObject.h"
 #include "functions.h"
+#include "Background.h"
 #include <string>
 
 class GameObjectArray
@@ -24,6 +25,6 @@ class GameObjectArray
 
 GameObject* createObjectFromJson(Json::Value root, int index);
 GameObject* createPlayerFromJson(Json::Value& jsonObject);
-GameObject* createCellFromJson(Json::Value& jsonObject);
+GameObject* createBackgroundFromJson(Json::Value& jsonObject);
 
 #endif

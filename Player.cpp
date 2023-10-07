@@ -27,13 +27,14 @@ bool isKeyPressed(sf::Keyboard::Key key)
 Player::Player()
     : MoveableObject(), color("Red")
     {
-        //this->setTexture("stick_figure.png");
+        //this->setTextureFromFile("stick_figure.png");
+        this->setTextureFromFile("brick.png");
     }
 
-Player::Player(int x, int y, string color_)
+Player::Player(int x, int y, std::string color_)
     : MoveableObject(x, y), color(color_)
     {
-        //this->setTexture("stick_figure.png");
+        this->setTextureFromFile("stick_figure.png");
     }
 
 bool Player::update()

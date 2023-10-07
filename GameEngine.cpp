@@ -22,19 +22,6 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
     window.setFramerateLimit(framePerSecond);
 
     gameObjects = new GameObjectArray();
-
-    sf::Texture backgroundTexture;
-    if (!backgroundTexture.loadFromFile("GameBackground.png")) {
-        std::cout << "Error loading background texture: GameBackground.png" << std::endl;
-        exit(1);
-    }
-
-    backgroundSprite.setTexture(backgroundTexture);
-    backgroundSprite.setScale(
-    static_cast<float>(window.getSize().x) / backgroundTexture.getSize().x,
-    static_cast<float>(window.getSize().y) / backgroundTexture.getSize().y
-    );
-    backgroundSprite.setPosition(0, 0);
 }
 
 
@@ -49,23 +36,19 @@ void GameEngine::run()
     while (window.isOpen())
     {
         // Exit look
-        sf::Event event;
-        while (window.pollEvent(event))
+        sf::Event windowEvent;
+        while (window.pollEvent(windowEvent))
         {
-            if (event.type == sf::Event::Closed)
+            if (windowEvent.type == sf::Event::Closed)
                 window.close();
         }
 
-
         // Clear the window
         window.clear();
-        window.draw(backgroundSprite);
-
 
         // Update and drawer Objects
         gameObjects->updateAll();
         gameObjects->drawAll(window);
-
 
         // Display the contents of the window
         window.display();

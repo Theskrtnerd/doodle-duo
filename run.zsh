@@ -11,6 +11,7 @@ source_files=(
     GameEngine.cpp 
     Player.cpp 
     functions.cpp
+    Background.cpp
 )
 
 # Compile the C++ code

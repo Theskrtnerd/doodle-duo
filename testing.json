@@ -10,5 +10,9 @@
         "colour": "Blue",
         "x": 600,
         "y": 500
+    },
+    { 
+        "type": "Background",
+        "texture": "GameBackground.png"
     }
 ]

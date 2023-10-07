@@ -2,6 +2,12 @@
 #include "Player.h"
 
 
+typedef GameObject* (*CreateFunction)(Json::Value&);
+extern std::map<std::string, CreateFunction> createGameObject;
+
+
+
+
 
 GameObjectArray::GameObjectArray()
 {
@@ -94,25 +100,49 @@ GameObject* createObjectFromJson(Json::Value root, int index)
 
         std::string object_type = json_object["type"].asString();
 
-        if (object_type == "Player")
-            output = createPlayerFromJson(json_object);
+        bool factory_found = createGameObject.find(object_type) != createGameObject.end();
+
+        if (factory_found) {
+            output = createGameObject[object_type](json_object);
+        } else {
+            std::cout << object_type << " factory not found" << std::endl;
+        }
     }
 
     return output;
 }
 
 
-GameObject* createPlayerFromJson(Json::Value& jsonObject)
-{
-    int x = jsonObject["x"].asInt();
-    int y = jsonObject["y"].asInt();
-    std::string color = jsonObject["colour"].asString();
-    return new Player(x, y, color);
-}
 
-GameObject* createCellFromJson(Json::Value& jsonObject)             //! Do not use until Cell is defined
-{
-    int x = jsonObject["x"].asInt();
-    int y = jsonObject["y"].asInt();
-    return nullptr;                                                  //new Cell(x, y);
-}
+
+
+
+
+
+std::map<std::string, CreateFunction> createGameObject = {
+    {
+        "Player",
+        [](Json::Value& json_object) -> GameObject*
+        {
+            int xPos = json_object["x"].asInt();
+            int yPos = json_object["y"].asInt();
+            std::string colour = json_object["colour"].asString();
+            return new Player(xPos, yPos, colour);
+        }
+    },
+    {
+        "Background",
+        [](Json::Value& json_object) -> GameObject*
+        {
+            std::string texture_file = json_object["texture"].asString();
+            return new Background(texture_file);
+        }
+    },
+    {
+        "empty",
+        [](Json::Value& json_object) -> GameObject*
+        {
+            return new GameObject();
+        }
+    }
+};

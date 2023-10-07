@@ -1,5 +1,17 @@
 #include "GameObject.h"
 
+void GameObject::setTextureFromFile(const std::string& file_name)
+{
+    if (!texture.loadFromFile(file_name))
+    {
+        std::cout << "Error loading texture: " << file_name << std::endl;
+        exit(1);
+    }
+    sprite.setTexture(texture);
+
+    sprite.setTextureRect(sf::IntRect(0, 0, texture.getSize().x, texture.getSize().y));
+}
+
 GameObject::GameObject() : x(0), y(0) {
   if (!texture.loadFromFile("brick.png")) {
     std::cout << "Error loading texture: brick.png" << std::endl;
@@ -10,27 +22,17 @@ GameObject::GameObject() : x(0), y(0) {
 }
 
 GameObject::GameObject(int xPos, int yPos)
-    : x(xPos), y(yPos)
-    {
-        if(!texture.loadFromFile("brick.png"))
-        {
-            std::cout << "Error loading texture: brick.png" << std::endl;
-            exit(1);
-        }
-        sprite.setTexture(texture);
-        sprite.setPosition(static_cast<float>(x), static_cast<float>(y));
-    }
-
-void GameObject::setTexture(std::string filename)
+: x(xPos), y(yPos)
 {
-    if(!texture.loadFromFile(filename))
+    if(!texture.loadFromFile("brick.png"))
     {
-        std::cout << "Error loading texture: " << filename << std::endl;
+        std::cout << "Error loading texture: brick.png" << std::endl;
         exit(1);
     }
-    else { std::cout << "THIS IS WORKING" << std::endl;}
     sprite.setTexture(texture);
+    sprite.setPosition(static_cast<float>(x), static_cast<float>(y));
 }
+
 
 void GameObject::setPosition(int x_, int y_) {
         x = x_;
@@ -53,14 +55,10 @@ bool GameObject::update()
         return true;
     }
 
-// add getter & setter for sprite
 sf::Sprite GameObject::getSprite(){
     return sprite;
 }
 
-void GameObject::setSprite(sf::Sprite sprite){
-    this->sprite = sprite;
-}
 
 void GameObject::draw(sf::RenderWindow& window)
     {

@@ -13,17 +13,6 @@
     },
 
 
-    {
-        "type": "Door",
-        "listen": "Lever1"
-    },
-    {
-        "Type": "Lever",
-        "Id": "Lever1"
-    }
-
-
-
     { 
         "type": "Background",
         "texture": "GameBackground.png"

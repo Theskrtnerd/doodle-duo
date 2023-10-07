@@ -34,7 +34,7 @@ Player::Player()
 Player::Player(int x, int y, std::string color_)
     : MoveableObject(x, y), color(color_)
     {
-        this->setTextureFromFile("stick_figure.png");
+        this->setTextureFromFile(color_+".png");
     }
 
 bool Player::update()

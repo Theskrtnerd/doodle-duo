@@ -127,6 +127,7 @@ std::map<std::string, CreateFunction> createGameObject = {
             int xPos = json_object["x"].asInt();
             int yPos = json_object["y"].asInt();
             std::string colour = json_object["colour"].asString();
+            
             return new Player(xPos, yPos, colour);
         }
     },
@@ -135,6 +136,7 @@ std::map<std::string, CreateFunction> createGameObject = {
         [](Json::Value& json_object) -> GameObject*
         {
             std::string texture_file = json_object["texture"].asString();
+
             return new Background(texture_file);
         }
     },

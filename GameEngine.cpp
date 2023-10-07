@@ -30,7 +30,7 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 
 void GameEngine::run()
 {
-    std::string firstLevel = "testing.json";
+    std::string firstLevel = "example_level.json";
     gameObjects->populateFromJson(firstLevel);
 
     while (window.isOpen())

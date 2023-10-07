@@ -7,6 +7,8 @@ class ImmoveableObject: public GameObject{
   public:
     ImmoveableObject();
     ImmoveableObject(int x_, int y_);
+    void draw(sf::RenderWindow& window) override;
+
 };
 
 

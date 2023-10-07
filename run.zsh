@@ -12,6 +12,7 @@ source_files=(
     Player.cpp 
     functions.cpp
     Background.cpp
+    Cell.cpp
 )
 
 # Compile the C++ code

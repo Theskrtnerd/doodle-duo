@@ -4,3 +4,8 @@
 ImmoveableObject::ImmoveableObject(){};
 
 ImmoveableObject::ImmoveableObject(int x_, int y_): GameObject(x_, y_){};
+
+void ImmoveableObject::draw(sf::RenderWindow& window)
+{
+    window.draw(this->getSprite());
+}

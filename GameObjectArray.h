@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "functions.h"
 #include "Background.h"
+#include "Cell.h"
 #include <string>
 
 class GameObjectArray

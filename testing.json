@@ -11,6 +11,19 @@
         "x": 600,
         "y": 500
     },
+
+
+    {
+        "type": "Door",
+        "listen": "Lever1"
+    },
+    {
+        "Type": "Lever",
+        "Id": "Lever1"
+    }
+
+
+
     { 
         "type": "Background",
         "texture": "GameBackground.png"

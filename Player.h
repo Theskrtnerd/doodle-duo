@@ -18,41 +18,21 @@ class Player : public MoveableObject
         Player(int x, int y, string color);   // No need to set Velocity as it will be set to 0 be default
         
 
-
-
-        /**
-         * @brief Updates the position and game state
-         * @return Returns true if the update was successful otherwise false
-        */
         virtual bool update() override;
 
 
-        /**
-         * @brief Checks player inputs and does corrsponding methods
-        */
         void playerInputs();
 
-
-        /**
-         * @brief When keyboard inputs to move left
-        */
         void moveLeft();
 
-        /**
-         * @brief When keyboard input to move right
-        */
        void moveRight();
 
-        /**
-        * @brief When keyboard input to jump
-        */
         void jump();
 
-        /**
-         * @brief When keyboard input to interact
-         */
         void interact();
     
+        void friction();
+        
         ~Player();
 };
 

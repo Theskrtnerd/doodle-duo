@@ -47,6 +47,7 @@ bool Player::update()
         {
             return 0;
         }
+        this->friction();
 
         // All good
         return 1;
@@ -73,7 +74,7 @@ void Player::playerInputs()
 
 void Player::moveLeft()
     {
-        double maxSpeed = 5.0;
+        double maxSpeed = 50.0;
         double acceleration = 2.0;
         double currentVelocity = getVelocityX();
 
@@ -85,7 +86,7 @@ void Player::moveLeft()
 
 void Player::moveRight()
     {
-        double maxSpeed = 5.0;
+        double maxSpeed = 50.0;
         double acceleration = 2.0;
         double currentVelocity = getVelocityX();
 
@@ -106,4 +107,20 @@ void Player::jump()
     
 void Player::interact() {}
 
+void Player::friction()
+{
+    double frictionCoefficient = 0.25; // You can change this as needed
+    double currentVelocityX = getVelocityX();
+
+    // Apply friction
+    currentVelocityX = currentVelocityX * (1 - frictionCoefficient);
+
+    // Set velocity to zero if it's close enough
+    if (abs(currentVelocityX) < 0.01)
+    {
+        currentVelocityX = 0;
+    }
+
+    setVelocityX(currentVelocityX);
+}
 Player::~Player() {}

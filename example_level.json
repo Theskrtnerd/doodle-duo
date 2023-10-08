@@ -3,13 +3,13 @@
         "type": "Player",
         "colour": "Red",
         "x": 600,
-        "y": 400
+        "y": 440
     },
     {
         "type": "Player",
         "colour": "Blue",
         "x": 600,
-        "y": 500
+        "y": 560
     },
     {
         "type": "Cell",

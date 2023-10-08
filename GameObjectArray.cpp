@@ -144,9 +144,10 @@ std::map<std::string, CreateFunction> createGameObject = {
         "Cell",
         [](Json::Value& json_object) -> GameObject*
         {
+            std::cout << "cell Created" << std::endl;
             int xPos = json_object["x"].asInt();
             int yPos = json_object["y"].asInt();
-            
+
             return new Cell(xPos, yPos);
         }
     },

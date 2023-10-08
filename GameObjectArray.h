@@ -25,7 +25,5 @@ class GameObjectArray
 };
 
 GameObject* createObjectFromJson(Json::Value root, int index);
-GameObject* createPlayerFromJson(Json::Value& jsonObject);
-GameObject* createBackgroundFromJson(Json::Value& jsonObject);
 
 #endif

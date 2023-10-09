@@ -4,12 +4,12 @@
 #include "GameObject.h"
 #include <string>
 
-class Button : public GameObject
-{
+class Button : public GameObject {
 private:
     /* data */
 public:
-    Button(const std::string& texture_file, int xPos, int Ypos);
+    Button(const std::string& texture_file, GameTextures& gameTextures, int xPos, int yPos);
+
     virtual void draw(sf::RenderWindow &window) override;
 };
 

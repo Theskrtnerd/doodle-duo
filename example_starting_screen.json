@@ -1,0 +1,11 @@
+[   
+    {
+        "type": "Button",
+        "texture": "example_button.jpg"
+    },
+    
+    {
+        "type": "Background",
+        "texture": "GameBackground.png"
+    }
+]

@@ -37,13 +37,13 @@ Player::Player(int x, int y, std::string color_, GameTextures& gameTextures)
         this->setTextureFromFile(gameTextures, color_+".png");
     }
 
-bool Player::update()
+bool Player::update(GameObjectArray& objects)
     {
         // Gets player input and does corrsponding methods
         playerInputs();
 
         // This should do the movement
-        if (!MoveableObject::update())
+        if (!MoveableObject::update(objects))
         {
             return 0;
         }

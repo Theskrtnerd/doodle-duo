@@ -6,6 +6,8 @@
 #include <iostream>
 #include "GameTextures.h"
 
+class GameObjectArray;
+
 class GameObject
 {
     protected:
@@ -13,18 +15,12 @@ class GameObject
 
 
     private:
-            // TODO: mention whether this is based on middle or a specific corner
-            // ? Which should it be corner or middle ?
         int x;
         int y;
-
-        /// @brief Whether the player can interact with this object (Specifically using the 'Interact' button)
         bool isInteractable;
-
         sf::Sprite sprite;
         sf::Texture texture;
 
-    
     public:
         GameObject();
         GameObject(int x_, int y_, GameTextures& gameTextures);
@@ -34,7 +30,7 @@ class GameObject
         int getX();
         int getY();
 
-        virtual bool update();
+        virtual bool update(GameObjectArray& objects);
 
         virtual void draw(sf::RenderWindow &window);
         sf::Sprite getSprite();

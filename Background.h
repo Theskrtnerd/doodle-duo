@@ -4,8 +4,7 @@
 #include "GameObject.h"
 #include <string>
 
-class Background : public GameObject
-{
+class Background : public GameObject {
 private:
     /* data */
 public:

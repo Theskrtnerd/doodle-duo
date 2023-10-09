@@ -12,10 +12,10 @@ MoveableObject::MoveableObject(int x, int y, GameTextures& gameTextures):
     velocityY(0)
     {}
 
-bool MoveableObject::update()
+bool MoveableObject::update(GameObjectArray& objects)
     {
         // Do parent update
-        if (!GameObject::update())
+        if (!GameObject::update(objects))
         {
             return false;
         }

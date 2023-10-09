@@ -23,7 +23,7 @@ class MoveableObject : public GameObject
          * @brief Updates the position and game state
          * @return Returns true if the update was successful otherwise false
         */
-        virtual bool update() override;
+        virtual bool update(GameObjectArray& objects) override;
         void draw(sf::RenderWindow& window) override;
 
 

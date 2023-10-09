@@ -43,7 +43,7 @@ int GameObject::getY()
         return y;
     }
 
-bool GameObject::update()
+bool GameObject::update(GameObjectArray& objects)
     {
         sprite.setPosition(static_cast<float>(x), static_cast<float>(y));
         return true;

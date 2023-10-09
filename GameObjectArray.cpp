@@ -64,7 +64,7 @@ void GameObjectArray::updateAll()
     {
         if (objects[index] != nullptr)
         {
-            objects[index]->update();
+            objects[index]->update(*this);
         }    
     }
 }

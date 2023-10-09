@@ -6,12 +6,14 @@
 #include "Background.h"
 #include "Cell.h"
 #include <string>
+#include "GameTextures.h"
 
 class GameObjectArray
 {
     private:
         static constexpr int max_objects = 2048;    // Can't be changed
         GameObject* objects[max_objects];
+        GameTextures gameTextures;
     
     public:
         GameObjectArray();
@@ -24,6 +26,6 @@ class GameObjectArray
         void drawAll(sf::RenderWindow &window);
 };
 
-GameObject* createObjectFromJson(Json::Value root, int index);
+GameObject* createObjectFromJson(Json::Value root, int index, GameTextures& gameTextures);
 
 #endif

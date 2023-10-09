@@ -3,7 +3,7 @@
 
 ImmoveableObject::ImmoveableObject(){};
 
-ImmoveableObject::ImmoveableObject(int x_, int y_): GameObject(x_, y_){};
+ImmoveableObject::ImmoveableObject(int x_, int y_, GameTextures& gameTextures): GameObject(x_, y_, gameTextures){};
 
 void ImmoveableObject::draw(sf::RenderWindow& window)
 {

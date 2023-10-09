@@ -15,7 +15,7 @@ class Player : public MoveableObject
     public:
         Player();
 
-        Player(int x, int y, string color);   // No need to set Velocity as it will be set to 0 be default
+        Player(int x, int y, string color, GameTextures& gameTextures);   // No need to set Velocity as it will be set to 0 be default
         
 
         virtual bool update() override;

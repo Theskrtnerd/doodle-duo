@@ -2,10 +2,10 @@
 
 #include "Background.h"
 
-Background::Background(const std::string& textureFile)
+Background::Background(const std::string& textureFile, GameTextures& gameTextures)
 {
     // Set the texture using the provided file
-    this->setTextureFromFile(textureFile);
+    this->setTextureFromFile(gameTextures, textureFile);
 
     // Optional: Position it at (0, 0) assuming it covers the entire window or screen.
     this->setPosition(0, 0);

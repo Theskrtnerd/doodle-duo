@@ -9,7 +9,7 @@ private:
     /* data */
 public:
     Cell();
-    Cell(int x, int y);
+    Cell(int x, int y, GameTextures& gameTextures);
     ~Cell();
 };
 

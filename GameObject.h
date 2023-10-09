@@ -4,11 +4,12 @@
 #include <string>
 #include <cstdlib>
 #include <iostream>
+#include "GameTextures.h"
 
 class GameObject
 {
     protected:
-        void setTextureFromFile(const std::string& file_name);
+        void setTextureFromFile(GameTextures& gameTextures, const std::string& file_name);
 
 
     private:
@@ -26,7 +27,7 @@ class GameObject
     
     public:
         GameObject();
-        GameObject(int x_, int y_);
+        GameObject(int x_, int y_, GameTextures& gameTextures);
         
         void setPosition(int x, int y);
 

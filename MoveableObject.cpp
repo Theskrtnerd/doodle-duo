@@ -6,8 +6,8 @@ MoveableObject::MoveableObject():
     velocityY(0)
     {}
 
-MoveableObject::MoveableObject(int x, int y):
-    GameObject(x, y),
+MoveableObject::MoveableObject(int x, int y, GameTextures& gameTextures):
+    GameObject(x, y, gameTextures),
     velocityX(0),
     velocityY(0)
     {}

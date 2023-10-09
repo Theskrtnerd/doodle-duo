@@ -16,7 +16,7 @@ class MoveableObject : public GameObject
     public:
         MoveableObject();
 
-        MoveableObject(int x, int y);   // No need to set Velocity as it will be set to 0 be default
+        MoveableObject(int x, int y, GameTextures& gameTextures);   // No need to set Velocity as it will be set to 0 be default
         
 
         /**

@@ -28,13 +28,13 @@ Player::Player()
     : MoveableObject(), color("Red")
     {
         //this->setTextureFromFile("stick_figure.png");
-        this->setTextureFromFile("brick.png");
+        //this->setTextureFromFile("brick.png");
     }
 
-Player::Player(int x, int y, std::string color_)
-    : MoveableObject(x, y), color(color_)
+Player::Player(int x, int y, std::string color_, GameTextures& gameTextures)
+    : MoveableObject(x, y, gameTextures), color(color_)
     {
-        this->setTextureFromFile(color_+".png");
+        this->setTextureFromFile(gameTextures, color_+".png");
     }
 
 bool Player::update()

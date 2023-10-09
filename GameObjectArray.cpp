@@ -2,7 +2,7 @@
 #include "Player.h"
 
 
-typedef GameObject* (*CreateFunction)(Json::Value&);
+typedef GameObject* (*CreateFunction)(Json::Value&, GameTextures& gameTextures);
 extern std::map<std::string, CreateFunction> createGameObject;
 
 
@@ -50,7 +50,7 @@ void GameObjectArray::populateFromJson(std::string& json_path)
     for (int index = 0; index < max_objects; index++)
     {
         delete objects[index];
-        objects[index] = createObjectFromJson(json_file, index);
+        objects[index] = createObjectFromJson(json_file, index, gameTextures);
     }
 }
 
@@ -90,7 +90,7 @@ void GameObjectArray::drawAll(sf::RenderWindow &window)
 
 
 
-GameObject* createObjectFromJson(Json::Value root, int index)
+GameObject* createObjectFromJson(Json::Value root, int index, GameTextures& gameTextures)
 {
     GameObject* output = nullptr;
 
@@ -103,7 +103,7 @@ GameObject* createObjectFromJson(Json::Value root, int index)
         bool factory_found = createGameObject.find(object_type) != createGameObject.end();
 
         if (factory_found) {
-            output = createGameObject[object_type](json_object);
+            output = createGameObject[object_type](json_object, gameTextures);
         } else {
             std::cout << object_type << " factory not found" << std::endl;
         }
@@ -122,38 +122,37 @@ GameObject* createObjectFromJson(Json::Value root, int index)
 std::map<std::string, CreateFunction> createGameObject = {
     {
         "Player",
-        [](Json::Value& json_object) -> GameObject*
+        [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
         {
             int xPos = json_object["x"].asInt();
             int yPos = json_object["y"].asInt();
             std::string colour = json_object["colour"].asString();
             
-            return new Player(xPos, yPos, colour);
+            return new Player(xPos, yPos, colour, gameTextures);
         }
     },
     {
         "Background",
-        [](Json::Value& json_object) -> GameObject*
+        [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
         {
             std::string texture_file = json_object["texture"].asString();
 
-            return new Background(texture_file);
+            return new Background(texture_file, gameTextures);
         }
     },
     {
         "Cell",
-        [](Json::Value& json_object) -> GameObject*
+        [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
         {
-            std::cout << "cell Created" << std::endl;
             int xPos = json_object["x"].asInt();
             int yPos = json_object["y"].asInt();
 
-            return new Cell(xPos, yPos);
+            return new Cell(xPos, yPos, gameTextures);
         }
     },
     {
         "empty",
-        [](Json::Value& json_object) -> GameObject*
+        [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
         {
             return new GameObject();
         }

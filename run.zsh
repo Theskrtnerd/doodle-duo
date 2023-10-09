@@ -13,6 +13,7 @@ source_files=(
     functions.cpp
     Background.cpp
     Cell.cpp
+    GameTextures.cpp
 )
 
 # Compile the C++ code

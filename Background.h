@@ -9,7 +9,7 @@ class Background : public GameObject
 private:
     /* data */
 public:
-    Background(const std::string& texture_file);
+    Background(const std::string& texture_file, GameTextures& gameTextures);
 
     virtual void draw(sf::RenderWindow &window) override;
 };

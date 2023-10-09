@@ -2,10 +2,10 @@
 
 Cell::Cell() {}
 
-Cell::Cell(int x, int y)
-: ImmoveableObject(x, y)
+Cell::Cell(int x, int y, GameTextures& gameTextures)
+: ImmoveableObject(x, y, gameTextures)
 {
-    this->setTextureFromFile("Cell.png");
+    this->setTextureFromFile(gameTextures, "Cell.png");
 }
 
 Cell::~Cell() {}

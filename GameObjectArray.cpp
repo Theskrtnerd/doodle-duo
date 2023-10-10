@@ -50,6 +50,9 @@ void GameObjectArray::populateFromJson(std::string& json_path)
     for (int index = 0; index < max_objects; index++)
     {
         delete objects[index];
+        
+
+        
         objects[index] = createObjectFromJson(json_file, index, gameTextures);
     }
 }

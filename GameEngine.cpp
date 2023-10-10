@@ -20,6 +20,7 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 {
     int framePerSecond = 60;
     window.setFramerateLimit(framePerSecond);
+    window.setPosition(sf::Vector2i(200, 200));
 
     gameObjects = new GameObjectArray();
     //menu = new GameObjectArray();

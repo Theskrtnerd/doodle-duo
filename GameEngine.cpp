@@ -22,6 +22,7 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
     window.setFramerateLimit(framePerSecond);
 
     gameObjects = new GameObjectArray();
+    menu = new GameObjectArray();
 }
 
 
@@ -31,6 +32,7 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 void GameEngine::run()
 {
     std::string firstLevel = "example_level.json";
+    ////firstLevel = "example_starting_screen.json";
     gameObjects->populateFromJson(firstLevel);
 
     while (window.isOpen())

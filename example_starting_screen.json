@@ -1,7 +1,9 @@
 [   
     {
         "type": "Button",
-        "texture": "example_button.jpg"
+        "texture": "example_button.png",
+        "x": 100,
+        "y": 100
     },
     
     {

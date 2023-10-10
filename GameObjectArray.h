@@ -7,6 +7,7 @@
 #include "Cell.h"
 #include <string>
 #include "GameTextures.h"
+#include "Button.h"
 
 class GameObjectArray
 {

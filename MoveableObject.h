@@ -21,9 +21,14 @@ class MoveableObject : public GameObject
 
         /**
          * @brief Updates the position and game state
+         * @param objects The GameObjectArray that stores all the GameObjects so that collision can be checked
          * @return Returns true if the update was successful otherwise false
         */
         virtual bool update(GameObjectArray& objects) override;
+
+
+
+
         void draw(sf::RenderWindow& window) override;
 
 

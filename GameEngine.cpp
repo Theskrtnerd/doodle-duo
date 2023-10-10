@@ -22,7 +22,7 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
     window.setFramerateLimit(framePerSecond);
 
     gameObjects = new GameObjectArray();
-    menu = new GameObjectArray();
+    //menu = new GameObjectArray();
 }
 
 

@@ -14,11 +14,6 @@ using Left_key = sf::Keyboard::Left;
 using Right_key = sf::Keyboard::Right;
 */
 
-
-
-
-
-
 bool isKeyPressed(sf::Keyboard::Key key)
 {
     return sf::Keyboard::isKeyPressed(key);
@@ -43,8 +38,7 @@ bool Player::update(GameObjectArray& objects)
         playerInputs();
 
         // This should do the movement
-        if (!MoveableObject::update(objects))
-        {
+        if (!MoveableObject::update(objects)){
             return 0;
         }
         this->friction();

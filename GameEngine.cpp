@@ -42,8 +42,15 @@ void GameEngine::run()
         sf::Event windowEvent;
         while (window.pollEvent(windowEvent))
         {
-            if (windowEvent.type == sf::Event::Closed)
+            if (windowEvent.type == sf::Event::Closed){
                 window.close();
+            }
+
+            if (windowEvent.type == sf::Event::MouseButtonPressed){
+                if (windowEvent.mouseButton.button == sf::Mouse::Left) {
+                    
+                }
+            }
         }
 
         // Clear the window

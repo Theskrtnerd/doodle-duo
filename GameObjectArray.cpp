@@ -154,14 +154,14 @@ std::map<std::string, CreateFunction> createGameObject = {
         }
     },
     {
-        "Button",
+        "ScreenButton",
         [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
         {
             int xPos = json_object["x"].asInt();
             int yPos = json_object["y"].asInt();
             std::string texture_file = json_object["texture"].asString();
 
-            return new Button(texture_file, gameTextures, xPos, yPos);
+            return new ScreenButton(texture_file, gameTextures, xPos, yPos);
         }
     },
     {

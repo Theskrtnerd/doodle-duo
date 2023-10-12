@@ -11,6 +11,10 @@ ScreenButton::ScreenButton(const std::string& textureFile, GameTextures& gameTex
     this->setPosition(xPos, yPos);
 }
 
+bool ScreenButton::checkClick(){
+    
+}
+
 void ScreenButton::draw(sf::RenderWindow &window)
 {
     // Just draw the sprite (you can add additional drawing logic here if needed)

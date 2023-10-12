@@ -1,6 +1,6 @@
 [   
     {
-        "type": "Button",
+        "type": "ScreenButton",
         "texture": "example_button.png",
         "x": 100,
         "y": 100

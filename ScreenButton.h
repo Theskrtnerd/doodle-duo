@@ -12,7 +12,9 @@ public:
 
     virtual void draw(sf::RenderWindow &window) override;
 
-    bool update() override;
+    virtual bool update(GameObjectArray& objects) override;
+    
+    bool checkClick();
 };
 
 

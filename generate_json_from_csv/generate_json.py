@@ -16,7 +16,7 @@ data = [
   },
 ]
 
-file = open('generate_json_from_csv/example.csv')
+file = open('generate_json_from_csv/level2.csv')
 csvreader = csv.reader(file)
 data_list = list(csv.reader(file))
 for i in range(20):

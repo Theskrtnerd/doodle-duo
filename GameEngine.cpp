@@ -49,7 +49,9 @@ void GameEngine::run()
 
             if (windowEvent.type == sf::Event::MouseButtonPressed){
                 if (windowEvent.mouseButton.button == sf::Mouse::Left) {
-                    
+                    // gameObjects->checkClick(){
+
+                    // }
                 }
             }
         }

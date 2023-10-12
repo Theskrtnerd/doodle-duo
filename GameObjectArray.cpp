@@ -17,7 +17,6 @@ GameObjectArray::GameObjectArray()
 
 
 
-
 GameObjectArray::~GameObjectArray()
 {
     for (int index = 0; index < max_objects; index++)
@@ -25,7 +24,6 @@ GameObjectArray::~GameObjectArray()
         delete objects[index];
     }
 }
-
 
 
 

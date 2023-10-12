@@ -1,6 +1,6 @@
 import json
 import csv
-
+import random
 data = [
   {
       "type": "Player",
@@ -23,7 +23,8 @@ for i in range(20):
   for j in range(30):
     if data_list[i][j] == "c":
       data.append({
-        'type': 'Cell',
+        'type': "Cell",
+        
         'x': j*40,
         'y': i*40
       })

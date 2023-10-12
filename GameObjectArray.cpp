@@ -203,8 +203,12 @@ std::map<std::string, CreateFunction> createGameObject = {
         {
             int xPos = json_object["x"].asInt();
             int yPos = json_object["y"].asInt();
-
-            return new Cell(xPos, yPos, gameTextures);
+            std::string texture = json_object["texture"].asString();
+    
+            Cell* output = new Cell(xPos, yPos, gameTextures);
+            std::cout << texture;
+            if (texture == "b") output.setTextureFromFile(gameTextures, "Cell1.png");
+            return output;
         }
     },
     {

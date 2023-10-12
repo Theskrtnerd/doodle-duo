@@ -8,6 +8,7 @@ class ImmoveableObject: public GameObject{
     ImmoveableObject();
     ImmoveableObject(int x_, int y_, GameTextures& gameTextures);
     void draw(sf::RenderWindow& window) override;
+    virtual std::string collisionType() override;
 
 };
 

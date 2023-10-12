@@ -1,6 +1,6 @@
 #include "Player.h"
 #include <SFML/Window/Keyboard.hpp>
-
+#include "GameObjectArray.h"
 /*
 using isKeyPressed = sf::Keyboard::isKeyPressed;
 using A_key = sf::Keyboard::A;
@@ -35,7 +35,7 @@ Player::Player(int x, int y, std::string color_, GameTextures& gameTextures)
 bool Player::update(GameObjectArray& objects)
     {
         // Gets player input and does corrsponding methods
-        playerInputs();
+        playerInputs(objects);
 
         // This should do the movement
         if (!MoveableObject::update(objects)){
@@ -48,18 +48,18 @@ bool Player::update(GameObjectArray& objects)
     }
 
 
-void Player::playerInputs()
+void Player::playerInputs(GameObjectArray& objects)
     {
         if (color != "Red")
         {
-            if (isKeyPressed(sf::Keyboard::Up)) jump();
+            if (isKeyPressed(sf::Keyboard::Up)) jump(objects);
             if (isKeyPressed(sf::Keyboard::Down)) interact();
             if (isKeyPressed(sf::Keyboard::Right)) moveRight();
             if (isKeyPressed(sf::Keyboard::Left)) moveLeft();
         }
         if (color != "Blue")
         {
-            if (isKeyPressed(sf::Keyboard::W)) jump();
+            if (isKeyPressed(sf::Keyboard::W)) jump(objects);
             if (isKeyPressed(sf::Keyboard::S)) interact();
             if (isKeyPressed(sf::Keyboard::D)) moveRight();
             if (isKeyPressed(sf::Keyboard::A)) moveLeft();
@@ -90,13 +90,13 @@ void Player::moveRight()
         }
     }
 
-void Player::jump()
+void Player::jump(GameObjectArray& objects)
     {
-        bool NotOnGround = false;
+        bool NotOnGround = !objects.isGrounded(*this);
         
         if (NotOnGround) return;
 
-        setVelocityY(-10);
+        setVelocityY(-15);
     }
     
 void Player::interact() {}

@@ -34,6 +34,7 @@ class GameObject
         virtual bool update(GameObjectArray& objects);
         virtual void draw(sf::RenderWindow &window);
         virtual void click(int xPos, int yPos, GameEngine& engine);
+        virtual std::string collisionType();
         sf::Sprite getSprite();
 
     

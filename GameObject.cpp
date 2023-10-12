@@ -66,4 +66,9 @@ void GameObject::click(int xPos, int yPos, GameEngine& engine)
     return;
 }
 
+std::string GameObject::collisionType()
+{
+    return "passable";
+}
+
 GameObject::~GameObject() {}

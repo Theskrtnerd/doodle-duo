@@ -9,3 +9,8 @@ void ImmoveableObject::draw(sf::RenderWindow& window)
 {
     window.draw(this->getSprite());
 }
+
+std::string ImmoveableObject::collisionType()
+{
+    return "immoveable";
+}

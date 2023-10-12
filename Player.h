@@ -21,13 +21,13 @@ class Player : public MoveableObject
         virtual bool update(GameObjectArray& objects) override;
 
 
-        void playerInputs();
+        void playerInputs(GameObjectArray& objects);
 
         void moveLeft();
 
        void moveRight();
 
-        void jump();
+        void jump(GameObjectArray& objects);
 
         void interact();
     

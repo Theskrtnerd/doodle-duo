@@ -29,6 +29,7 @@ class GameObjectArray
         void clickAll(int xPos, int yPos, GameEngine& engine);
 
         GameObject* findColliding(GameObject& object);
+        bool isGrounded(GameObject& object);
 };
 
 GameObject* createObjectFromJson(Json::Value root, int index, GameTextures& gameTextures);

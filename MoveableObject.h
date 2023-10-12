@@ -61,6 +61,8 @@ class MoveableObject : public GameObject
         */
         double getVelocityY();
 
+        void gravity();
+
         ~MoveableObject();
 };
 

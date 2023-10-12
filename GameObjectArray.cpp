@@ -118,11 +118,33 @@ GameObject* GameObjectArray::findColliding(GameObject& object)
 
         if (isOverlappingHorizontally && isOverlappingVertically)
         {
+            if (otherObject->collisionType() != "immoveable") continue;
             return otherObject;
         }
 
     }
     return nullptr;
+}
+
+bool GameObjectArray::isGrounded(GameObject& object) {
+    bool output = false;
+    
+    int originalX = object.getX();
+    int originalY = object.getY();
+
+    // Check just below the object
+    object.setPosition(originalX, originalY + 1); 
+
+    GameObject* collidingObject = findColliding(object);
+
+    // Reset the object's position
+    object.setPosition(originalX, originalY);
+
+    if (collidingObject && collidingObject->collisionType() == "immoveable") {
+        output = true;
+    }
+    
+    return output;
 }
 
 GameObject* createObjectFromJson(Json::Value root, int index, GameTextures& gameTextures)

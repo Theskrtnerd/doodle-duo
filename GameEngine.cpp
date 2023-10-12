@@ -16,7 +16,7 @@ int cellSize = 40;
 
 
 GameEngine::GameEngine(int width, int height, const std::string &title)
-: window(sf::VideoMode(width, height), title), menu_open(true)
+: window(sf::VideoMode(width, height), title), menu_open(false)
 {
     int framePerSecond = 60;
     window.setFramerateLimit(framePerSecond);

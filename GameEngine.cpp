@@ -33,9 +33,9 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 void GameEngine::run()
 {
     std::string firstLevel = "example_level.json";
-    std::string firstScreen = "example_starting_screen.json";
+    std::string menuScreen = "example_starting_screen.json";
     gameObjects->populateFromJson(firstLevel);
-    gameObjects->populateFromJson(firstScreen);
+    // menu->populateFromJson(menuScreen);
 
     while (window.isOpen())
     {
@@ -49,9 +49,7 @@ void GameEngine::run()
 
             if (windowEvent.type == sf::Event::MouseButtonPressed){
                 if (windowEvent.mouseButton.button == sf::Mouse::Left) {
-                    // gameObjects->checkClick(){
-
-                    // }
+                    // menu.doSomething();
                 }
             }
         }

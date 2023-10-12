@@ -26,8 +26,6 @@ GameObjectArray::~GameObjectArray()
 }
 
 
-
-
 void GameObjectArray::clearObjects()
 {
     for (int index = 0; index < max_objects; index++)

@@ -31,7 +31,6 @@ class GameObject
         int getY();
 
         virtual bool update(GameObjectArray& objects);
-
         virtual void draw(sf::RenderWindow &window);
         sf::Sprite getSprite();
 

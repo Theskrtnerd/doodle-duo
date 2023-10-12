@@ -15,6 +15,7 @@ public:
 
 private:
     GameObjectArray* gameObjects;
+    // GameObjectArray* menu;
     sf::RenderWindow window;
     sf::Sprite backgroundSprite;
 };

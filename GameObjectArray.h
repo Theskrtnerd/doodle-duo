@@ -22,6 +22,7 @@ class GameObjectArray
 
         void clearObjects();
         void populateFromJson(std::string& json_path);
+
         
         void updateAll();
         void drawAll(sf::RenderWindow &window);

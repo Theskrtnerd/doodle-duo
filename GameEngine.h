@@ -12,6 +12,8 @@ public:
     GameEngine(int width, int height, const std::string &title);
     void run();
     ~GameEngine();
+    void closeMenu();
+    void openMenu();
 
 private:
     GameObjectArray* gameObjects;

@@ -27,6 +27,8 @@ class GameObjectArray
         void updateAll();
         void drawAll(sf::RenderWindow &window);
         void clickAll(int xPos, int yPos, GameEngine& engine);
+
+        GameObject* findColliding(GameObject& object);
 };
 
 GameObject* createObjectFromJson(Json::Value root, int index, GameTextures& gameTextures);

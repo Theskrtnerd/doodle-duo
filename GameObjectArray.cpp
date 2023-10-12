@@ -84,7 +84,7 @@ void GameObjectArray::drawAll(sf::RenderWindow &window)
 
 void GameObjectArray::clickAll(int xPos, int yPos, GameEngine& engine)
 {
-    for (int index = max_objects-1; index >= 0; index--)
+    for (int index = 0; index < max_objects; index++)
     {
         if (objects[index] != nullptr)
         {
@@ -93,6 +93,37 @@ void GameObjectArray::clickAll(int xPos, int yPos, GameEngine& engine)
     }
 }
 
+GameObject* GameObjectArray::findColliding(GameObject& object)
+{
+    GameObject* otherObject;
+    for (int index = 0; index < max_objects; index++)
+    {
+        otherObject = objects[index];
+        if (&object == otherObject) continue;
+        if (otherObject == nullptr) continue;
+
+        int self_x_left = object.getX();
+        int self_y_top = object.getY();
+        int self_x_right = self_x_left + 40;
+        int self_y_bottom = self_y_top + 40;
+
+        int other_x_left = otherObject->getX();
+        int other_y_top = otherObject->getY();
+        int other_x_right = other_x_left + 40;
+        int other_y_bottom = other_y_top + 40;
+
+        bool isOverlappingHorizontally = self_x_left < other_x_right && self_x_right > other_x_left;
+        bool isOverlappingVertically = self_y_top < other_y_bottom && self_y_bottom > other_y_top;
+        
+
+        if (isOverlappingHorizontally && isOverlappingVertically)
+        {
+            return otherObject;
+        }
+
+    }
+    return nullptr;
+}
 
 GameObject* createObjectFromJson(Json::Value root, int index, GameTextures& gameTextures)
 {

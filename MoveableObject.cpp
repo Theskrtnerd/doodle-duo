@@ -1,4 +1,5 @@
 #include "MoveableObject.h"
+#include "GameObjectArray.h"
 
 MoveableObject::MoveableObject():
     GameObject(),
@@ -29,6 +30,11 @@ bool MoveableObject::update(GameObjectArray& objects)
         int newY = currentY + velocityY;
 
         setPosition(newX, newY);
+        GameObject* collidingObject = objects.findColliding(*this);
+        if (collidingObject != nullptr)
+        {
+            std::cout << "Collision detected with another object!" << std::endl;
+        }
 
         return true;
     }

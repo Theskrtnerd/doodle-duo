@@ -1,6 +1,6 @@
 #include "ScreenButton.h"
-
-#include "ScreenButton.h"
+#include "GameEngine.h"
+#include "GameObjectArray.h"
 
 ScreenButton::ScreenButton(const std::string& textureFile, GameTextures& gameTextures, int xPos, int yPos)
 {
@@ -73,6 +73,7 @@ const std::map<std::string, std::function<void(GameEngine&)>> ScreenButton::acti
     {"goodbye", [](GameEngine& engine)
         {
         std::cout << "Goodbye, have a good day." << std::endl;
+        engine.closeMenu();
         }
     }
 };

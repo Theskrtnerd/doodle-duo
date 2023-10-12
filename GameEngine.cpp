@@ -79,3 +79,13 @@ GameEngine::~GameEngine()
 {
     delete gameObjects;
 }
+
+void GameEngine::closeMenu()
+{
+    menu_open = false;
+}
+
+void GameEngine::openMenu()
+{
+    menu_open = true;
+}

@@ -82,11 +82,16 @@ void GameObjectArray::drawAll(sf::RenderWindow &window)
     }
 }
 
-
-
-
-
-
+void GameObjectArray::clickAll(int xPos, int yPos, GameEngine& engine)
+{
+    for (int index = max_objects-1; index >= 0; index--)
+    {
+        if (objects[index] != nullptr)
+        {
+            objects[index]->click(xPos, yPos, engine);
+        }
+    }
+}
 
 
 GameObject* createObjectFromJson(Json::Value root, int index, GameTextures& gameTextures)
@@ -156,8 +161,12 @@ std::map<std::string, CreateFunction> createGameObject = {
             int xPos = json_object["x"].asInt();
             int yPos = json_object["y"].asInt();
             std::string texture_file = json_object["texture"].asString();
+            std::string action_name = json_object["action"].asString();
 
-            return new ScreenButton(texture_file, gameTextures, xPos, yPos);
+            ScreenButton* button = new ScreenButton(texture_file, gameTextures, xPos, yPos);
+            button->setAction(action_name);
+
+            return button;
         }
     },
     {

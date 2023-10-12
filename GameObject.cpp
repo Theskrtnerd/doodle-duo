@@ -59,4 +59,9 @@ void GameObject::draw(sf::RenderWindow& window)
         return;             //window.draw(sprite);
     }
 
-GameObject::~GameObject(){}
+void GameObject::click(int xPos, int yPos, GameEngine& engine)
+{
+    return;
+}
+
+GameObject::~GameObject() {}

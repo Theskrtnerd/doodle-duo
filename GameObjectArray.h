@@ -26,6 +26,7 @@ class GameObjectArray
         
         void updateAll();
         void drawAll(sf::RenderWindow &window);
+        void clickAll(int xPos, int yPos, GameEngine& engine);
 };
 
 GameObject* createObjectFromJson(Json::Value root, int index, GameTextures& gameTextures);

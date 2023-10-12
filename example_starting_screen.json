@@ -2,10 +2,17 @@
     {
         "type": "ScreenButton",
         "texture": "example_button.png",
+        "action":"goodbye",
         "x": 100,
         "y": 100
     },
-    
+    {
+        "type": "ScreenButton",
+        "texture": "example_button.png",
+        "action":"hello",
+        "x": 400,
+        "y": 200
+    },
     {
         "type": "Background",
         "texture": "GameBackground.png"

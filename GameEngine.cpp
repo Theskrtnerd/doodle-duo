@@ -33,8 +33,9 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 void GameEngine::run()
 {
     std::string firstLevel = "example_level.json";
-    ////firstLevel = "example_starting_screen.json";
+    std::string firstScreen = "example_starting_screen.json";
     gameObjects->populateFromJson(firstLevel);
+    gameObjects->populateFromJson(firstScreen);
 
     while (window.isOpen())
     {

@@ -12,7 +12,7 @@ ScreenButton::ScreenButton(const std::string& textureFile, GameTextures& gameTex
 }
 
 bool ScreenButton::checkClick(){
-    
+    return true;
 }
 
 void ScreenButton::draw(sf::RenderWindow &window)

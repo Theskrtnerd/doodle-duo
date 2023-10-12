@@ -14,7 +14,7 @@ source_files=(
     Background.cpp
     Cell.cpp
     GameTextures.cpp
-    Button.cpp
+    ScreenButton.cpp
 )
 
 # Compile the C++ code

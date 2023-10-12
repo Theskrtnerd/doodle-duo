@@ -96,7 +96,7 @@ void Player::jump(GameObjectArray& objects)
         
         if (NotOnGround) return;
 
-        setVelocityY(-15);
+        setVelocityY(-16);
     }
     
 void Player::interact() {}

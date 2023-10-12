@@ -41,8 +41,17 @@ bool MoveableObject::update(GameObjectArray& objects)
             std::string response = collidingObject->collisionType();
 
             if (response == "immoveable") {
-                setPosition(currentX, currentY);
-                stopMovement();
+                int dx = getX() - collidingObject->getX();
+                int dy = getY() - collidingObject->getY();
+                
+                if (std::abs(dx) > std::abs(dy)) {
+                    setPosition(currentX, currentY);
+                    stopMovement();
+                } else {
+                    setPosition(currentX, currentY);
+                    stopMovement();
+                }
+
             }
             //address collision
             collidingObject = objects.findColliding(*this);
@@ -56,35 +65,33 @@ void MoveableObject::draw(sf::RenderWindow& window)
         window.draw(this->getSprite());
     }
 
-void MoveableObject::stopMovement() {
-        velocityY = 0;
-        velocityX = 0;
-    }
-
-void MoveableObject::setVelocityX(double speed)
-    {
-        velocityX = speed;
-    }
-
-double MoveableObject::getVelocityX()
-    {
-        return velocityX;
-    }
-
-void MoveableObject::setVelocityY(double speed)
-    {
-        velocityY = speed;
-    }
-
-double MoveableObject::getVelocityY()
-    {
-        return velocityY;
-    }
-
-void MoveableObject::gravity()
+void MoveableObject::stopMovement()
 {
-    setVelocityY(getVelocityY()+1);
-    std::cout << "Speed : " << getVelocityY() << std::endl;
+    stopHorizontalMovement();
+    stopVerticalMovement();
+}
+
+void MoveableObject::stopHorizontalMovement()
+{
+    velocityX = 0;
+}
+
+
+void MoveableObject::stopVerticalMovement()
+{
+    velocityY = 0;
+}
+
+void MoveableObject::setVelocityX(double speed) { velocityX = speed; }
+
+double MoveableObject::getVelocityX() { return velocityX; }
+
+void MoveableObject::setVelocityY(double speed) { velocityY = speed; }
+
+double MoveableObject::getVelocityY() { return velocityY; }
+
+void MoveableObject::gravity() {
+    setVelocityY(getVelocityY() + 1);
 }
 
 MoveableObject::~MoveableObject() {}

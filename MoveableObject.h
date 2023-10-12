@@ -34,6 +34,8 @@ class MoveableObject : public GameObject
 
         /// @brief Used to stop all movement
         void stopMovement();
+        void stopHorizontalMovement();
+        void stopVerticalMovement();
         
 
         /**

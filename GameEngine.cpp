@@ -18,7 +18,7 @@ int cellSize = 40;
 GameEngine::GameEngine(int width, int height, const std::string &title)
 : window(sf::VideoMode(width, height), title), menu_open(false)
 {
-    int framePerSecond = 60;
+    int framePerSecond = 40;
     window.setFramerateLimit(framePerSecond);
     window.setPosition(sf::Vector2i(200, 200));
 

@@ -9,7 +9,7 @@
         "type": "Player",
         "colour": "Blue",
         "x": 600,
-        "y": 500
+        "y": 550
     },
     {
         "type": "Cell",

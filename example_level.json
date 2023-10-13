@@ -24,6 +24,18 @@
         "y": 480
     },
     {
+        "type": "Door",
+        "colour": "blue",
+        "x": 40,
+        "y": 480
+    },
+    {
+        "type": "Door",
+        "colour": "blue",
+        "x": 80,
+        "y": 480
+    },
+    {
         "type": "Lever",
         "colour": "red",
         "x": 40,
@@ -31,7 +43,7 @@
     },
     {
         "type": "Button",
-        "colour": "red",
+        "colour": "blue",
         "x": 640,
         "y": 80
     },

@@ -13,6 +13,7 @@ void Door::updateTexture()
     } else {
         this->setTextureFromFile(textures, "Door_Closed.png");
     }
+    this->setColor(color);
 }
 
 Door::Door(int x, int y, GameTextures& gameTextures, std::string colour)
@@ -22,6 +23,7 @@ incoming_signals(0),
 textures(gameTextures)
 {
     this->setTextureFromFile(textures, "Door_Closed.png");
+    this->setColor(color);
 }
 
 

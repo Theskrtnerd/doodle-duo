@@ -28,6 +28,7 @@ void Lever::updateTexture()
     } else {
         this->setTextureFromFile(gameTextures, "Lever_Off.png");
     }
+    this->setColor(color);
 }
 
 Lever::Lever(int x, int y, GameTextures& gameTextures, std::string colour)

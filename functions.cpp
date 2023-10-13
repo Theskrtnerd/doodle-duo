@@ -25,5 +25,24 @@ Json::Value readJSONFile(const std::string& filePath) {
     return root;
 }
 
+sf::Color stringToColor(const std::string& color)
+{
+    static std::unordered_map<std::string, sf::Color> colorMap =
+    {
+        {"red", sf::Color::Red},
+        {"blue", sf::Color::Blue},
+        {"green", sf::Color::Green}
+    };
+
+    if (colorMap.find(color) != colorMap.end())
+    {
+        return colorMap[color];
+    }
+    
+    std::cout << "'" << color << "' not in colorMap in 'functions.cpp' Line 30" << std::endl;
+
+    return sf::Color::White;
+}
+
 
 

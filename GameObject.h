@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "GameTextures.h"
+#include "functions.h"
 
 class GameObjectArray;
 class GameEngine;
@@ -36,6 +37,7 @@ class GameObject
         virtual std::string collisionType();
         virtual void listen(std::string channel, std::string signal);
         virtual void interactWith(GameObjectArray& objects);
+        void setColor(const std::string& color);
 
         sf::Sprite getSprite();
         sf::Texture getTexture();

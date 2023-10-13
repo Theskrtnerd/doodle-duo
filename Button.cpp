@@ -27,6 +27,7 @@ color(colour),
 pressed(false)
 {
     this->setTextureFromFile(gameTextures, "Button.png");
+    this->setColor(color);
 }
 
 Button::~Button() {}

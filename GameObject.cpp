@@ -7,7 +7,7 @@ void GameObject::setTextureFromFile(GameTextures& gameTextures, const std::strin
     texture = gameTextures.getTexture(file_name);
 
     sprite.setTexture(texture);
-
+    
     sprite.setTextureRect(sf::IntRect(0, 0, texture.getSize().x, texture.getSize().y));
 }
 
@@ -99,5 +99,7 @@ std::string GameObject::collisionType()
 }
 
 void GameObject::listen(std::string channel, std::string signal) {}
+
+void GameObject::interactWith(GameObjectArray& objects) {}
 
 GameObject::~GameObject() {}

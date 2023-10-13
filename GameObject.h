@@ -18,7 +18,6 @@ class GameObject
     private:
         int x;
         int y;
-        bool isInteractable;
         sf::Sprite sprite;
         sf::Texture texture;
 
@@ -36,6 +35,8 @@ class GameObject
         virtual void click(int xPos, int yPos, GameEngine& engine);
         virtual std::string collisionType();
         virtual void listen(std::string channel, std::string signal);
+        virtual void interactWith(GameObjectArray& objects);
+
         sf::Sprite getSprite();
         sf::Texture getTexture();
 

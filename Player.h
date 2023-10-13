@@ -29,7 +29,7 @@ class Player : public MoveableObject
 
         void jump(GameObjectArray& objects);
 
-        void interact();
+        void interact(GameObjectArray& objects);
     
         void friction();
         

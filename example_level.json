@@ -24,6 +24,12 @@
         "y": 480
     },
     {
+        "type": "Lever",
+        "colour": "red",
+        "x": 40,
+        "y": 80
+    },
+    {
         "type": "Button",
         "colour": "red",
         "x": 640,

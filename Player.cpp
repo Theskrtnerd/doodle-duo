@@ -56,14 +56,14 @@ void Player::playerInputs(GameObjectArray& objects) {
     if (color != "Red")
     {
         if (isKeyPressed(sf::Keyboard::Up)) jump(objects);
-        if (isKeyPressed(sf::Keyboard::Down)) interact();
+        if (isKeyPressed(sf::Keyboard::Down)) interact(objects);
         if (isKeyPressed(sf::Keyboard::Right)) moveRight();
         if (isKeyPressed(sf::Keyboard::Left)) moveLeft();
     }
     if (color != "Blue")
     {
         if (isKeyPressed(sf::Keyboard::W)) jump(objects);
-        if (isKeyPressed(sf::Keyboard::S)) interact();
+        if (isKeyPressed(sf::Keyboard::S)) interact(objects);
         if (isKeyPressed(sf::Keyboard::D)) moveRight();
         if (isKeyPressed(sf::Keyboard::A)) moveLeft();
     }
@@ -102,7 +102,14 @@ void Player::jump(GameObjectArray& objects)
         setVelocityY(-16);
     }
     
-void Player::interact() {}
+void Player::interact(GameObjectArray& objects)
+{
+    GameObject* intractable = objects.getCollidingWith(*this, "intractable");
+
+    if (intractable == nullptr) return;
+
+    intractable->interactWith(objects);
+}
 
 void Player::friction()
 {

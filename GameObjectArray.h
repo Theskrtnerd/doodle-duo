@@ -10,7 +10,7 @@
 #include "ScreenButton.h"
 #include "Button.h"
 #include "Door.h"
-
+#include "Lever.h"
 
 class GameObjectArray
 {
@@ -34,6 +34,7 @@ class GameObjectArray
 
         GameObject* findColliding(GameObject& object);
         bool isCollidingWith(GameObject& object, std::string collision_type);
+        GameObject* getCollidingWith(GameObject& object, std::string collision_type);
         bool isGrounded(GameObject& object);
 };
 

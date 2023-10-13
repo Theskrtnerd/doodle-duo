@@ -137,6 +137,21 @@ bool GameObjectArray::isCollidingWith(GameObject& object, std::string collision_
     return false;
 }
 
+GameObject* GameObjectArray::getCollidingWith(GameObject& object, std::string collision_type)
+{
+    GameObject* otherObject;
+    for (int index = 0; index < max_objects; index++)
+    {
+        otherObject = objects[index];
+        if (otherObject == nullptr) continue;
+
+        if (otherObject->collisionType() != collision_type) continue;
+
+        if (object.isOverlapping(otherObject)) return otherObject;
+    }
+    return nullptr;
+}
+
 bool GameObjectArray::isGrounded(GameObject& object) {
     bool output = false;
     
@@ -257,6 +272,17 @@ std::map<std::string, CreateFunction> createGameObject = {
             std::string colour = json_object["colour"].asString();
 
             return new Door(xPos, yPos, gameTextures, colour);
+        }
+    },
+    {
+        "Lever",
+        [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
+        {
+            int xPos = json_object["x"].asInt();
+            int yPos = json_object["y"].asInt();
+            std::string colour = json_object["colour"].asString();
+
+            return new Lever(xPos, yPos, gameTextures, colour);
         }
     },
     {

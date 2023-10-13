@@ -17,6 +17,7 @@ source_files=(
     ScreenButton.cpp
     Button.cpp
     Door.cpp
+    Lever.cpp
 )
 
 # Compile the C++ code

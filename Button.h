@@ -19,8 +19,6 @@ class Button : public ImmoveableObject
 
         virtual bool update(GameObjectArray& objects) override;
         virtual std::string collisionType() override;
-
-
 };
 
 #endif

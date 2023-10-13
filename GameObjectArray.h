@@ -29,6 +29,7 @@ class GameObjectArray
         void clickAll(int xPos, int yPos, GameEngine& engine);
 
         GameObject* findColliding(GameObject& object);
+        bool isCollidingWith(GameObject& object, std::string collision_type);
         bool isGrounded(GameObject& object);
 };
 

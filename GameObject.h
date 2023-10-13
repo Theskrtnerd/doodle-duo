@@ -37,6 +37,8 @@ class GameObject
         virtual std::string collisionType();
         sf::Sprite getSprite();
 
+        bool isOverlapping(GameObject* otherObject);
+
     
         ~GameObject();
 };

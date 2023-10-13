@@ -55,6 +55,28 @@ sf::Sprite GameObject::getSprite(){
     return sprite;
 }
 
+bool GameObject::isOverlapping(GameObject* otherObject)
+{
+    if (this == otherObject) return false;
+    if (otherObject == nullptr) return false;
+
+    int self_x_left = getX();
+    int self_y_top = getY();
+    int self_x_right = self_x_left + 40;
+    int self_y_bottom = self_y_top + 40;
+
+    int other_x_left = otherObject->getX();
+    int other_y_top = otherObject->getY();
+    int other_x_right = other_x_left + 40;
+    int other_y_bottom = other_y_top + 40;
+
+    bool isOverlappingHorizontally = self_x_left < other_x_right && self_x_right > other_x_left;
+    bool isOverlappingVertically = self_y_top < other_y_bottom && self_y_bottom > other_y_top;
+    
+    bool overlapping = isOverlappingHorizontally && isOverlappingVertically;
+
+    return overlapping;
+}
 
 void GameObject::draw(sf::RenderWindow& window)
     {

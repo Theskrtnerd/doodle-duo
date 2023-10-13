@@ -99,31 +99,30 @@ GameObject* GameObjectArray::findColliding(GameObject& object)
     for (int index = 0; index < max_objects; index++)
     {
         otherObject = objects[index];
-        if (&object == otherObject) continue;
         if (otherObject == nullptr) continue;
 
-        int self_x_left = object.getX();
-        int self_y_top = object.getY();
-        int self_x_right = self_x_left + 40;
-        int self_y_bottom = self_y_top + 40;
-
-        int other_x_left = otherObject->getX();
-        int other_y_top = otherObject->getY();
-        int other_x_right = other_x_left + 40;
-        int other_y_bottom = other_y_top + 40;
-
-        bool isOverlappingHorizontally = self_x_left < other_x_right && self_x_right > other_x_left;
-        bool isOverlappingVertically = self_y_top < other_y_bottom && self_y_bottom > other_y_top;
-        
-
-        if (isOverlappingHorizontally && isOverlappingVertically)
+        if (object.isOverlapping(otherObject))
         {
             if (otherObject->collisionType() != "immoveable") continue;
             return otherObject;
         }
-
     }
     return nullptr;
+}
+
+bool GameObjectArray::isCollidingWith(GameObject& object, std::string collision_type)
+{
+    GameObject* otherObject;
+    for (int index = 0; index < max_objects; index++)
+    {
+        otherObject = objects[index];
+        if (otherObject == nullptr) continue;
+
+        if (otherObject->collisionType() != collision_type) continue;
+
+        if (object.isOverlapping(otherObject)) return true;
+    }
+    return false;
 }
 
 bool GameObjectArray::isGrounded(GameObject& object) {

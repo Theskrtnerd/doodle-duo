@@ -12,6 +12,26 @@ class MoveableObject : public GameObject
         double velocityX;
         /// @brief y Velocity
         double velocityY;
+        
+        void updateMovement(GameObjectArray& objects);
+        bool moveX(GameObjectArray& objects, int distance);
+        bool moveY(GameObjectArray& objects, int distance);
+        bool moveXbyOne(GameObjectArray& objects);
+        bool moveYbyOne(GameObjectArray& objects);
+        
+
+        bool isStationary();
+        bool isMovingHorizontally();
+        bool isMovingVertically();
+        int calcRise();
+        int calcRun();
+
+
+        void moveDiagonally(GameObjectArray& objects, int x, int y);
+        void moveByRise(GameObjectArray& objects, int x, int y);
+        void moveByRun(GameObjectArray& objects, int x, int y);
+
+
     
     public:
         MoveableObject();
@@ -28,42 +48,21 @@ class MoveableObject : public GameObject
 
 
 
-
         void draw(sf::RenderWindow& window) override;
 
 
-        /// @brief Used to stop all movement
         void stopMovement();
         void stopHorizontalMovement();
         void stopVerticalMovement();
         
-
-        /**
-         * @brief Sets the velocity of the object on the x axis
-         * @param speed The velocity to be set
-        */
         void setVelocityX(double speed);
-
-        /**
-         * @brief Gets the velocity of the object on the x axis
-         * @return The velocity on the x axis
-        */
         double getVelocityX();
 
-
-        /**
-         * @brief Sets the velocity of the object on the y axis
-         * @param speed The velocity to be set
-        */
         void setVelocityY(double speed);
-
-        /**
-         * @brief Gets the velocity of the object on the y axis
-         * @return The velocity on the y axis
-        */
         double getVelocityY();
 
-        void gravity();
+        void gravity(GameObjectArray& objects);
+
 
         ~MoveableObject();
 };

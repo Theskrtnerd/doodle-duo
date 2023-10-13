@@ -1,5 +1,5 @@
-#ifndef GAMEENGINE_H
-#define GAMEENGINE_H
+#ifndef GAME_ENGINE_H
+#define GAME_ENGINE_H
 #include <SFML/Graphics.hpp>
 #include "Map.h"
 #include "GameObject.h"

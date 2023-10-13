@@ -93,6 +93,18 @@ void GameObjectArray::clickAll(int xPos, int yPos, GameEngine& engine)
     }
 }
 
+void GameObjectArray::tellAll(std::string channel, std::string signal)
+{
+    ////std::cout << "Channel: '" << channel << "' Signal: '" << signal << "'" << std::endl;
+    for (int index = 0; index < max_objects; index++)
+    {
+        if (objects[index] != nullptr)
+        {
+            objects[index]->listen(channel, signal);
+        }
+    }
+}
+
 GameObject* GameObjectArray::findColliding(GameObject& object)
 {
     GameObject* otherObject;
@@ -222,6 +234,29 @@ std::map<std::string, CreateFunction> createGameObject = {
             button->setAction(action_name);
 
             return button;
+        }
+    },
+    {
+        "Button",
+        [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
+        {
+            int xPos = json_object["x"].asInt();
+            int yPos = json_object["y"].asInt();
+            std::string colour = json_object["colour"].asString();
+
+            return new Button(xPos, yPos, gameTextures, colour);
+
+        }
+    },
+    {
+        "Door",
+        [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
+        {
+            int xPos = json_object["x"].asInt();
+            int yPos = json_object["y"].asInt();
+            std::string colour = json_object["colour"].asString();
+
+            return new Door(xPos, yPos, gameTextures, colour);
         }
     },
     {

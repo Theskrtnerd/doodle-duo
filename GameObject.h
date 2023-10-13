@@ -35,7 +35,9 @@ class GameObject
         virtual void draw(sf::RenderWindow &window);
         virtual void click(int xPos, int yPos, GameEngine& engine);
         virtual std::string collisionType();
+        virtual void listen(std::string channel, std::string signal);
         sf::Sprite getSprite();
+        sf::Texture getTexture();
 
         bool isOverlapping(GameObject* otherObject);
 

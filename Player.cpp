@@ -47,24 +47,27 @@ bool Player::update(GameObjectArray& objects)
         return 1;
     }
 
+std::string Player::collisionType()
+{
+    return "player";
+}
 
-void Player::playerInputs(GameObjectArray& objects)
+void Player::playerInputs(GameObjectArray& objects) {
+    if (color != "Red")
     {
-        if (color != "Red")
-        {
-            if (isKeyPressed(sf::Keyboard::Up)) jump(objects);
-            if (isKeyPressed(sf::Keyboard::Down)) interact();
-            if (isKeyPressed(sf::Keyboard::Right)) moveRight();
-            if (isKeyPressed(sf::Keyboard::Left)) moveLeft();
-        }
-        if (color != "Blue")
-        {
-            if (isKeyPressed(sf::Keyboard::W)) jump(objects);
-            if (isKeyPressed(sf::Keyboard::S)) interact();
-            if (isKeyPressed(sf::Keyboard::D)) moveRight();
-            if (isKeyPressed(sf::Keyboard::A)) moveLeft();
-        }
+        if (isKeyPressed(sf::Keyboard::Up)) jump(objects);
+        if (isKeyPressed(sf::Keyboard::Down)) interact();
+        if (isKeyPressed(sf::Keyboard::Right)) moveRight();
+        if (isKeyPressed(sf::Keyboard::Left)) moveLeft();
     }
+    if (color != "Blue")
+    {
+        if (isKeyPressed(sf::Keyboard::W)) jump(objects);
+        if (isKeyPressed(sf::Keyboard::S)) interact();
+        if (isKeyPressed(sf::Keyboard::D)) moveRight();
+        if (isKeyPressed(sf::Keyboard::A)) moveLeft();
+    }
+}
 
 void Player::moveLeft()
     {

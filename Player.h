@@ -19,7 +19,7 @@ class Player : public MoveableObject
         
 
         virtual bool update(GameObjectArray& objects) override;
-
+        virtual std::string collisionType() override;
 
         void playerInputs(GameObjectArray& objects);
 

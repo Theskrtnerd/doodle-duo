@@ -55,6 +55,11 @@ sf::Sprite GameObject::getSprite(){
     return sprite;
 }
 
+sf::Texture GameObject::getTexture()
+{
+    return texture;
+}
+
 bool GameObject::isOverlapping(GameObject* otherObject)
 {
     if (this == otherObject) return false;
@@ -92,5 +97,7 @@ std::string GameObject::collisionType()
 {
     return "passable";
 }
+
+void GameObject::listen(std::string channel, std::string signal) {}
 
 GameObject::~GameObject() {}

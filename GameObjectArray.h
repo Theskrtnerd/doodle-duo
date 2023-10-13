@@ -8,6 +8,9 @@
 #include <string>
 #include "GameTextures.h"
 #include "ScreenButton.h"
+#include "Button.h"
+#include "Door.h"
+
 
 class GameObjectArray
 {
@@ -27,6 +30,7 @@ class GameObjectArray
         void updateAll();
         void drawAll(sf::RenderWindow &window);
         void clickAll(int xPos, int yPos, GameEngine& engine);
+        void tellAll(std::string channel, std::string signal);
 
         GameObject* findColliding(GameObject& object);
         bool isCollidingWith(GameObject& object, std::string collision_type);

@@ -12,6 +12,18 @@
         "y": 400
     },
     {
+        "type": "Door",
+        "colour": "red",
+        "x": 640,
+        "y": 440
+    },
+    {
+        "type": "Button",
+        "colour": "red",
+        "x": 640,
+        "y": 80
+    },
+    {
         "type": "Cell",
         "texture": "Cell2.png",
         "x": 0,

@@ -25,7 +25,7 @@ for i in range(20):
     if data_list[i][j] == "c":
       data.append({
         'type': 'Cell',
-        'texture': random.choice('ab'),
+        'texture': random.choice(["Cell.png", "Cell1.png", "Cell2.png", "Cell3.png"]),
         'x': j*40,
         'y': i*40
       })

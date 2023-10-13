@@ -206,8 +206,7 @@ std::map<std::string, CreateFunction> createGameObject = {
             std::string texture = json_object["texture"].asString();
     
             Cell* output = new Cell(xPos, yPos, gameTextures);
-            std::cout << texture;
-            if (texture == "b") output.setTextureFromFile(gameTextures, "Cell1.png");
+            output->setTextureFromFile(gameTextures, texture);
             return output;
         }
     },

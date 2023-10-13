@@ -11,7 +11,7 @@ class GameEngine;
 
 class GameObject
 {
-    protected:
+    public:
         void setTextureFromFile(GameTextures& gameTextures, const std::string& file_name);
 
 

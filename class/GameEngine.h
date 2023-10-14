@@ -15,8 +15,9 @@ public:
     void closeScreen();
     void openScreen();
     void moveScreen(std::string screen_display);
-    void nextLevel();
-    void loadInNextLevel();
+    void setLevel(int target_level);
+    void resetLevel();
+    void loadNextLevel();
 
 private:
     GameObjectArray* gameObjects;
@@ -24,9 +25,10 @@ private:
     std::string screen_display;
     bool screen_open;
     bool screen_moved;
+    int current_level;
     sf::RenderWindow window;
     sf::Sprite backgroundSprite;
-    bool loadNextLevel;
+    bool level_changed;
 };
 
 #endif

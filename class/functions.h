@@ -18,4 +18,6 @@ sf::Font stringToFont(const std::string& fontPath);
 
 std::string GetParentPath();
 
+void generateGreenTicksForLevelMenu(int current_level);
+
 #endif

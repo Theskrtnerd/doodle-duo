@@ -89,7 +89,8 @@ const std::map<std::string, std::function<void(GameEngine&)>> ScreenButton::acti
     },
     {"restartLevel", [](GameEngine& engine)
         {
-        engine.moveScreen("levelMenu");
+        engine.resetLevel();
+        engine.closeScreen();
         }
     },
     {"openSettings", [](GameEngine& engine)
@@ -97,5 +98,40 @@ const std::map<std::string, std::function<void(GameEngine&)>> ScreenButton::acti
         engine.moveScreen("settingsMenu");
         engine.openScreen();
         }
-    }
+    },
+    {"setLevel1", [](GameEngine& engine)
+        {
+        engine.setLevel(1);
+        }
+    },
+    {"setLevel2", [](GameEngine& engine)
+        {
+        engine.setLevel(2);
+        }
+    },
+    {"setLevel3", [](GameEngine& engine)
+        {
+        engine.setLevel(3);
+        }
+    },
+    {"setLevel4", [](GameEngine& engine)
+        {
+        engine.setLevel(4);
+        }
+    },
+    {"setLevel5", [](GameEngine& engine)
+        {
+        engine.setLevel(5);
+        }
+    },
+    {"setLevel6", [](GameEngine& engine)
+        {
+        engine.setLevel(6);
+        }
+    },
+    {"doNothing", [](GameEngine& engine)
+        {
+        engine.setLevel(6);
+        }
+    },
 };

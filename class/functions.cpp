@@ -76,3 +76,54 @@ std::string GetParentPath() {
     //return "C:/Users/Tyler/Documents/GitHub/DoodleDuo/";
     return parentPath.string()+"/";
 }
+
+void generateGreenTicksForLevelMenu(int current_level){
+    std::map<int, std::tuple<int, int>> objectMap;
+
+    objectMap[1] = std::make_tuple(460, 270);
+    objectMap[2] = std::make_tuple(460, 420);
+    objectMap[3] = std::make_tuple(460, 570);
+    objectMap[4] = std::make_tuple(860, 270);
+    objectMap[5] = std::make_tuple(860, 420);
+    objectMap[6] = std::make_tuple(860, 570);
+
+    std::ifstream inputFile("assets/screens/levelMenu.json");
+
+    if (!inputFile.is_open()) {
+        std::cerr << "Failed to open the input JSON file." << std::endl;
+    }
+
+    Json::Value jsonData;
+    inputFile >> jsonData;
+    inputFile.close();
+    for (int i =1;i<=current_level;i++){
+        // Create a new object to add
+        Json::Value newObject;
+        std::tuple<int,int> value = objectMap[i];
+        newObject["type"] = "ScreenButton";
+        newObject["texture"] = "BlackTick.png";
+        newObject["action"] = "doNothing";
+        newObject["x"] = std::get<0>(value);
+        newObject["y"] = std::get<1>(value);
+
+        // Append the new object to the existing JSON array
+        jsonData.append(newObject);
+
+        std::cout << "added object number "+std::to_string(i) + " into game" << std::endl;
+    }
+
+
+    // Write the updated JSON data back to the file
+    std::ofstream outputFile("assets/screens/levelMenu.json");
+
+    if (!outputFile.is_open()) {
+        std::cerr << "Failed to open the output JSON file." << std::endl;
+    }
+
+    Json::StreamWriterBuilder writer;
+    writer["indentation"] = "\t";
+
+    std::unique_ptr<Json::StreamWriter> jsonWriter(writer.newStreamWriter());
+    jsonWriter->write(jsonData, &outputFile);
+    outputFile.close();
+}

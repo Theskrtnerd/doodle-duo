@@ -16,7 +16,7 @@ int cellSize = 40;
 
 
 GameEngine::GameEngine(int width, int height, const std::string &title)
-: window(sf::VideoMode(width, height), title), screen_open(true), loadNextLevel(false), screen_display("homeScreen"), screen_moved(false)
+: window(sf::VideoMode(width, height), title), screen_open(true), level_changed(false), screen_display("homeScreen"), screen_moved(false), current_level(1)
 {
     int framePerSecond = 40;
     window.setFramerateLimit(framePerSecond);
@@ -32,7 +32,7 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 
 void GameEngine::run()
 {
-    std::string gameLevel = "assets/levels/level1.json";
+    std::string gameLevel = "assets/levels/level"+std::to_string(current_level)+".json";
     gameObjects->populateFromJson(gameLevel);
 
     std::string screenPath = "assets/screens/"+screen_display+".json";
@@ -62,6 +62,12 @@ void GameEngine::run()
         // Clear the window
         window.clear();
 
+        if (level_changed){
+            std::string nextLevel = "assets/levels/level"+std::to_string(current_level)+".json";
+            gameObjects->populateFromJson(nextLevel);
+            level_changed = false;
+        }
+
         // Update and drawer Objects
         gameObjects->updateAll();
         gameObjects->drawAll(window);
@@ -78,8 +84,9 @@ void GameEngine::run()
             screen->drawAll(window);
         }
 
-        if (gameObjects->levelCompleted()) loadInNextLevel();
-
+        if (gameObjects->levelCompleted()){
+            loadNextLevel();
+        }
         // Display the contents of the window
         window.display();
     }
@@ -105,17 +112,33 @@ void GameEngine::moveScreen(std::string screen_display_)
 {
     screen_display = screen_display_;
     screen_moved = true;
+    if (screen_display == "levelMenu"){
+        //generateGreenTicksForLevelMenu(current_level);
+    }
 }
 
-void GameEngine::nextLevel()
+void GameEngine::loadNextLevel()
 {
-    std::cout << "Next level Triggered" << std::endl;
-    loadNextLevel = true;
+    if(current_level <6){
+        current_level++;
+        level_changed = true;
+    }
+    if(current_level == 6){
+        moveScreen("levelMenu");
+        openScreen();
+    }
 }
 
-void GameEngine::loadInNextLevel()
+void GameEngine::setLevel(int target_level)
 {
-    std::string nextLevel = "assets/levels/level1.json";
-    gameObjects->populateFromJson(nextLevel);
-    loadNextLevel = false;
+    if(current_level >= target_level){
+        current_level = target_level;
+        level_changed = true;
+        closeScreen();
+    }
+}
+
+void GameEngine::resetLevel()
+{
+    level_changed = true;
 }

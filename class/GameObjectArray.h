@@ -12,6 +12,7 @@
 #include "Door.h"
 #include "Lever.h"
 #include "Exit.h"
+#include "Text.h"
 
 class GameEngine;
 

@@ -1,5 +1,8 @@
 {
     "name": "Barry",
-    "sound_on": true,
-    "currentLevels": 4
+    "soundOn": true,
+    "levelsCompleted": {
+        "1": "true",
+        "2": "false"
+    }
 }

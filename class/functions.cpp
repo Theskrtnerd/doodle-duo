@@ -45,4 +45,16 @@ sf::Color stringToColor(const std::string& color)
 }
 
 
+sf::Font stringToFont(const std::string& fontPath)
+{
+    sf::Font font;
+
+    if (!font.loadFromFile(fontPath)) {
+        throw std::runtime_error("Failed to load font from: " + fontPath);
+    }
+
+    return font;
+}
+
+
 

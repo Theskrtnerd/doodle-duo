@@ -292,6 +292,22 @@ std::map<std::string, CreateFunction> createGameObject = {
         }
     },
     {
+        "Text",
+        [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
+        {
+            int xPos = json_object["x"].asInt();
+            int yPos = json_object["y"].asInt();
+            std::string colour = json_object["colour"].asString();
+            int fontSize = json_object["fontSize"].asUInt();
+            std::string text = json_object["text"].asString();
+
+            Text* myText = new Text(xPos, yPos);
+            myText->setText(xPos, yPos, text, fontSize, colour);
+
+            return myText;
+        }
+    },
+    {
         "empty",
         [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
         {

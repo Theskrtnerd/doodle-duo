@@ -12,4 +12,6 @@ Json::Value readJSONFile(const std::string& filePath);
 
 sf::Color stringToColor(const std::string& color);
 
+sf::Font stringToFont(const std::string& fontPath);
+
 #endif

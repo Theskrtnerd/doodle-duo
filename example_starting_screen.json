@@ -1,5 +1,13 @@
 [   
     {
+        "type": "Text",
+        "text": "Doodle Duo",
+        "x": 100,
+        "y": 100,
+        "fontSize": 36,
+        "colour": "red"
+    },
+    {
         "type": "ScreenButton",
         "texture": "example_button.png",
         "action":"goodbye",

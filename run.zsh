@@ -19,6 +19,7 @@ source_files=(
     class/Door.cpp
     class/Lever.cpp
     class/Exit.cpp
+    class/Text.cpp
 )
 
 # Compile the C++ code

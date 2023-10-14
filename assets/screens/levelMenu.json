@@ -1,0 +1,113 @@
+[  
+    {
+        "type": "ScreenButton",
+        "texture": "ReturnArrow.png",
+        "action": "homeScreen",
+        "x": 90,
+        "y": 60
+    },
+    {
+        "type": "Text",
+        "text": "Game levels",
+        "x": 340,
+        "y": 40,
+        "fontSize": 80,
+        "colour": "black"
+    },
+
+    {
+        "type": "Text",
+        "text": "Level 1",
+        "x": 275,
+        "y": 280,
+        "fontSize": 36,
+        "colour": "black"
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "RectangleBox.png",
+        "action": "closeScreen",
+        "x": 235,
+        "y": 240
+    },
+    {
+        "type": "Text",
+        "text": "Level 3",
+        "x": 275,
+        "y": 430,
+        "fontSize": 36,
+        "colour": "black"
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "RectangleBox.png",
+        "action": "restartLevel",
+        "x": 235,
+        "y": 390
+    },
+    {
+        "type": "Text",
+        "text": "Level 5",
+        "x": 275,
+        "y": 575,
+        "fontSize": 36,
+        "colour": "black"
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "RectangleBox.png",
+        "action": "levelMenu",
+        "x": 235,
+        "y": 540
+    },
+
+    {
+        "type": "Text",
+        "text": "Level 2",
+        "x": 675,
+        "y": 280,
+        "fontSize": 36,
+        "colour": "black"
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "RectangleBox.png",
+        "action": "closeScreen",
+        "x": 635,
+        "y": 240
+    },
+    {
+        "type": "Text",
+        "text": "Level 4",
+        "x": 675,
+        "y": 430,
+        "fontSize": 36,
+        "colour": "black"
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "RectangleBox.png",
+        "action": "restartLevel",
+        "x": 635,
+        "y": 385
+    },
+    {
+        "type": "Text",
+        "text": "Level 6",
+        "x": 675,
+        "y": 575,
+        "fontSize": 36,
+        "colour": "black"
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "RectangleBox.png",
+        "action": "levelMenu",
+        "x": 635,
+        "y": 540
+    },
+    {
+        "type": "Background",
+        "texture": "GameBackground.png"
+    }
+]

@@ -81,5 +81,21 @@ const std::map<std::string, std::function<void(GameEngine&)>> ScreenButton::acti
         {
         engine.moveScreen("homeScreen");
         }
+    },
+    {"levelMenu", [](GameEngine& engine)
+        {
+        engine.moveScreen("levelMenu");
+        }
+    },
+    {"restartLevel", [](GameEngine& engine)
+        {
+        engine.moveScreen("levelMenu");
+        }
+    },
+    {"openSettings", [](GameEngine& engine)
+        {
+        engine.moveScreen("settingsMenu");
+        engine.openScreen();
+        }
     }
 };

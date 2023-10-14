@@ -1,0 +1,59 @@
+[
+    {
+        "type": "Text",
+        "text": "Game paused",
+        "x": 340,
+        "y": 100,
+        "fontSize": 80,
+        "colour": "black"
+    },
+    {
+        "type": "Text",
+        "text": "Resume game",
+        "x": 475,
+        "y": 340,
+        "fontSize": 36,
+        "colour": "black"
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "RectangleBox.png",
+        "action": "closeScreen",
+        "x": 435,
+        "y": 300
+    },
+    {
+        "type": "Text",
+        "text": "Restart level",
+        "x": 475,
+        "y": 490,
+        "fontSize": 36,
+        "colour": "black"
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "RectangleBox.png",
+        "action": "restartLevel",
+        "x": 435,
+        "y": 450
+    },
+    {
+        "type": "Text",
+        "text": "Back to menu",
+        "x": 475,
+        "y": 635,
+        "fontSize": 36,
+        "colour": "black"
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "RectangleBox.png",
+        "action": "levelMenu",
+        "x": 435,
+        "y": 600
+    },
+    {
+        "type": "Background",
+        "texture": "SettingsBackground.png"
+    }
+]

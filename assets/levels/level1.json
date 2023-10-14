@@ -1003,12 +1003,6 @@
     },
     {
         "type": "Cell",
-        "texture": "Cell2.png",
-        "x": 0,
-        "y": 720
-    },
-    {
-        "type": "Cell",
         "texture": "Cell1.png",
         "x": 320,
         "y": 720
@@ -1126,36 +1120,6 @@
         "texture": "Cell2.png",
         "x": 1080,
         "y": 720
-    },
-    {
-        "type": "Cell",
-        "texture": "Cell.png",
-        "x": 1120,
-        "y": 720
-    },
-    {
-        "type": "Cell",
-        "texture": "Cell2.png",
-        "x": 1160,
-        "y": 720
-    },
-    {
-        "type": "Cell",
-        "texture": "Cell1.png",
-        "x": 0,
-        "y": 760
-    },
-    {
-        "type": "Cell",
-        "texture": "Cell.png",
-        "x": 40,
-        "y": 760
-    },
-    {
-        "type": "Cell",
-        "texture": "Cell1.png",
-        "x": 80,
-        "y": 760
     },
     {
         "type": "Cell",
@@ -1308,16 +1272,19 @@
         "y": 760
     },
     {
-        "type": "Cell",
-        "texture": "Cell3.png",
-        "x": 1120,
-        "y": 760
+        "type": "Text",
+        "text": "Lv. 1",
+        "x": 25,
+        "y": 735,
+        "fontSize": 44,
+        "colour": "black"
     },
     {
-        "type": "Cell",
-        "texture": "Cell3.png",
-        "x": 1160,
-        "y": 760
+        "type": "ScreenButton",
+        "texture": "SettingsGear.png",
+        "action": "openSettings",
+        "x": 1120,
+        "y": 720
     },
     {
         "type": "Background",

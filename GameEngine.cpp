@@ -22,8 +22,8 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
     window.setFramerateLimit(framePerSecond);
     window.setPosition(sf::Vector2i(200, 200));
 
-    gameObjects = new GameObjectArray();
-    menu = new GameObjectArray();
+    gameObjects = new GameObjectArray(this);
+    menu = new GameObjectArray(this);
 }
 
 
@@ -88,4 +88,9 @@ void GameEngine::closeMenu()
 void GameEngine::openMenu()
 {
     menu_open = true;
+}
+
+void GameEngine::nextLevel()
+{
+    std::cout << "Next level Triggered" << std::endl;
 }

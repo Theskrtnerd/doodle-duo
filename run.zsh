@@ -18,6 +18,7 @@ source_files=(
     Button.cpp
     Door.cpp
     Lever.cpp
+    Exit.cpp
 )
 
 # Compile the C++ code

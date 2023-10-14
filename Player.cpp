@@ -49,18 +49,18 @@ bool Player::update(GameObjectArray& objects)
 
 std::string Player::collisionType()
 {
-    return "player";
+    return "player "+color;
 }
 
 void Player::playerInputs(GameObjectArray& objects) {
-    if (color != "Red")
+    if (color != "red")
     {
         if (isKeyPressed(sf::Keyboard::Up)) jump(objects);
         if (isKeyPressed(sf::Keyboard::Down)) interact(objects);
         if (isKeyPressed(sf::Keyboard::Right)) moveRight();
         if (isKeyPressed(sf::Keyboard::Left)) moveLeft();
     }
-    if (color != "Blue")
+    if (color != "blue")
     {
         if (isKeyPressed(sf::Keyboard::W)) jump(objects);
         if (isKeyPressed(sf::Keyboard::S)) interact(objects);

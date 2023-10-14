@@ -1,30 +1,25 @@
 #include "GameObjectArray.h"
 #include "Player.h"
+#include "GameEngine.h"
 
 
 typedef GameObject* (*CreateFunction)(Json::Value&, GameTextures& gameTextures);
 extern std::map<std::string, CreateFunction> createGameObject;
 
 
-
-
-
-GameObjectArray::GameObjectArray()
+GameObjectArray::GameObjectArray(GameEngine* engine)
+: gameEnginePtr(engine)
 {
     this->clearObjects();
 }
 
-
-
-
 GameObjectArray::~GameObjectArray()
 {
-    for (int index = 0; index < max_objects; index++)
-    {
-        delete objects[index];
-    }
+  for (int index = 0; index < max_objects; index++)
+  {
+    delete objects[index];
+  }
 }
-
 
 void GameObjectArray::clearObjects()
 {
@@ -47,14 +42,14 @@ void GameObjectArray::populateFromJson(std::string& json_path)
     {
         delete objects[index];
         
-
-        
         objects[index] = createObjectFromJson(json_file, index, gameTextures);
     }
 }
 
-
-
+GameEngine* GameObjectArray::getGameEngine()
+{
+    return gameEnginePtr;
+}
 
 
 void GameObjectArray::updateAll()
@@ -283,6 +278,17 @@ std::map<std::string, CreateFunction> createGameObject = {
             std::string colour = json_object["colour"].asString();
 
             return new Lever(xPos, yPos, gameTextures, colour);
+        }
+    },
+    {
+        "Exit",
+        [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
+        {
+            int xPos = json_object["x"].asInt();
+            int yPos = json_object["y"].asInt();
+            std::string colour = json_object["colour"].asString();
+
+            return new Exit(xPos, yPos, gameTextures, colour);
         }
     },
     {

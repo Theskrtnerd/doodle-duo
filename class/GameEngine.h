@@ -14,6 +14,7 @@ public:
     ~GameEngine();
     void closeMenu();
     void openMenu();
+    void nextLevel();
 
 private:
     GameObjectArray* gameObjects;

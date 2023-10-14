@@ -1,13 +1,13 @@
 [
     {
         "type": "Player",
-        "colour": "Red",
+        "colour": "red",
         "x": 500,
         "y": 400
     },
     {
         "type": "Player",
-        "colour": "Blue",
+        "colour": "blue",
         "x": 600,
         "y": 400
     },
@@ -46,6 +46,18 @@
         "colour": "blue",
         "x": 640,
         "y": 80
+    },
+    {
+        "type": "Exit",
+        "colour": "blue",
+        "x": 80,
+        "y": 560
+    },
+    {
+        "type": "Exit",
+        "colour": "red",
+        "x": 720,
+        "y": 560
     },
     {
         "type": "Cell",

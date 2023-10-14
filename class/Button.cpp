@@ -46,5 +46,5 @@ bool Button::update(GameObjectArray& objects) {
 
 std::string Button::collisionType()
 {
-    return "Button";
+    return "button";
 }

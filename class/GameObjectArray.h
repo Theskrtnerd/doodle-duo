@@ -11,20 +11,26 @@
 #include "Button.h"
 #include "Door.h"
 #include "Lever.h"
+#include "Exit.h"
+
+class GameEngine;
 
 class GameObjectArray
 {
     private:
+        GameEngine* gameEnginePtr;
         static constexpr int max_objects = 2048;    // Can't be changed
         GameObject* objects[max_objects];
         GameTextures gameTextures;
     
     public:
-        GameObjectArray();
+        GameObjectArray(GameEngine* engine);
         ~GameObjectArray();
 
         void clearObjects();
         void populateFromJson(std::string& json_path);
+
+        GameEngine* getGameEngine();
 
         
         void updateAll();

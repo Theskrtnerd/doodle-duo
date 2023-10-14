@@ -16,14 +16,14 @@ int cellSize = 40;
 
 
 GameEngine::GameEngine(int width, int height, const std::string &title)
-: window(sf::VideoMode(width, height), title), menu_open(true), loadNextLevel(false)
+: window(sf::VideoMode(width, height), title), screen_open(true), loadNextLevel(false), screen_display("homeScreen"), screen_moved(false)
 {
     int framePerSecond = 40;
     window.setFramerateLimit(framePerSecond);
     window.setPosition(sf::Vector2i(200, 200));
 
     gameObjects = new GameObjectArray(this);
-    menu = new GameObjectArray(this);
+    screen = new GameObjectArray(this);
 }
 
 
@@ -33,10 +33,11 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 void GameEngine::run()
 {
     std::string firstLevel = "example_level.json";
-    std::string menuScreen = "example_starting_screen.json";
     gameObjects->populateFromJson(firstLevel);
-    menu->populateFromJson(menuScreen);
-    menu->updateAll();
+
+    std::string screenPath = "assets/screens/"+screen_display+".json";
+    screen->populateFromJson(screenPath);
+    screen->updateAll();
 
     while (window.isOpen())
     {
@@ -53,8 +54,7 @@ void GameEngine::run()
                     int xPos = windowEvent.mouseButton.x;
                     int yPos = windowEvent.mouseButton.y;
                     gameObjects->clickAll(xPos, yPos, *this);
-                    if (menu_open) menu->clickAll(xPos, yPos, *this);
-
+                    if (screen_open) screen->clickAll(xPos, yPos, *this);
                 }
             }
         }
@@ -66,8 +66,18 @@ void GameEngine::run()
         gameObjects->updateAll();
         gameObjects->drawAll(window);
 
+        if (screen_moved){
+            std::string screenPath = "assets/screens/"+screen_display+".json";
+            screen->populateFromJson(screenPath);
+            screen->updateAll();
+            screen_moved = false;
+        }
+
         // update Menu
-        if (menu_open) menu->drawAll(window);
+        if (screen_open){
+            screen->drawAll(window);
+        }
+
         if (gameObjects->levelCompleted()) loadInNextLevel();
 
         // Display the contents of the window
@@ -81,14 +91,20 @@ GameEngine::~GameEngine()
     delete gameObjects;
 }
 
-void GameEngine::closeMenu()
+void GameEngine::closeScreen()
 {
-    menu_open = false;
+    screen_open = false;
 }
 
-void GameEngine::openMenu()
+void GameEngine::openScreen()
 {
-    menu_open = true;
+    screen_open = true;
+}
+
+void GameEngine::moveScreen(std::string screen_display_)
+{
+    screen_display = screen_display_;
+    screen_moved = true;
 }
 
 void GameEngine::nextLevel()

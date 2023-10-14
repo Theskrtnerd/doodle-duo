@@ -67,15 +67,19 @@ bool ScreenButton::withinRange(int xPos, int yPos)
 
 
 const std::map<std::string, std::function<void(GameEngine&)>> ScreenButton::actionMap = {
-    {"hello", [](GameEngine& engine)
+    {"closeScreen", [](GameEngine& engine)
         {
-        std::cout << "Hello, how are you?" << std::endl;
+            engine.closeScreen();
         }
     },
-    {"goodbye", [](GameEngine& engine)
+    {"howToPlay", [](GameEngine& engine)
         {
-        std::cout << "Goodbye, have a good day." << std::endl;
-        engine.closeMenu();
+        engine.moveScreen("howToPlay");
+        }
+    },
+    {"homeScreen", [](GameEngine& engine)
+        {
+        engine.moveScreen("homeScreen");
         }
     }
 };

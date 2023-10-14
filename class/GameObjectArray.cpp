@@ -31,10 +31,6 @@ void GameObjectArray::clearObjects()
     }
 }
 
-
-
-
-
 void GameObjectArray::populateFromJson(std::string& json_path)
 {
     Json::Value json_file = readJSONFile(json_path);
@@ -315,6 +311,7 @@ std::map<std::string, CreateFunction> createGameObject = {
             Text* myText = new Text(xPos, yPos, gameTextures);
             myText->setFont(GetParentPath() + "assets/others/FontCrayon.ttf");
             myText->setText(text);
+            myText->setColor(colour);
             myText->setFontSize(fontSize);
 
             return myText;

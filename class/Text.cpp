@@ -16,6 +16,11 @@ void Text::setFontSize(u_int fontSize)
     text_.setCharacterSize(fontSize);
 }
 
+void Text::setColor(const std::string& colour)
+{
+    text_.setFillColor(stringToColor(colour));
+}
+
 void Text::setFont(const std::string& fontFile)
 {
     // Load the font from the specified file

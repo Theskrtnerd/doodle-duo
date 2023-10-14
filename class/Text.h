@@ -15,6 +15,7 @@ public:
     void setText(const std::string& text);
     void setFontSize(u_int fontSize);
     void setFont(const std::string& fontFile);
+    void setColor(const std::string& colour);
     virtual void draw(sf::RenderWindow& window) override;
     ~Text();
 };

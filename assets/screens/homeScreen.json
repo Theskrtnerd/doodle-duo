@@ -1,0 +1,52 @@
+[   
+    {
+        "type": "Text",
+        "text": "DOODLE",
+        "x": 240,
+        "y": 150,
+        "fontSize": 120,
+        "colour": "red"
+    },
+    {
+        "type": "Text",
+        "text": "DUO",
+        "x": 740,
+        "y": 150,
+        "fontSize": 120,
+        "colour": "blue"
+    },
+    {
+        "type": "Text",
+        "text": "Start game",
+        "x": 490,
+        "y": 485,
+        "fontSize": 40,
+        "colour": "black"
+    },
+    {
+        "type": "Text",
+        "text": "How to play",
+        "x": 485,
+        "y": 635,
+        "fontSize": 40,
+        "colour": "black"
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "RectangleBox.png",
+        "action": "closeScreen",
+        "x": 440,
+        "y": 450
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "RectangleBox.png",
+        "action": "howToPlay",
+        "x": 440,
+        "y": 600
+    },
+    {
+        "type": "Background",
+        "texture": "GameBackground.png"
+    }
+]

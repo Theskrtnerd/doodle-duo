@@ -1,0 +1,101 @@
+[
+    {
+        "type": "ScreenButton",
+        "texture": "ReturnArrow.png",
+        "action": "homeScreen",
+        "x": 90,
+        "y": 60
+    },
+    {
+        "type": "Text",
+        "text": "Red Player",
+        "x": 137,
+        "y": 200,
+        "fontSize": 40,
+        "colour": "red"
+    },
+    {
+        "type": "Text",
+        "text": "Blue Player",
+        "x": 137,
+        "y": 340,
+        "fontSize": 40,
+        "colour": "blue"
+    },
+    {
+        "type": "Text",
+        "text": "How to play",
+        "x": 400,
+        "y": 40,
+        "fontSize": 72,
+        "colour": "black"
+    },
+    {
+        "type": "Text",
+        "text": "-                 : use A,W,D to move around.",
+        "x": 100,
+        "y": 200,
+        "fontSize": 40,
+        "colour": "black"
+    },
+    {
+        "type": "Text",
+        "text": "To interact with levers, use S.",
+        "x": 100,
+        "y": 240,
+        "fontSize": 40,
+        "colour": "black"
+    },
+    {
+        "type": "Text",
+        "text": "-                  : use Left, Up, Right to move around.",
+        "x": 100,
+        "y": 340,
+        "fontSize": 40,
+        "colour": "black"
+    },
+    {
+        "type": "Text",
+        "text": "To interact with levers, use Down.",
+        "x": 100,
+        "y": 380,
+        "fontSize": 40,
+        "colour": "black"
+    },
+    {
+        "type": "Text",
+        "text": "- Find the way to the doors of corresponding",
+        "x": 100,
+        "y": 480,
+        "fontSize": 40,
+        "colour": "black"
+    },
+    {
+        "type": "Text",
+        "text": "colours in order to pass the level.",
+        "x": 100,
+        "y": 520,
+        "fontSize": 40,
+        "colour": "black"
+    },
+    {
+        "type": "Text",
+        "text": "- Only the perfect duo can beat this game,",
+        "x": 100,
+        "y": 620,
+        "fontSize": 40,
+        "colour": "black"
+    },
+    {
+        "type": "Text",
+        "text": "so are you guys ready?!",
+        "x": 100,
+        "y": 660,
+        "fontSize": 40,
+        "colour": "black"
+    },
+    {
+        "type": "Background",
+        "texture": "GameBackground.png"
+    }
+]

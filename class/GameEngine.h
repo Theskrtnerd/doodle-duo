@@ -12,15 +12,18 @@ public:
     GameEngine(int width, int height, const std::string &title);
     void run();
     ~GameEngine();
-    void closeMenu();
-    void openMenu();
+    void closeScreen();
+    void openScreen();
+    void moveScreen(std::string screen_display);
     void nextLevel();
     void loadInNextLevel();
 
 private:
     GameObjectArray* gameObjects;
-    GameObjectArray* menu;
-    bool menu_open;
+    GameObjectArray* screen;
+    std::string screen_display;
+    bool screen_open;
+    bool screen_moved;
     sf::RenderWindow window;
     sf::Sprite backgroundSprite;
     bool loadNextLevel;

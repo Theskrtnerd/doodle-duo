@@ -1,6 +1,7 @@
 #include "GameObjectArray.h"
 #include "Player.h"
 #include "GameEngine.h"
+#include "functions.h"
 
 
 typedef GameObject* (*CreateFunction)(Json::Value&, GameTextures& gameTextures);
@@ -301,8 +302,10 @@ std::map<std::string, CreateFunction> createGameObject = {
             int fontSize = json_object["fontSize"].asUInt();
             std::string text = json_object["text"].asString();
 
-            Text* myText = new Text(xPos, yPos);
-            myText->setText(xPos, yPos, text, fontSize, colour);
+            Text* myText = new Text(xPos, yPos, gameTextures);
+            myText->setFont(GetParentPath() + "assets/others/FontCrayon.ttf");
+            myText->setText(text);
+            myText->setFontSize(fontSize);
 
             return myText;
         }

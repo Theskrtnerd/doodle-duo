@@ -7,11 +7,15 @@
 #include <fstream>
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
+#include <filesystem>
+#include <vector>
 
 Json::Value readJSONFile(const std::string& filePath);
 
 sf::Color stringToColor(const std::string& color);
 
 sf::Font stringToFont(const std::string& fontPath);
+
+std::string GetParentPath();
 
 #endif

@@ -1,25 +1,34 @@
 #include "Text.h"
 
-Text::Text(int xPos, int yPos) {
-    setPosition(xPos, yPos);
-}
-
-void Text::setText(int xPos, int yPos, std::string text, u_int fontSize, std::string color){
-    this->text_.setString(text);
-    this->text_.setPosition(xPos, yPos);
-    this->text_.setCharacterSize(fontSize);
-    this->text_.setFillColor(stringToColor(color));
-    sf::Font font_ = stringToFont("assets/others/FontCrayon.ttf");
-    this->text_.setFont(font_);
-
-    // Check for errors, and handle them if necessary.
-    if (!this->text_.getFont()) {
-        throw std::runtime_error("Font not set in Text object.");
-    }
-}
-
-void Text::draw(sf::RenderWindow &window)
+Text::Text(int xPos, int yPos, GameTextures& gameTextures)
+: GameObject(xPos, yPos, gameTextures)
 {
-    // Just draw the sprite (you can add additional drawing logic here if needed)
-    window.draw(this->text_);
+    text_.setPosition(static_cast<float>(xPos), static_cast<float>(yPos));
 }
+
+void Text::setText(const std::string& text)
+{
+    text_.setString(text);
+}
+
+void Text::setFontSize(u_int fontSize) 
+{
+    text_.setCharacterSize(fontSize);
+}
+
+void Text::setFont(const std::string& fontFile)
+{
+    // Load the font from the specified file
+    if (!font_.loadFromFile(fontFile)) {
+        // Handle font loading error here
+        std::cerr << "Error loading font from file: " << fontFile << std::endl;
+    }
+    text_.setFont(font_); // Set the loaded font for the text
+}
+
+void Text::draw(sf::RenderWindow& window)
+{
+    window.draw(text_);
+}
+
+Text::~Text() {}

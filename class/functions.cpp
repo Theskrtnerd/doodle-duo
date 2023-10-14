@@ -47,14 +47,31 @@ sf::Color stringToColor(const std::string& color)
 
 sf::Font stringToFont(const std::string& fontPath)
 {
+    std::string file_path = GetParentPath() + fontPath;
+    
+    // Check if the file exists
+    if (!std::filesystem::exists(file_path)) {
+        throw std::runtime_error("File not found: " + file_path);
+    }
+    
+    
     sf::Font font;
 
-    if (!font.loadFromFile(fontPath)) {
+    if (!font.loadFromFile(file_path)) {
         throw std::runtime_error("Failed to load font from: " + fontPath);
     }
 
     return font;
 }
 
+std::string GetParentPath() {
+    // Get the path to the executable.
+    std::filesystem::path exePath = std::filesystem::canonical(std::filesystem::path("/proc/self/exe"));
 
+    // Get the parent directory (DoodleDuo directory).
+    std::filesystem::path parentPath = exePath.parent_path();
 
+    // Convert the path to a string and return it.
+    //return "C:/Users/Tyler/Documents/GitHub/DoodleDuo/";
+    return parentPath.string()+"/";
+}

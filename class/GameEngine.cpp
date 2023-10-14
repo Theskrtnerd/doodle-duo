@@ -32,8 +32,8 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 
 void GameEngine::run()
 {
-    std::string firstLevel = "example_level.json";
-    gameObjects->populateFromJson(firstLevel);
+    std::string gameLevel = "assets/levels/level1.json";
+    gameObjects->populateFromJson(gameLevel);
 
     std::string screenPath = "assets/screens/"+screen_display+".json";
     screen->populateFromJson(screenPath);
@@ -115,7 +115,7 @@ void GameEngine::nextLevel()
 
 void GameEngine::loadInNextLevel()
 {
-    std::string nextLevel = "example_level.json";
+    std::string nextLevel = "assets/levels/level1.json";
     gameObjects->populateFromJson(nextLevel);
     loadNextLevel = false;
 }

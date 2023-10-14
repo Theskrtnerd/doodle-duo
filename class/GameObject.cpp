@@ -4,7 +4,7 @@
 
 void GameObject::setTextureFromFile(GameTextures& gameTextures, const std::string& file_name)
 {
-    texture = gameTextures.getTexture(file_name);
+    texture = gameTextures.getTexture("assets/images/"+file_name);
 
     sprite.setTexture(texture);
     
@@ -12,7 +12,7 @@ void GameObject::setTextureFromFile(GameTextures& gameTextures, const std::strin
 }
 
 GameObject::GameObject() : x(0), y(0) {
-  if (!texture.loadFromFile("brick.png")) {
+  if (!texture.loadFromFile("assets/images/Brick.png")) {
     std::cout << "Error loading texture: brick.png" << std::endl;
     exit(1);
   }
@@ -23,7 +23,7 @@ GameObject::GameObject() : x(0), y(0) {
 GameObject::GameObject(int xPos, int yPos, GameTextures& gameTextures)
 : x(xPos), y(yPos)
 {
-    texture = gameTextures.getTexture("brick.png");
+    texture = gameTextures.getTexture("assets/images/Brick.png");
 
     sprite.setTexture(texture);
     sprite.setPosition(static_cast<float>(x), static_cast<float>(y));

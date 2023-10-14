@@ -29,7 +29,7 @@ Player::Player()
 Player::Player(int x, int y, std::string color_, GameTextures& gameTextures)
     : MoveableObject(x, y, gameTextures), color(color_)
     {
-        this->setTextureFromFile(gameTextures, color_+".png");
+        this->setTextureFromFile(gameTextures, "Player"+color_+".png");
     }
 
 bool Player::update(GameObjectArray& objects)

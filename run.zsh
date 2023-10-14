@@ -3,22 +3,22 @@
 # List of source files
 source_files=(
     gametest.cpp 
-    Map.cpp 
-    GameObject.cpp 
-    GameObjectArray.cpp 
-    MoveableObject.cpp 
-    ImmoveableObject.cpp 
-    GameEngine.cpp 
-    Player.cpp 
-    functions.cpp
-    Background.cpp
-    Cell.cpp
-    GameTextures.cpp
-    ScreenButton.cpp
-    Button.cpp
-    Door.cpp
-    Lever.cpp
-    Exit.cpp
+    class/Map.cpp 
+    class/GameObject.cpp 
+    class/GameObjectArray.cpp 
+    class/MoveableObject.cpp 
+    class/ImmoveableObject.cpp 
+    class/GameEngine.cpp 
+    class/Player.cpp 
+    class/functions.cpp
+    class/Background.cpp
+    class/Cell.cpp
+    class/GameTextures.cpp
+    class/ScreenButton.cpp
+    class/Button.cpp
+    class/Door.cpp
+    class/Lever.cpp
+    class/Exit.cpp
 )
 
 # Compile the C++ code

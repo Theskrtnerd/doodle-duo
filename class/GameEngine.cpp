@@ -33,10 +33,10 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 void GameEngine::run()
 {
     std::string firstLevel = "example_level.json";
-    std::string menuScreen = "example_starting_screen.json";
+    //std::string menuScreen = "example_starting_screen.json";
     gameObjects->populateFromJson(firstLevel);
-    menu->populateFromJson(menuScreen);
-    menu->updateAll();
+    //menu->populateFromJson(menuScreen);
+    //menu->updateAll();
 
     while (window.isOpen())
     {

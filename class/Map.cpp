@@ -16,9 +16,6 @@ Map::Map(int width, int height, int cellSize) : width_(width), height_(height), 
 
 	// Load textures for different cell types (replace with actual image paths)
 	textures_.resize(3); // Assuming you have three different cell types
-	textures_[0].loadFromFile("brick.png");
-	textures_[1].loadFromFile("blank.png");
-	textures_[2].loadFromFile("blank.png");
 
 	// Initialize the sprite objects for each cell
 	cells_.resize(width_ * height_);

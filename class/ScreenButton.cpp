@@ -55,11 +55,13 @@ std::function<void(GameEngine&)> ScreenButton::makeAction(const std::string& act
 
 bool ScreenButton::withinRange(int xPos, int yPos)
 {
-    int buttonX = getX();
-    int buttonY = getY();
-    if (buttonX+100 < xPos || buttonX-100 > xPos) return false;
-    if (buttonY+100 < yPos || buttonY-100 > yPos) return false;
-    return true;
+    sf::Vector2f mouse(xPos, yPos);
+    sf::FloatRect bounds = this->getSprite().getGlobalBounds();
+    if (bounds.contains(mouse))
+    {
+        return true;
+    }
+    return false;
 }
 
 

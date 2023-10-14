@@ -16,7 +16,7 @@ int cellSize = 40;
 
 
 GameEngine::GameEngine(int width, int height, const std::string &title)
-: window(sf::VideoMode(width, height), title), menu_open(false)
+: window(sf::VideoMode(width, height), title), menu_open(true)
 {
     int framePerSecond = 40;
     window.setFramerateLimit(framePerSecond);
@@ -33,10 +33,10 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 void GameEngine::run()
 {
     std::string firstLevel = "example_level.json";
-    //std::string menuScreen = "example_starting_screen.json";
+    std::string menuScreen = "example_starting_screen.json";
     gameObjects->populateFromJson(firstLevel);
-    //menu->populateFromJson(menuScreen);
-    //menu->updateAll();
+    menu->populateFromJson(menuScreen);
+    menu->updateAll();
 
     while (window.isOpen())
     {

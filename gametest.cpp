@@ -3,7 +3,7 @@
 int main()
 {
     // Create a GameEngine object
-    GameEngine game(1200, 800, "SFML Game");
+    GameEngine game(1200, 800, "Doodle Duo");
 
     // Start the game loop
     game.run();

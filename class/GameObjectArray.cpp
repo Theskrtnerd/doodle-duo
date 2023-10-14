@@ -169,6 +169,16 @@ bool GameObjectArray::isGrounded(GameObject& object) {
     return output;
 }
 
+bool GameObjectArray::levelCompleted()
+{
+    for (int index = 0; index < max_objects; index++)
+    {
+        if (objects[index] == nullptr) continue;
+        if (!objects[index]->isReady(*this)) return false;
+    }
+    return true;
+}
+
 GameObject* createObjectFromJson(Json::Value root, int index, GameTextures& gameTextures)
 {
     GameObject* output = nullptr;

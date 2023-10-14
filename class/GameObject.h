@@ -37,6 +37,7 @@ class GameObject
         virtual std::string collisionType();
         virtual void listen(std::string channel, std::string signal);
         virtual void interactWith(GameObjectArray& objects);
+        virtual bool isReady(GameObjectArray& objects);
         void setColor(const std::string& color);
 
         sf::Sprite getSprite();

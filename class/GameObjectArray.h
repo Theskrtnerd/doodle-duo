@@ -43,6 +43,7 @@ class GameObjectArray
         bool isCollidingWith(GameObject& object, std::string collision_type);
         GameObject* getCollidingWith(GameObject& object, std::string collision_type);
         bool isGrounded(GameObject& object);
+        bool levelCompleted();
 };
 
 GameObject* createObjectFromJson(Json::Value root, int index, GameTextures& gameTextures);

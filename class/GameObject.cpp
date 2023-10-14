@@ -102,6 +102,8 @@ void GameObject::listen(std::string channel, std::string signal) {}
 
 void GameObject::interactWith(GameObjectArray& objects) {}
 
+bool GameObject::isReady(GameObjectArray& objects) { return true; }
+
 void GameObject::setColor(const std::string& color)
 {
     sprite.setColor(stringToColor(color));

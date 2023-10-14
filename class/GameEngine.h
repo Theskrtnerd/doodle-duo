@@ -15,6 +15,7 @@ public:
     void closeMenu();
     void openMenu();
     void nextLevel();
+    void loadInNextLevel();
 
 private:
     GameObjectArray* gameObjects;
@@ -22,6 +23,7 @@ private:
     bool menu_open;
     sf::RenderWindow window;
     sf::Sprite backgroundSprite;
+    bool loadNextLevel;
 };
 
 #endif

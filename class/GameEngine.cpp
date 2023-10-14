@@ -16,7 +16,7 @@ int cellSize = 40;
 
 
 GameEngine::GameEngine(int width, int height, const std::string &title)
-: window(sf::VideoMode(width, height), title), menu_open(true)
+: window(sf::VideoMode(width, height), title), menu_open(true), loadNextLevel(false)
 {
     int framePerSecond = 40;
     window.setFramerateLimit(framePerSecond);
@@ -68,6 +68,7 @@ void GameEngine::run()
 
         // update Menu
         if (menu_open) menu->drawAll(window);
+        if (gameObjects->levelCompleted()) loadInNextLevel();
 
         // Display the contents of the window
         window.display();
@@ -93,4 +94,12 @@ void GameEngine::openMenu()
 void GameEngine::nextLevel()
 {
     std::cout << "Next level Triggered" << std::endl;
+    loadNextLevel = true;
+}
+
+void GameEngine::loadInNextLevel()
+{
+    std::string nextLevel = "example_level.json";
+    gameObjects->populateFromJson(nextLevel);
+    loadNextLevel = false;
 }

@@ -35,7 +35,7 @@ Button::~Button() {}
 bool Button::update(GameObjectArray& objects) {
     ImmoveableObject::update(objects);
 
-    if (objects.isCollidingWith(*this, "player"))
+    if (objects.isCollidingWith(*this, "player red") || objects.isCollidingWith(*this, "player blue"))
     {
         press(objects);
     } else {

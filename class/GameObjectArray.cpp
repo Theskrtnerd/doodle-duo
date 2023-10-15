@@ -169,9 +169,13 @@ bool GameObjectArray::isGrounded(GameObject& object) {
     // Reset the object's position
     object.setPosition(originalX, originalY);
 
-    if (collidingObject && collidingObject->collisionType() == "immoveable") {
-        output = true;
+    if (collidingObject)
+    {
+        if (collidingObject->collisionType() == "immoveable") output = true;
+        if (collidingObject->collisionType() == "obstacle blue") output = true;
+        if (collidingObject->collisionType() == "obstacle red") output = true;
     }
+
     
     return output;
 }

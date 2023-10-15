@@ -20,31 +20,15 @@ bool MoveableObject::update(GameObjectArray& objects)
         GameObject::update(objects);
 
         gravity(objects);
+        
+        this->setPosition(getX(), getY()+1);
+
+        if (color == "red" && objects.isCollidingWith(*this, "obstacle blue")) objects.resetAll();
+        if (color == "blue" && objects.isCollidingWith(*this, "obstacle red")) objects.resetAll();
+
+        this->setPosition(getX(), getY()-1);
 
         updateMovement(objects);
-
-/*//
-        GameObject* collidingObject = objects.findColliding(*this);
-        if (collidingObject != nullptr)
-        {
-            std::string response = collidingObject->collisionType();
-
-            if (response == "immoveable") {
-                int dx = getX() - collidingObject->getX();
-                int dy = getY() - collidingObject->getY();
-                
-                if (std::abs(dx) > std::abs(dy)) {
-                    setPosition(currentX, currentY);
-                    stopMovement();
-                } else {
-                    setPosition(currentX, currentY);
-                    stopMovement();
-                }
-
-            }
-            //address collision
-            collidingObject = objects.findColliding(*this);
-        }*/
 
         return true;
     }

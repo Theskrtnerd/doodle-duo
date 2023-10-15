@@ -1,10 +1,11 @@
 import csv
 import json
+import random
 
 def cell(x, y):
     output = {}
     output["type"] = "Cell"
-    output["texture"] = random.choice(["Cell", "Cell1", "Cell2", "Cel3"])+".png"
+    output["texture"] = random.choice(["Cell", "Cell1", "Cell2", "Cell3"])+".png"
     output["x"] = x*40
     output["y"] = y*40
     return output
@@ -65,28 +66,46 @@ def obstacle(color, x, y):
     output["y"] = y * 40
     return output
 
-# Mapping of function and color
-func_map = {'c': cell, 'i': invisCell, 'p': player, 'd': door, 'b': button, 'l': lever, 'e': exit, 'o': obstacle}
-color_map = {'r': 'red', 'b': 'blue', 'g': 'green', 'y': 'yellow', 'm': 'magenta', 'c': 'cyan'}
 
 
-csv_file_path = "input.csv"
-grid = []
-with open(csv_file_path, mode='r') as file:
-    csv_reader = csv.reader(file)
-    for y_index, row in enumerate(csv_reader):
-        row_list = []
-        for x_index, cell_content in enumerate(row):
-            if cell_content == '':
-                row_list.append(cell(x_index, y_index))
-            else:
-                func_char, color_char = cell_content[0], cell_content[1]
-                func = func_map.get(func_char.lower())
-                color = color_map.get(color_char.lower())
-                row_list.append(func(color, x_index, y_index))
-        grid.append(row_list)
+def createJsonFromCSV(level):
+    # Mapping of function and color
+    func_map = {'c': cell, 'i': invisCell, 'p': player, 'd': door, 'b': button, 'l': lever, 'e': exit, 'o': obstacle}
+    color_map = {'r': 'red', 'b': 'blue', 'g': 'green', 'y': 'yellow', 'm': 'magenta', 'c': 'cyan'}
 
-# Save to JSON
-json_file_path = "output.json"
-with open(json_file_path, 'w') as json_file:
-    json.dump(grid, json_file)
+    csv_file_path = f"levelCreator/levels - Lv{level}.csv"
+    json_file_path = f"assets/levels/level{level}.json"
+    output = []
+    
+    with open(csv_file_path, 'r') as file:
+        csv_reader = csv.reader(file)
+        for y_index, row in enumerate(csv_reader):
+            for x_index, cell_content in enumerate(row):
+                if cell_content == 'c':
+                    output.append(cell(x_index, y_index))
+                elif cell_content == 'i':
+                    output.append(invisCell(x_index, y_index))
+                elif cell_content == '':
+                    pass
+                else:
+                    func_char, color_char = cell_content[0], cell_content[1]
+                    func = func_map.get(func_char.lower())
+                    color = color_map.get(color_char.lower())
+                    output.append(func(color, x_index, y_index))
+    
+    # Add additional elements
+    output.append({"type": "Text", "text": f"Lv. {level}", "x": 25, "y": 735, "fontSize": 44, "colour": "black"})
+    output.append({"type": "ScreenButton", "texture": "SettingsGear.png", "action": "openSettings", "x": 1120, "y": 720})
+    output.append({"type": "ScreenButton", "texture": "3x2.png", "action": "EASTER", "x": 0, "y": 720})
+    output.append({"type": "Background", "texture": "GameBackground.png"})
+    
+    # Save to JSON
+    with open(json_file_path, 'w') as json_file:
+        json.dump(output, json_file)
+
+createJsonFromCSV(1)
+createJsonFromCSV(2)
+createJsonFromCSV(3)
+createJsonFromCSV(4)
+createJsonFromCSV(5)
+createJsonFromCSV(6)

@@ -32,7 +32,11 @@ sf::Color stringToColor(const std::string& color)
         {"red", sf::Color::Red},
         {"blue", sf::Color::Blue},
         {"green", sf::Color::Green},
-        {"black", sf::Color::Black}
+        {"black", sf::Color::Black},
+        {"cyan", sf::Color::Cyan},
+        {"magenta", sf::Color::Magenta},
+        {"yellow", sf::Color::Yellow},
+        {"white", sf::Color::White}
     };
 
     if (colorMap.find(color) != colorMap.end())

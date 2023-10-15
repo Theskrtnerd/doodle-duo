@@ -30,6 +30,28 @@
 		"y" : 240
 	},
 	{
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
+		"type" : "ScreenButton",
+		"x" : 460,
+		"y" : 270
+	},
+	{
+		"colour" : "black",
+		"fontSize" : 36,
+		"text" : "Level 2",
+		"type" : "Text",
+		"x" : 675,
+		"y" : 280
+	},
+	{
+		"action" : "setLevel2",
+		"texture" : "RectangleBox.png",
+		"type" : "ScreenButton",
+		"x" : 635,
+		"y" : 240
+	},
+	{
 		"texture" : "GameBackground.png",
 		"type" : "Background"
 	}

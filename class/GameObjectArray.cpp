@@ -329,6 +329,17 @@ std::map<std::string, CreateFunction> createGameObject = {
         }
     },
     {
+        "Obstacle",
+        [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
+        {
+            int xPos = json_object["x"].asInt();
+            int yPos = json_object["y"].asInt();
+            std::string colour = json_object["colour"].asString();
+    
+            return new Obstacle(xPos, yPos, gameTextures, colour);
+        }
+    },
+    {
         "empty",
         [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
         {

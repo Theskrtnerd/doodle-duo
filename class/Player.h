@@ -10,7 +10,6 @@ class Player : public MoveableObject
 {
     private:
         // Might be boolean for each colour 
-        string color;
         int xStart;
         int yStart;
     

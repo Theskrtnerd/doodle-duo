@@ -12,6 +12,7 @@ class MoveableObject : public GameObject
         double velocityX;
         /// @brief y Velocity
         double velocityY;
+        std::string color;
         
         void updateMovement(GameObjectArray& objects);
         bool moveX(GameObjectArray& objects, int distance);
@@ -60,6 +61,9 @@ class MoveableObject : public GameObject
 
         void setVelocityY(double speed);
         double getVelocityY();
+        
+        void setColorString(std::string color);
+        std::string getColorString();
 
         void gravity(GameObjectArray& objects);
 

@@ -13,6 +13,7 @@
 #include "Lever.h"
 #include "Exit.h"
 #include "Text.h"
+#include "Obstacle.h"
 
 class GameEngine;
 

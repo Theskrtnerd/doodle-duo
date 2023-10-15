@@ -3,7 +3,7 @@
         "type": "Player",
         "colour": "red",
         "x": 500,
-        "y": 400
+        "y": 440
     },
     {
         "type": "Cell",
@@ -27,7 +27,7 @@
         "type": "Player",
         "colour": "blue",
         "x": 600,
-        "y": 400
+        "y": 440
     },
     {
         "type": "Door",
@@ -642,22 +642,22 @@
         "y": 360
     },
     {
-        "type": "Cell",
-        "texture": "Cell3.png",
+        "type": "Obstacle",
+        "colour": "red",
         "x": 440,
-        "y": 360
+        "y": 720
     },
     {
-        "type": "Cell",
-        "texture": "Cell3.png",
+        "type": "Obstacle",
+        "colour": "red",
         "x": 480,
-        "y": 360
+        "y": 720
     },
     {
-        "type": "Cell",
-        "texture": "Cell.png",
+        "type": "Obstacle",
+        "colour": "red",
         "x": 520,
-        "y": 360
+        "y": 720
     },
     {
         "type": "Cell",
@@ -1035,24 +1035,6 @@
         "type": "Cell",
         "texture": "Cell.png",
         "x": 400,
-        "y": 720
-    },
-    {
-        "type": "Cell",
-        "texture": "Cell1.png",
-        "x": 440,
-        "y": 720
-    },
-    {
-        "type": "Cell",
-        "texture": "Cell3.png",
-        "x": 480,
-        "y": 720
-    },
-    {
-        "type": "Cell",
-        "texture": "Cell3.png",
-        "x": 520,
         "y": 720
     },
     {

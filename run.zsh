@@ -20,6 +20,7 @@ source_files=(
     class/Lever.cpp
     class/Exit.cpp
     class/Text.cpp
+    class/Obstacle.cpp
 )
 
 # Compile the C++ code

@@ -20,16 +20,18 @@ bool isKeyPressed(sf::Keyboard::Key key)
 }
 
 Player::Player()
-    : MoveableObject(), color("Red")
+    : MoveableObject()
     {
         //this->setTextureFromFile("stick_figure.png");
         //this->setTextureFromFile("brick.png");
     }
 
 Player::Player(int x, int y, std::string color_, GameTextures& gameTextures)
-    : MoveableObject(x, y, gameTextures), color(color_), xStart(x), yStart(y)
+    : MoveableObject(x, y, gameTextures), xStart(x), yStart(y)
     {
-        this->setTextureFromFile(gameTextures, "Player"+color_+".png");
+        this->setColorString(color_);
+        this->setTextureFromFile(gameTextures, "Player.png");
+        this->setColor(this->getColorString());
     }
 
 bool Player::update(GameObjectArray& objects)
@@ -49,7 +51,7 @@ bool Player::update(GameObjectArray& objects)
 
 std::string Player::collisionType()
 {
-    return "player "+color;
+    return "player "+ getColorString();
 }
 
 void Player::reset(GameObjectArray& objects)
@@ -58,14 +60,14 @@ void Player::reset(GameObjectArray& objects)
 }
 
 void Player::playerInputs(GameObjectArray& objects) {
-    if (color != "red")
+    if (getColorString() != "red")
     {
         if (isKeyPressed(sf::Keyboard::Up)) jump(objects);
         if (isKeyPressed(sf::Keyboard::Down)) interact(objects);
         if (isKeyPressed(sf::Keyboard::Right)) moveRight();
         if (isKeyPressed(sf::Keyboard::Left)) moveLeft();
     }
-    if (color != "blue")
+    if (getColorString() != "blue")
     {
         if (isKeyPressed(sf::Keyboard::W)) jump(objects);
         if (isKeyPressed(sf::Keyboard::S)) interact(objects);

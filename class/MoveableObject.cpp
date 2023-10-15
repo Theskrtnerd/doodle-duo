@@ -10,7 +10,8 @@ MoveableObject::MoveableObject():
 MoveableObject::MoveableObject(int x, int y, GameTextures& gameTextures):
     GameObject(x, y, gameTextures),
     velocityX(0),
-    velocityY(0)
+    velocityY(0),
+    color("None")
     {}
 
 bool MoveableObject::update(GameObjectArray& objects)
@@ -80,6 +81,16 @@ void MoveableObject::setVelocityY(double speed)
 
 double MoveableObject::getVelocityY()
 { return velocityY; }
+
+void MoveableObject::setColorString(std::string color)
+{
+    this->color = color;
+}
+
+std::string MoveableObject::getColorString()
+{
+    return color;
+}
 
 void MoveableObject::gravity(GameObjectArray& objects) {
     if (!objects.isGrounded(*this)) setVelocityY(getVelocityY() + 1);
@@ -153,13 +164,18 @@ bool MoveableObject::moveXbyOne(GameObjectArray& objects)
     int newX = currentX + ((velocityX > 0) ? 1 : -1);
     setPosition(newX, currentY);
 
+
+    if (color == "red" && objects.isCollidingWith(*this, "obstacle blue")) objects.resetAll();
+    if (color == "blue" && objects.isCollidingWith(*this, "obstacle red")) objects.resetAll();
+    
     // Check for Collision with immovable object
-    if (objects.isCollidingWith(*this, "immoveable"))
+    if (objects.isCollidingWith(*this, "immoveable") || objects.isCollidingWith(*this, "obstacle blue") || objects.isCollidingWith(*this, "obstacle red"))
     {
         stopHorizontalMovement();
         setPosition(currentX, currentY);
         return true;    // Collision detected
     }
+
     return false;       // No collision
 }
 
@@ -173,8 +189,11 @@ bool MoveableObject::moveYbyOne(GameObjectArray& objects)
     int newY = currentY + ((velocityY > 0) ? 1 : -1);
     setPosition(currentX, newY);
 
+    if (color == "red" && objects.isCollidingWith(*this, "obstacle blue")) objects.resetAll();
+    if (color == "blue" && objects.isCollidingWith(*this, "obstacle red")) objects.resetAll();
+
     // Check for collision with immovable objects
-    if (objects.isCollidingWith(*this, "immoveable"))
+    if (objects.isCollidingWith(*this, "immoveable") || objects.isCollidingWith(*this, "obstacle blue") || objects.isCollidingWith(*this, "obstacle red"))
     {
         stopVerticalMovement();
         setPosition(currentX, currentY);

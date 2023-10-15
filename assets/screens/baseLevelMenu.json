@@ -1,0 +1,17 @@
+[
+	{
+		"action" : "homeScreen",
+		"texture" : "ReturnArrow.png",
+		"type" : "ScreenButton",
+		"x" : 90,
+		"y" : 60
+	},
+	{
+		"colour" : "black",
+		"fontSize" : 80,
+		"text" : "Game levels",
+		"type" : "Text",
+		"x" : 340,
+		"y" : 40
+	}
+]

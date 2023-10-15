@@ -77,17 +77,18 @@ std::string GetParentPath() {
     return parentPath.string()+"/";
 }
 
-void generateGreenTicksForLevelMenu(int current_level){
-    std::map<int, std::tuple<int, int>> objectMap;
+void generateLevelMenu(int max_level){
+    std::map<int, std::tuple<int, int, int, int, int, int>> objectMap;
 
-    objectMap[1] = std::make_tuple(460, 270);
-    objectMap[2] = std::make_tuple(460, 420);
-    objectMap[3] = std::make_tuple(460, 570);
-    objectMap[4] = std::make_tuple(860, 270);
-    objectMap[5] = std::make_tuple(860, 420);
-    objectMap[6] = std::make_tuple(860, 570);
+    objectMap[1] = std::make_tuple(460,270,275,280,235,240);
+    objectMap[2] = std::make_tuple(860,270,675,280,635,240);
+    objectMap[3] = std::make_tuple(460,420,275,430,235,390);
+    objectMap[4] = std::make_tuple(860,420,675,430,635,385);
+    objectMap[5] = std::make_tuple(460,570,275,575,235,540);
+    objectMap[6] = std::make_tuple(860,570,675,575,635,540);
 
-    std::ifstream inputFile("assets/screens/levelMenu.json");
+
+    std::ifstream inputFile("assets/screens/baseLevelMenu.json");
 
     if (!inputFile.is_open()) {
         std::cerr << "Failed to open the input JSON file." << std::endl;
@@ -96,22 +97,53 @@ void generateGreenTicksForLevelMenu(int current_level){
     Json::Value jsonData;
     inputFile >> jsonData;
     inputFile.close();
-    for (int i =1;i<=current_level;i++){
-        // Create a new object to add
-        Json::Value newObject;
-        std::tuple<int,int> value = objectMap[i];
-        newObject["type"] = "ScreenButton";
-        newObject["texture"] = "BlackTick.png";
-        newObject["action"] = "doNothing";
-        newObject["x"] = std::get<0>(value);
-        newObject["y"] = std::get<1>(value);
 
-        // Append the new object to the existing JSON array
-        jsonData.append(newObject);
+    // Define Black Tick Object
+    Json::Value BlackTick;
+    BlackTick["type"] = "ScreenButton";
+    BlackTick["texture"] = "BlackTick.png";
+    BlackTick["action"] = "doNothing";
 
-        std::cout << "added object number "+std::to_string(i) + " into game" << std::endl;
+    // Define Level Text Object
+    Json::Value LevelText;
+    LevelText["type"] = "Text";
+    LevelText["colour"] = "black";
+    LevelText["fontSize"] = 36;
+
+    // Define Level Box Object
+    Json::Value LevelBox;
+    LevelBox["type"] = "ScreenButton";
+    LevelBox["texture"] = "RectangleBox.png";
+
+    for (int i =1;i<=max_level;i++){
+
+        if(i > 1){
+            std::tuple<int,int,int,int,int,int> value = objectMap[i-1];
+            BlackTick["x"] = std::get<0>(value);
+            BlackTick["y"] = std::get<1>(value);
+            jsonData.append(BlackTick);
+        }
+
+        if(i!=7){
+            std::tuple<int,int,int,int,int,int> value = objectMap[i];
+            LevelText["text"] = "Level "+std::to_string(i);
+            LevelText["x"] = std::get<2>(value);
+            LevelText["y"] = std::get<3>(value);
+            jsonData.append(LevelText);
+
+            LevelBox["action"] = "setLevel"+std::to_string(i);
+            LevelBox["x"] = std::get<4>(value);
+            LevelBox["y"] = std::get<5>(value);
+            jsonData.append(LevelBox);
+        }
     }
 
+    Json::Value newObject;
+    newObject["type"] = "Background";
+    newObject["texture"] = "GameBackground.png";
+    jsonData.append(newObject);
+    std::cout << "added background into game" << std::endl;
+    
 
     // Write the updated JSON data back to the file
     std::ofstream outputFile("assets/screens/levelMenu.json");

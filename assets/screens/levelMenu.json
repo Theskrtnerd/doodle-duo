@@ -30,34 +30,11 @@
 		"y" : 240
 	},
 	{
-		"colour" : "black",
-		"fontSize" : 36,
-		"text" : "Level 3",
-		"type" : "Text",
-		"x" : 275,
-		"y" : 430
-	},
-	{
-		"action" : "setLevel3",
-		"texture" : "RectangleBox.png",
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
 		"type" : "ScreenButton",
-		"x" : 235,
-		"y" : 390
-	},
-	{
-		"colour" : "black",
-		"fontSize" : 36,
-		"text" : "Level 5",
-		"type" : "Text",
-		"x" : 275,
-		"y" : 575
-	},
-	{
-		"action" : "setLevel5",
-		"texture" : "RectangleBox.png",
-		"type" : "ScreenButton",
-		"x" : 235,
-		"y" : 540
+		"x" : 460,
+		"y" : 270
 	},
 	{
 		"colour" : "black",
@@ -75,6 +52,35 @@
 		"y" : 240
 	},
 	{
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
+		"type" : "ScreenButton",
+		"x" : 860,
+		"y" : 270
+	},
+	{
+		"colour" : "black",
+		"fontSize" : 36,
+		"text" : "Level 3",
+		"type" : "Text",
+		"x" : 275,
+		"y" : 430
+	},
+	{
+		"action" : "setLevel3",
+		"texture" : "RectangleBox.png",
+		"type" : "ScreenButton",
+		"x" : 235,
+		"y" : 390
+	},
+	{
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
+		"type" : "ScreenButton",
+		"x" : 460,
+		"y" : 420
+	},
+	{
 		"colour" : "black",
 		"fontSize" : 36,
 		"text" : "Level 4",
@@ -88,6 +94,35 @@
 		"type" : "ScreenButton",
 		"x" : 635,
 		"y" : 385
+	},
+	{
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
+		"type" : "ScreenButton",
+		"x" : 860,
+		"y" : 420
+	},
+	{
+		"colour" : "black",
+		"fontSize" : 36,
+		"text" : "Level 5",
+		"type" : "Text",
+		"x" : 275,
+		"y" : 575
+	},
+	{
+		"action" : "setLevel5",
+		"texture" : "RectangleBox.png",
+		"type" : "ScreenButton",
+		"x" : 235,
+		"y" : 540
+	},
+	{
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
+		"type" : "ScreenButton",
+		"x" : 460,
+		"y" : 570
 	},
 	{
 		"colour" : "black",
@@ -105,14 +140,14 @@
 		"y" : 540
 	},
 	{
-		"texture" : "GameBackground.png",
-		"type" : "Background"
-	},
-	{
 		"action" : "doNothing",
 		"texture" : "BlackTick.png",
 		"type" : "ScreenButton",
-		"x" : 460,
-		"y" : 270
+		"x" : 860,
+		"y" : 570
+	},
+	{
+		"texture" : "GameBackground.png",
+		"type" : "Background"
 	}
 ]

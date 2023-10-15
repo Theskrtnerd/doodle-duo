@@ -16,7 +16,7 @@ int cellSize = 40;
 
 
 GameEngine::GameEngine(int width, int height, const std::string &title)
-: window(sf::VideoMode(width, height), title), screen_open(true), level_changed(false), screen_display("homeScreen"), screen_moved(false), current_level(1)
+: window(sf::VideoMode(width, height), title), screen_open(true), level_changed(false), screen_display("homeScreen"), screen_moved(false), current_level(1), max_level(1)
 {
     int framePerSecond = 40;
     window.setFramerateLimit(framePerSecond);
@@ -32,8 +32,14 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 
 void GameEngine::run()
 {
-    std::string gameLevel = "assets/levels/level"+std::to_string(current_level)+".json";
-    gameObjects->populateFromJson(gameLevel);
+    if(max_level < 7){
+        std::string gameLevel = "assets/levels/level"+std::to_string(max_level)+".json";
+        gameObjects->populateFromJson(gameLevel);
+    }
+    else{
+        std::string gameLevel = "assets/levels/level"+std::to_string(1)+".json";
+        gameObjects->populateFromJson(gameLevel);
+    }
 
     std::string screenPath = "assets/screens/"+screen_display+".json";
     screen->populateFromJson(screenPath);
@@ -113,29 +119,55 @@ void GameEngine::moveScreen(std::string screen_display_)
     screen_display = screen_display_;
     screen_moved = true;
     if (screen_display == "levelMenu"){
-        //generateGreenTicksForLevelMenu(current_level);
+        generateLevelMenu(max_level);
     }
 }
 
 void GameEngine::loadNextLevel()
 {
-    if(current_level <6){
-        current_level++;
-        level_changed = true;
-    }
-    if(current_level == 6){
-        moveScreen("levelMenu");
-        openScreen();
+    if(max_level <7){
+        if(max_level <6 && current_level == max_level){
+            max_level++;
+            current_level++;
+            level_changed = true;
+        }
+        else{
+            if(max_level == 6 && current_level == max_level){
+                max_level++;
+                moveScreen("levelMenu");
+                gameObjects->clearObjects();
+                openScreen();
+                level_changed = false;
+            }
+            else{
+                if(current_level <6){
+                    current_level++;
+                    level_changed = true;
+                }
+            }   
+        }
     }
 }
 
 void GameEngine::setLevel(int target_level)
 {
-    if(current_level >= target_level){
+    if(max_level >= target_level){
         current_level = target_level;
         level_changed = true;
         closeScreen();
     }
+}
+
+void GameEngine::setMaxLevel()
+{
+    if(max_level < 7){
+        current_level = max_level;
+    }
+    else{
+        current_level = 1;
+    }
+    level_changed = true;
+    closeScreen();
 }
 
 void GameEngine::resetLevel()

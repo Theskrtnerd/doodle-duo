@@ -26,7 +26,7 @@
     {
         "type": "ScreenButton",
         "texture": "RectangleBox.png",
-        "action": "closeScreen",
+        "action": "toMaxLevel",
         "x": 440,
         "y": 305
     },

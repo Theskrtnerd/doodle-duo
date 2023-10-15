@@ -99,6 +99,11 @@ const std::map<std::string, std::function<void(GameEngine&)>> ScreenButton::acti
         engine.openScreen();
         }
     },
+    {"toMaxLevel", [](GameEngine& engine)
+        {
+        engine.setMaxLevel();
+        }
+    },
     {"setLevel1", [](GameEngine& engine)
         {
         engine.setLevel(1);
@@ -131,7 +136,6 @@ const std::map<std::string, std::function<void(GameEngine&)>> ScreenButton::acti
     },
     {"doNothing", [](GameEngine& engine)
         {
-        engine.setLevel(6);
         }
     },
 };

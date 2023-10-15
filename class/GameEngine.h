@@ -16,6 +16,7 @@ public:
     void openScreen();
     void moveScreen(std::string screen_display);
     void setLevel(int target_level);
+    void setMaxLevel();
     void resetLevel();
     void loadNextLevel();
 
@@ -25,6 +26,7 @@ private:
     std::string screen_display;
     bool screen_open;
     bool screen_moved;
+    int max_level;
     int current_level;
     sf::RenderWindow window;
     sf::Sprite backgroundSprite;

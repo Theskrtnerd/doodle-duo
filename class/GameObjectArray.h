@@ -38,6 +38,7 @@ class GameObjectArray
         void drawAll(sf::RenderWindow &window);
         void clickAll(int xPos, int yPos, GameEngine& engine);
         void tellAll(std::string channel, std::string signal);
+        void resetAll();
 
         GameObject* findColliding(GameObject& object);
         bool isCollidingWith(GameObject& object, std::string collision_type);

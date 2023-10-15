@@ -23,6 +23,7 @@ class Lever : public ImmoveableObject
         virtual void interactWith(GameObjectArray& objects) override;
         virtual bool update(GameObjectArray& object) override;
         virtual std::string collisionType() override;
+        virtual void reset(GameObjectArray& objects) override;
 };
 
 #endif

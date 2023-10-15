@@ -27,7 +27,7 @@ Player::Player()
     }
 
 Player::Player(int x, int y, std::string color_, GameTextures& gameTextures)
-    : MoveableObject(x, y, gameTextures), color(color_)
+    : MoveableObject(x, y, gameTextures), color(color_), xStart(x), yStart(y)
     {
         this->setTextureFromFile(gameTextures, "Player"+color_+".png");
     }
@@ -50,6 +50,11 @@ bool Player::update(GameObjectArray& objects)
 std::string Player::collisionType()
 {
     return "player "+color;
+}
+
+void Player::reset(GameObjectArray& objects)
+{
+    this->setPosition(xStart, yStart);
 }
 
 void Player::playerInputs(GameObjectArray& objects) {

@@ -97,6 +97,17 @@ void GameObjectArray::tellAll(std::string channel, std::string signal)
     }
 }
 
+void GameObjectArray::resetAll()
+{
+    for (int index = 0; index < max_objects; index++)
+    {
+        if (objects[index] != nullptr)
+        {
+            objects[index]->reset(*this);
+        }    
+    }
+}
+
 GameObject* GameObjectArray::findColliding(GameObject& object)
 {
     GameObject* otherObject;

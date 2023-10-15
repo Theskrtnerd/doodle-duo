@@ -70,3 +70,8 @@ std::string Lever::collisionType()
 {
     return "intractable";
 }
+
+void Lever::reset(GameObjectArray& objects)
+{
+    turnOff(objects);
+}

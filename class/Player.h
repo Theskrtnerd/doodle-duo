@@ -11,6 +11,8 @@ class Player : public MoveableObject
     private:
         // Might be boolean for each colour 
         string color;
+        int xStart;
+        int yStart;
     
     public:
         Player();
@@ -20,6 +22,7 @@ class Player : public MoveableObject
 
         virtual bool update(GameObjectArray& objects) override;
         virtual std::string collisionType() override;
+        virtual void reset(GameObjectArray& objects) override;
 
         void playerInputs(GameObjectArray& objects);
 

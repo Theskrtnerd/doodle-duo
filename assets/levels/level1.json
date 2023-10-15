@@ -6,6 +6,24 @@
         "y": 400
     },
     {
+        "type": "Cell",
+        "texture": "CellInvisible.png",
+        "x": 1120,
+        "y": 720
+    },
+    {
+        "type": "Cell",
+        "texture": "CellInvisible.png",
+        "x": 40,
+        "y": 720
+    },
+    {
+        "type": "Cell",
+        "texture": "CellInvisible.png",
+        "x": 80,
+        "y": 720
+    },
+    {
         "type": "Player",
         "colour": "blue",
         "x": 600,
@@ -1284,6 +1302,13 @@
         "texture": "SettingsGear.png",
         "action": "openSettings",
         "x": 1120,
+        "y": 720
+    },
+    {
+        "type": "ScreenButton",
+        "texture": "3x2.png",
+        "action": "EASTER",
+        "x": 0,
         "y": 720
     },
     {

@@ -134,4 +134,9 @@ const std::map<std::string, std::function<void(GameEngine&)>> ScreenButton::acti
         engine.setLevel(6);
         }
     },
+    {"EASTER", [](GameEngine& engine)
+        {
+        std::cout << "Fireboy and Watergirl" << std::endl;
+        }
+    }
 };

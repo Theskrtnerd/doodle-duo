@@ -55,6 +55,8 @@ public:
 
     /// @brief Loads the next game level.
     void loadNextLevel();
+
+    void updateUserCurrentLevel();
 };
 
 #endif

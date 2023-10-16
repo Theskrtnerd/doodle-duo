@@ -162,3 +162,36 @@ void generateLevelMenu(int max_level){
     jsonWriter->write(jsonData, &outputFile);
     outputFile.close();
 }
+
+void updateCurrentLevel(const std::string& filename, int newLevel) {
+    Json::CharReaderBuilder reader;
+    Json::Value root;
+    std::ifstream file(filename, std::ifstream::binary);
+    
+    if (!file.is_open()) {
+        std::cerr << "Failed to open the JSON file." << std::endl;
+        return;  // Change to void, so we just return without a value
+    }
+    
+    Json::String errs;
+    if (Json::parseFromStream(reader, file, &root, &errs)) {
+        // Update the 'currentLevel' field
+        root["currentLevel"] = newLevel;
+        
+        // Write the updated JSON back to the file
+        std::ofstream outFile(filename, std::ofstream::binary);
+        
+        if (!outFile.is_open()) {
+            std::cerr << "Failed to open the JSON file for writing." << std::endl;
+            return;  // Change to void, so we just return without a value
+        }
+        
+        Json::StreamWriterBuilder writer;
+        std::string jsonString = Json::writeString(writer, root);
+        outFile << jsonString;
+        outFile.close();
+    } else {
+        std::cerr << "Failed to parse the JSON file: " << errs << std::endl;
+        return;  // Change to void, so we just return without a value
+    }
+}

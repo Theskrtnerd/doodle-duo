@@ -16,8 +16,9 @@ int cellSize = 40;
 
 
 GameEngine::GameEngine(int width, int height, const std::string &title)
-: window(sf::VideoMode(width, height), title), screen_open(true), level_changed(false), screen_display("homeScreen"), screen_moved(false), current_level(1), max_level(6)
+: window(sf::VideoMode(width, height), title), screen_open(true), level_changed(false), screen_display("homeScreen"), screen_moved(false), current_level(1), max_level(1)
 {
+
     int framePerSecond = 40;
     window.setFramerateLimit(framePerSecond);
     window.setPosition(sf::Vector2i(200, 200));
@@ -32,6 +33,10 @@ GameEngine::GameEngine(int width, int height, const std::string &title)
 
 void GameEngine::run()
 {
+    std::string json_path = "user_data.json";
+    Json::Value json_file = readJSONFile(json_path);
+    max_level = json_file["currentLevel"].asInt();
+
     if(max_level < 7){
         std::string gameLevel = "assets/levels/level"+std::to_string(max_level)+".json";
         gameObjects->populateFromJson(gameLevel);
@@ -52,6 +57,7 @@ void GameEngine::run()
         while (window.pollEvent(windowEvent))
         {
             if (windowEvent.type == sf::Event::Closed){
+                updateUserCurrentLevel();
                 window.close();
             }
 
@@ -179,4 +185,9 @@ void GameEngine::setMaxLevel()
 void GameEngine::resetLevel()
 {
     gameObjects->resetAll();
+}
+
+void GameEngine::updateUserCurrentLevel()
+{
+    updateCurrentLevel("user_data.json", max_level);
 }

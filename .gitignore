@@ -1,3 +1,4 @@
 .vscode/
-assets/screens/levelMenu.json
 doodle_duo
+assets/screens/levelMenu.json
+compile.py

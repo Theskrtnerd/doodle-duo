@@ -146,7 +146,6 @@ void generateLevelMenu(int max_level){
     newObject["type"] = "Background";
     newObject["texture"] = "GameBackground.png";
     jsonData.append(newObject);
-    std::cout << "added background into game" << std::endl;
     
 
     // Write the updated JSON data back to the file

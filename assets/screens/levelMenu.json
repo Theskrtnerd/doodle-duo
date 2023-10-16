@@ -30,6 +30,123 @@
 		"y" : 240
 	},
 	{
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
+		"type" : "ScreenButton",
+		"x" : 460,
+		"y" : 270
+	},
+	{
+		"colour" : "black",
+		"fontSize" : 36,
+		"text" : "Level 2",
+		"type" : "Text",
+		"x" : 675,
+		"y" : 280
+	},
+	{
+		"action" : "setLevel2",
+		"texture" : "RectangleBox.png",
+		"type" : "ScreenButton",
+		"x" : 635,
+		"y" : 240
+	},
+	{
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
+		"type" : "ScreenButton",
+		"x" : 860,
+		"y" : 270
+	},
+	{
+		"colour" : "black",
+		"fontSize" : 36,
+		"text" : "Level 3",
+		"type" : "Text",
+		"x" : 275,
+		"y" : 430
+	},
+	{
+		"action" : "setLevel3",
+		"texture" : "RectangleBox.png",
+		"type" : "ScreenButton",
+		"x" : 235,
+		"y" : 390
+	},
+	{
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
+		"type" : "ScreenButton",
+		"x" : 460,
+		"y" : 420
+	},
+	{
+		"colour" : "black",
+		"fontSize" : 36,
+		"text" : "Level 4",
+		"type" : "Text",
+		"x" : 675,
+		"y" : 430
+	},
+	{
+		"action" : "setLevel4",
+		"texture" : "RectangleBox.png",
+		"type" : "ScreenButton",
+		"x" : 635,
+		"y" : 385
+	},
+	{
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
+		"type" : "ScreenButton",
+		"x" : 860,
+		"y" : 420
+	},
+	{
+		"colour" : "black",
+		"fontSize" : 36,
+		"text" : "Level 5",
+		"type" : "Text",
+		"x" : 275,
+		"y" : 575
+	},
+	{
+		"action" : "setLevel5",
+		"texture" : "RectangleBox.png",
+		"type" : "ScreenButton",
+		"x" : 235,
+		"y" : 540
+	},
+	{
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
+		"type" : "ScreenButton",
+		"x" : 460,
+		"y" : 570
+	},
+	{
+		"colour" : "black",
+		"fontSize" : 36,
+		"text" : "Level 6",
+		"type" : "Text",
+		"x" : 675,
+		"y" : 575
+	},
+	{
+		"action" : "setLevel6",
+		"texture" : "RectangleBox.png",
+		"type" : "ScreenButton",
+		"x" : 635,
+		"y" : 540
+	},
+	{
+		"action" : "doNothing",
+		"texture" : "BlackTick.png",
+		"type" : "ScreenButton",
+		"x" : 860,
+		"y" : 570
+	},
+	{
 		"texture" : "GameBackground.png",
 		"type" : "Background"
 	}

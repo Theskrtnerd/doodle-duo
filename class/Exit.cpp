@@ -19,25 +19,28 @@ std::string Exit::collisionType()
 bool Exit::isReady(GameObjectArray& objects)
 {
     bool output = true;
-    
     int initialX = getX();
     int initialY = getY();
 
-    this->setPosition(getX()+15, getY());
-    output &= objects.isCollidingWith(*this, "player "+color);
+    this->setPosition(initialX+15, initialY);
+    if (!objects.isCollidingWith(*this, "player " + color)) output = false;
     this->setPosition(initialX, initialY);
+    if (!output) return false;
 
-    this->setPosition(getX()-15, getY());
-    output &= objects.isCollidingWith(*this, "player "+color);
+    this->setPosition(initialX-15, initialY);
+    if (!objects.isCollidingWith(*this, "player " + color)) output = false;
     this->setPosition(initialX, initialY);
+    if (!output) return false;
 
-    this->setPosition(getX(), getY()+15);
-    output &= objects.isCollidingWith(*this, "player "+color);
+    this->setPosition(initialX, initialY+15);
+    if (!objects.isCollidingWith(*this, "player " + color)) output = false;
     this->setPosition(initialX, initialY);
+    if (!output) return false;
 
-    this->setPosition(getX(), getY()-15);
-    output &= objects.isCollidingWith(*this, "player "+color);
+    this->setPosition(initialX, initialY-15);
+    if (!objects.isCollidingWith(*this, "player " + color)) output = false;
     this->setPosition(initialX, initialY);
+    if (!output) return false;
 
-    return output;
+    return true;
 }

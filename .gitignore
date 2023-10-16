@@ -1,8 +1,5 @@
 
-run
-a.exe
-a.out
-compile.py
 .vscode/
+assets/screens/levelMenu.json
 
 doodle_duo

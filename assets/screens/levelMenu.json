@@ -140,13 +140,6 @@
 		"y" : 540
 	},
 	{
-		"action" : "doNothing",
-		"texture" : "BlackTick.png",
-		"type" : "ScreenButton",
-		"x" : 860,
-		"y" : 570
-	},
-	{
 		"texture" : "GameBackground.png",
 		"type" : "Background"
 	}

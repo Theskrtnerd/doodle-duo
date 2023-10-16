@@ -73,7 +73,7 @@ def createJsonFromCSV(level):
     func_map = {'c': cell, 'i': invisCell, 'p': player, 'd': door, 'b': button, 'l': lever, 'e': exit, 'o': obstacle}
     color_map = {'r': 'red', 'b': 'blue', 'g': 'green', 'y': 'yellow', 'm': 'magenta', 'c': 'cyan'}
 
-    csv_file_path = f"levelCreator/levels - Lv{level}.csv"
+    csv_file_path = f"levelCreator/Levels - Lv{level}.csv"
     json_file_path = f"assets/levels/level{level}.json"
     output = []
     

@@ -164,17 +164,11 @@ bool GameObjectArray::isGrounded(GameObject& object) {
     // Check just below the object
     object.setPosition(originalX, originalY + 1); 
 
-    GameObject* collidingObject = findColliding(object);
+    if (isCollidingWith(object, "immoveable")) output = true;
+    if (isCollidingWith(object, "obstacle blue")) output = true;
+    if (isCollidingWith(object, "obstacle red")) output = true;
 
-    // Reset the object's position
     object.setPosition(originalX, originalY);
-
-    if (collidingObject)
-    {
-        if (collidingObject->collisionType() == "immoveable") output = true;
-        if (collidingObject->collisionType() == "obstacle blue") output = true;
-        if (collidingObject->collisionType() == "obstacle red") output = true;
-    }
 
     
     return output;

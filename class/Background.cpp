@@ -3,6 +3,7 @@
 #include "Background.h"
 
 Background::Background(const std::string& textureFile, GameTextures& gameTextures)
+: GameObject(0, 0, gameTextures)
 {
     // Set the texture using the provided file
     this->setTextureFromFile(gameTextures, textureFile);

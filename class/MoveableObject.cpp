@@ -1,18 +1,14 @@
 #include "MoveableObject.h"
 #include "GameObjectArray.h"
 
-MoveableObject::MoveableObject():
-    GameObject(),
-    velocityX(0),
-    velocityY(0)
-    {}
-
 MoveableObject::MoveableObject(int x, int y, GameTextures& gameTextures):
     GameObject(x, y, gameTextures),
     velocityX(0),
     velocityY(0),
     color("None")
     {}
+
+MoveableObject::~MoveableObject() {}
 
 bool MoveableObject::update(GameObjectArray& objects)
     {
@@ -79,8 +75,6 @@ std::string MoveableObject::getColorString()
 void MoveableObject::gravity(GameObjectArray& objects) {
     if (!objects.isGrounded(*this)) setVelocityY(getVelocityY() + 1);
 }
-
-MoveableObject::~MoveableObject() {}
 
 // Private Methods
 void MoveableObject::updateMovement(GameObjectArray& objects)

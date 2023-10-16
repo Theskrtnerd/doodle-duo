@@ -19,13 +19,6 @@ bool isKeyPressed(sf::Keyboard::Key key)
     return sf::Keyboard::isKeyPressed(key);
 }
 
-Player::Player()
-    : MoveableObject()
-    {
-        //this->setTextureFromFile("stick_figure.png");
-        //this->setTextureFromFile("brick.png");
-    }
-
 Player::Player(int x, int y, std::string color_, GameTextures& gameTextures)
     : MoveableObject(x, y, gameTextures), xStart(x), yStart(y)
     {

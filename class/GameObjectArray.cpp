@@ -341,7 +341,7 @@ std::map<std::string, CreateFunction> createGameObject = {
         "empty",
         [](Json::Value& json_object, GameTextures& gameTextures) -> GameObject*
         {
-            return new GameObject();
+            return new GameObject(0, 0, gameTextures);
         }
     }
 };

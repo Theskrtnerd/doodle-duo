@@ -3,6 +3,7 @@
 #include "GameObjectArray.h"
 
 ScreenButton::ScreenButton(const std::string& textureFile, GameTextures& gameTextures, int xPos, int yPos)
+: GameObject(xPos, yPos, gameTextures)
 {
     // Set the texture using the provided file
     this->setTextureFromFile(gameTextures, textureFile);

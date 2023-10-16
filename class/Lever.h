@@ -4,26 +4,53 @@
 #include "ImmoveableObject.h"
 #include <string>
 
+/// @brief Lever class for controlling in-game mechanisms
 class Lever : public ImmoveableObject
 {
-    private:
-        bool isOn;
-        std::string color;
-        GameTextures& gameTextures;
-        int cooldown;
+private:
+    bool isOn;                  ///< Lever state (on/off)
+    std::string color;          ///< color of the lever and its associated channel
+    GameTextures& gameTextures; ///< pre loaded textures for lever states
+    int cooldown;               ///< Cooldown time between toggles
 
-        void turnOn(GameObjectArray& objects);
-        void turnOff(GameObjectArray& objects);
-        void updateTexture();
+    /// @brief Turns the lever on
+    /// @param objects Reference to the GameObjectArray
+    void turnOn(GameObjectArray& objects);
 
-    public:
-        Lever(int x, int y, GameTextures& gameTextures, std::string colour);
-        ~Lever();
+    /// @brief Turns the lever off
+    /// @param objects Reference to the GameObjectArray
+    void turnOff(GameObjectArray& objects);
 
-        virtual void interactWith(GameObjectArray& objects) override;
-        virtual bool update(GameObjectArray& object) override;
-        virtual std::string collisionType() override;
-        virtual void reset(GameObjectArray& objects) override;
+    /// @brief Updates the lever texture based on its state
+    void updateTexture();
+
+public:
+    /// @brief Constructs a lever instance
+    /// @param x x-coordinate
+    /// @param y y-coordinate
+    /// @param gameTextures Reference to pre-loaded textures
+    /// @param colour color of the lever and its associated channel
+    Lever(int x, int y, GameTextures& gameTextures, std::string colour);
+
+    /// @brief Destructs the lever instance
+    ~Lever();
+
+    /// @brief Interacts with the lever
+    /// @param objects Reference to the GameObjectArray
+    virtual void interactWith(GameObjectArray& objects) override;
+
+    /// @brief Updates the lever state
+    /// @param object Reference to the GameObjectArray
+    /// @return Update status
+    virtual bool update(GameObjectArray& object) override;
+
+    /// @brief Gets the collision type
+    /// @return Collision type as a string, "Lever"
+    virtual std::string collisionType() override;
+
+    /// @brief Resets the lever to its default state
+    /// @param objects Reference to the GameObjectArray
+    virtual void reset(GameObjectArray& objects) override;
 };
 
 #endif

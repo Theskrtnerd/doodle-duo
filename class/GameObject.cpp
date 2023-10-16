@@ -11,15 +11,6 @@ void GameObject::setTextureFromFile(GameTextures& gameTextures, const std::strin
     sprite.setTextureRect(sf::IntRect(0, 0, texture.getSize().x, texture.getSize().y));
 }
 
-GameObject::GameObject() : x(0), y(0) {
-  if (!texture.loadFromFile("assets/images/Brick.png")) {
-    std::cout << "Error loading texture: brick.png" << std::endl;
-    exit(1);
-  }
-  sprite.setTexture(texture);
-  sprite.setPosition(static_cast<float>(x), static_cast<float>(y));
-}
-
 GameObject::GameObject(int xPos, int yPos, GameTextures& gameTextures)
 : x(xPos), y(yPos)
 {

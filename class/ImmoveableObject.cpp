@@ -1,7 +1,6 @@
 #include <iostream>
 #include "ImmoveableObject.h"
 
-ImmoveableObject::ImmoveableObject(){};
 
 ImmoveableObject::ImmoveableObject(int x_, int y_, GameTextures& gameTextures): GameObject(x_, y_, gameTextures){};
 

@@ -5,23 +5,14 @@
 ScreenButton::ScreenButton(const std::string& textureFile, GameTextures& gameTextures, int xPos, int yPos)
 : GameObject(xPos, yPos, gameTextures)
 {
-    // Set the texture using the provided file
     this->setTextureFromFile(gameTextures, textureFile);
 
-    // Optional: Position it at (0, 0) assuming it covers the entire window or screen.
     this->setPosition(xPos, yPos);
 }
 
-void ScreenButton::draw(sf::RenderWindow &window)
-{
-    // Just draw the sprite (you can add additional drawing logic here if needed)
-    window.draw(this->getSprite());
-}
+void ScreenButton::draw(sf::RenderWindow &window) { window.draw(this->getSprite()); }
 
-void ScreenButton::click(int xPos, int yPos, GameEngine& engine)
-{
-    if (withinRange(xPos, yPos)) doAction(engine);
-}
+void ScreenButton::click(int xPos, int yPos, GameEngine& engine) { if (withinRange(xPos, yPos)) doAction(engine); }
 
 void ScreenButton::doAction(GameEngine& engine)
 {
@@ -33,10 +24,7 @@ void ScreenButton::doAction(GameEngine& engine)
 }
 
 
-void ScreenButton::setAction(const std::string& actionName)
-{
-    action = makeAction(actionName);
-}
+void ScreenButton::setAction(const std::string& actionName) { action = makeAction(actionName); }
 
 std::function<void(GameEngine&)> ScreenButton::makeAction(const std::string& actionName)
 {

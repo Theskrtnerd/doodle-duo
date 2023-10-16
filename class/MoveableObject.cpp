@@ -18,21 +18,21 @@ bool MoveableObject::update(GameObjectArray& objects)
         gravity(objects);
         
         this->setPosition(getX(), getY()+1);
+        bool reset = false;
 
-        if (color == "red" && objects.isCollidingWith(*this, "obstacle blue")) objects.resetAll();
-        if (color == "blue" && objects.isCollidingWith(*this, "obstacle red")) objects.resetAll();
-
-        this->setPosition(getX(), getY()-1);
-
-        updateMovement(objects);
+        reset |= color == "red" && objects.isCollidingWith(*this, "obstacle blue");
+        reset |= color == "blue" && objects.isCollidingWith(*this, "obstacle red");
+        if (reset) objects.resetAll();
+        else 
+        {
+            this->setPosition(getX(), getY()-1);
+            updateMovement(objects);
+        }
 
         return true;
     }
 
-void MoveableObject::draw(sf::RenderWindow& window)
-{
-    window.draw(this->getSprite());
-}
+void MoveableObject::draw(sf::RenderWindow& window) { window.draw(this->getSprite()); }
 
 void MoveableObject::stopMovement()
 {
@@ -40,43 +40,27 @@ void MoveableObject::stopMovement()
     stopVerticalMovement();
 }
 
-void MoveableObject::stopHorizontalMovement()
+void MoveableObject::stopHorizontalMovement() { velocityX = 0; }
+
+void MoveableObject::stopVerticalMovement() { velocityY = 0; }
+
+void MoveableObject::setVelocityX(double speed) { velocityX = speed; }
+
+double MoveableObject::getVelocityX() { return velocityX; }
+
+void MoveableObject::setVelocityY(double speed) { velocityY = speed; }
+
+double MoveableObject::getVelocityY() { return velocityY; }
+
+void MoveableObject::setColorString(std::string color) { this->color = color; }
+
+std::string MoveableObject::getColorString() { return color; }
+
+void MoveableObject::gravity(GameObjectArray& objects)
 {
-    velocityX = 0;
-}
-
-void MoveableObject::stopVerticalMovement()
-{
-    velocityY = 0;
-}
-
-void MoveableObject::setVelocityX(double speed)
-{ velocityX = speed; }
-
-double MoveableObject::getVelocityX()
-{ return velocityX; }
-
-void MoveableObject::setVelocityY(double speed)
-{ velocityY = speed; }
-
-double MoveableObject::getVelocityY()
-{ return velocityY; }
-
-void MoveableObject::setColorString(std::string color)
-{
-    this->color = color;
-}
-
-std::string MoveableObject::getColorString()
-{
-    return color;
-}
-
-void MoveableObject::gravity(GameObjectArray& objects) {
     if (!objects.isGrounded(*this)) setVelocityY(getVelocityY() + 1);
 }
 
-// Private Methods
 void MoveableObject::updateMovement(GameObjectArray& objects)
 {
     if (isStationary()) return;
@@ -180,20 +164,11 @@ bool MoveableObject::moveYbyOne(GameObjectArray& objects)
     return false;  // No collision
 }
 
-bool MoveableObject::isStationary()
-{
-    return (velocityX == 0 && velocityY == 0);
-}
+bool MoveableObject::isStationary() { return (velocityX == 0 && velocityY == 0); }
 
-bool MoveableObject::isMovingHorizontally()
-{
-    return (velocityX != 0 && velocityY == 0);
-}
+bool MoveableObject::isMovingHorizontally() { return (velocityX != 0 && velocityY == 0); }
 
-bool MoveableObject::isMovingVertically()
-{
-    return (velocityX == 0 && velocityY != 0);
-}
+bool MoveableObject::isMovingVertically() { return (velocityX == 0 && velocityY != 0); }
 
 int MoveableObject::calcRise()
 {

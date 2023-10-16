@@ -10,7 +10,4 @@ Obstacle::Obstacle(int x, int y, GameTextures& gameTextures, std::string colour)
 
 Obstacle::~Obstacle() {}
 
-std::string Obstacle::collisionType()
-{
-    return "obstacle " + this->color;
-}
+std::string Obstacle::collisionType() { return "obstacle " + this->color; }

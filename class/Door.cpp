@@ -1,18 +1,13 @@
 #include "Door.h"
 
-bool Door::isOpen()
-{
-    return incoming_signals > 0;
-}
+bool Door::isOpen() { return incoming_signals > 0; }
 
 void Door::updateTexture()
 {
-    if (isOpen())
-    {
-        this->setTextureFromFile(textures, "Door_Open.png");
-    } else {
-        this->setTextureFromFile(textures, "Door_Closed.png");
-    }
+    std::string textureFile = isOpen() ? "Door_Open.png" : "Door_Closed.png";
+    
+    this->setTextureFromFile(textures, textureFile);
+
     this->setColor(color);
 }
 
@@ -22,7 +17,8 @@ color(colour),
 incoming_signals(0),
 textures(gameTextures)
 {
-    this->setTextureFromFile(textures, "Door_Closed.png");
+    this->updateTexture();
+
     this->setColor(color);
 }
 
@@ -31,11 +27,7 @@ Door::~Door() {}
 
 bool Door::update(GameObjectArray& objects) { return false; }
 
-std::string Door::collisionType()
-{
-    if (isOpen()) return "open";
-    else return "immoveable";
-}
+std::string Door::collisionType() { return isOpen() ? "open" : "immoveable"; }
 
 void Door::listen(std::string channel, std::string signal)
 {

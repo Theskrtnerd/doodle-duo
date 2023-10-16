@@ -1,35 +1,29 @@
 #include "GameEngine.h"
-
-// adding dependencies for the json reader
 #include <iostream>
 #include <json/json.h>
 #include <fstream>
 #include <sstream>
 #include <string>
 
-
-
-int cellSize = 40;
-
-
-
-
+const int cellSize = 40;
+const int initialPosX = 200;
+const int initialPosY = 200;
 
 GameEngine::GameEngine(int width, int height, const std::string &title)
-: window(sf::VideoMode(width, height), title), screen_open(true), level_changed(false), screen_display("homeScreen"), screen_moved(false), current_level(1), max_level(1)
+: window(sf::VideoMode(width, height), title),
+screen_open(true),
+level_changed(false),
+screen_display("homeScreen"),
+screen_moved(false),
+current_level(1),
+max_level(1),
+gameObjects(new GameObjectArray(this)),
+screen(new GameObjectArray(this))
 {
-
     int framePerSecond = 40;
     window.setFramerateLimit(framePerSecond);
-    window.setPosition(sf::Vector2i(200, 200));
-
-    gameObjects = new GameObjectArray(this);
-    screen = new GameObjectArray(this);
+    window.setPosition(sf::Vector2i(initialPosX, initialPosY));
 }
-
-
-
-
 
 void GameEngine::run()
 {
@@ -104,23 +98,13 @@ void GameEngine::run()
     }
 }
 
+GameEngine::~GameEngine() { delete gameObjects; delete screen; }
 
-GameEngine::~GameEngine()
-{
-    delete gameObjects;
-}
+void GameEngine::closeScreen() { screen_open = false; }
 
-void GameEngine::closeScreen()
-{
-    screen_open = false;
-}
+void GameEngine::openScreen() { screen_open = true; }
 
-void GameEngine::openScreen()
-{
-    screen_open = true;
-}
-
-void GameEngine::moveScreen(std::string screen_display_)
+void GameEngine::moveScreen(const std::string& screen_display_)
 {
     screen_display = screen_display_;
     screen_moved = true;
@@ -153,17 +137,17 @@ void GameEngine::loadNextLevel()
             }   
         }
     }
-    else{
-        if(current_level < 6){
-            current_level++;
-            level_changed=true;
-        }
+    else if (current_level < 6) 
+    {
+        current_level++;
+        level_changed = true;
     }
 }
 
 void GameEngine::setLevel(int target_level)
 {
-    if(max_level >= target_level){
+    if(max_level >= target_level)
+    {
         current_level = target_level;
         level_changed = true;
         closeScreen();
@@ -175,19 +159,13 @@ void GameEngine::setMaxLevel()
     if(max_level < 7){
         current_level = max_level;
     }
-    else{
+    else {
         current_level = 1;
     }
     level_changed = true;
     closeScreen();
 }
 
-void GameEngine::resetLevel()
-{
-    gameObjects->resetAll();
-}
+void GameEngine::resetLevel() { gameObjects->resetAll(); }
 
-void GameEngine::updateUserCurrentLevel()
-{
-    updateCurrentLevel(max_level);
-}
+void GameEngine::updateUserCurrentLevel() { updateCurrentLevel(max_level); }

@@ -3,10 +3,8 @@
 #include "GameEngine.h"
 #include "functions.h"
 
-
 typedef GameObject* (*CreateFunction)(Json::Value&, GameTextures& gameTextures);
 extern std::map<std::string, CreateFunction> createGameObject;
-
 
 GameObjectArray::GameObjectArray(GameEngine* engine)
 : gameEnginePtr(engine)
@@ -48,7 +46,6 @@ GameEngine* GameObjectArray::getGameEngine()
     return gameEnginePtr;
 }
 
-
 void GameObjectArray::updateAll()
 {
     for (int index = 0; index < max_objects; index++)
@@ -59,9 +56,6 @@ void GameObjectArray::updateAll()
         }    
     }
 }
-
-
-
 
 void GameObjectArray::drawAll(sf::RenderWindow &window)
 {
@@ -87,7 +81,6 @@ void GameObjectArray::clickAll(int xPos, int yPos, GameEngine& engine)
 
 void GameObjectArray::tellAll(std::string channel, std::string signal)
 {
-    ////std::cout << "Channel: '" << channel << "' Signal: '" << signal << "'" << std::endl;
     for (int index = 0; index < max_objects; index++)
     {
         if (objects[index] != nullptr)
@@ -181,6 +174,7 @@ bool GameObjectArray::levelCompleted()
         if (objects[index] == nullptr) continue;
         if (!objects[index]->isReady(*this)) return false;
     }
+    std::cout << "Level completed!" << std::endl;
     return true;
 }
 

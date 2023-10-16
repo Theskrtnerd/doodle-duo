@@ -2,7 +2,6 @@
 #include <string>
 #include "GameObjectArray.h"
 
-
 void Button::press(GameObjectArray& objects)
 {
     if (!pressed)
@@ -35,16 +34,13 @@ Button::~Button() {}
 bool Button::update(GameObjectArray& objects) {
     ImmoveableObject::update(objects);
 
-    if (objects.isCollidingWith(*this, "player red") || objects.isCollidingWith(*this, "player blue"))
-    {
-        press(objects);
-    } else {
-        depress(objects);
-    }
+    // Check if button is being pressed by either player
+    bool buttonPressed = (objects.isCollidingWith(*this, "player red") || objects.isCollidingWith(*this, "player blue"));
+
+    // Update button state button state based on whether it's being pressed
+    buttonPressed ? press(objects) : depress(objects);
+
     return false;
 }
 
-std::string Button::collisionType()
-{
-    return "button";
-}
+std::string Button::collisionType() { return "button"; }

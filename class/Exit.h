@@ -11,6 +11,13 @@ class Exit : public ImmoveableObject
     private:
         std::string color; ///< Color of the exit, corresponding to the two player's colors
 
+        /// @brief Move the exit by the offset and checks if the player is present
+        /// @param objects Reference to GameObjectArray
+        /// @param xOffset x offset
+        /// @param yOffset y offset
+        /// @return If the player is present
+        bool offsetCollisionChecker(GameObjectArray& objects, int xOffset, int yOffset);
+
     public:
         /// @brief Constructs an Exit instance.
         /// @param x x-coordinate

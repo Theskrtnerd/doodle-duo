@@ -17,7 +17,6 @@ private:
     int max_level;                  ///< The maximum level that the player has reached so far.
     int current_level;              ///< The current level that the player is on.
     sf::RenderWindow window;        ///< The window that the game is running on.
-    ////sf::Sprite backgroundSprite;    ///<
     bool level_changed;             ///< Whether or not the player has changed levels.
 
 public:
@@ -41,7 +40,7 @@ public:
 
     /// @brief  Changes the screen to a new state.
     /// @param screen_display The Json to load the new state from.
-    void moveScreen(std::string screen_display);
+    void moveScreen(const std::string& screen_display_);
 
     /// @brief Set the game to the target level.
     /// @param target_level Target level to set.

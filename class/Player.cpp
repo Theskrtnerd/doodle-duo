@@ -1,56 +1,31 @@
 #include "Player.h"
 #include <SFML/Window/Keyboard.hpp>
 #include "GameObjectArray.h"
-/*
-using isKeyPressed = sf::Keyboard::isKeyPressed;
-using A_key = sf::Keyboard::A;
-using W_key = sf::Keyboard::W;
-using S_key = sf::Keyboard::S;
-using D_key = sf::Keyboard::D;
 
-using Up_key = sf::Keyboard::Up;
-using Down_key = sf::Keyboard::Down;
-using Left_key = sf::Keyboard::Left;
-using Right_key = sf::Keyboard::Right;
-*/
-
-bool isKeyPressed(sf::Keyboard::Key key)
-{
-    return sf::Keyboard::isKeyPressed(key);
-}
+bool isKeyPressed(sf::Keyboard::Key key) { return sf::Keyboard::isKeyPressed(key); }
 
 Player::Player(int x, int y, std::string color_, GameTextures& gameTextures)
-    : MoveableObject(x, y, gameTextures), xStart(x), yStart(y)
-    {
-        this->setColorString(color_);
-        this->setTextureFromFile(gameTextures, "Player.png");
-        this->setColor(this->getColorString());
-    }
+: MoveableObject(x, y, gameTextures), xStart(x), yStart(y)
+{
+    this->setColorString(color_);
+    this->setTextureFromFile(gameTextures, "Player.png");
+    this->setColor(this->getColorString());
+}
 
 bool Player::update(GameObjectArray& objects)
-    {
-        // Gets player input and does corrsponding methods
-        playerInputs(objects);
-
-        // This should do the movement
-        if (!MoveableObject::update(objects)){
-            return 0;
-        }
-        this->friction();
-
-        // All good
-        return 1;
-    }
-
-std::string Player::collisionType()
 {
-    return "player "+ getColorString();
+    playerInputs(objects);
+
+    if (!MoveableObject::update(objects)) return false;
+
+    this->friction();
+
+    return true;
 }
 
-void Player::reset(GameObjectArray& objects)
-{
-    this->setPosition(xStart, yStart);
-}
+std::string Player::collisionType() { return "player "+ getColorString(); }
+
+void Player::reset(GameObjectArray& objects) { this->setPosition(xStart, yStart); }
 
 void Player::playerInputs(GameObjectArray& objects) {
     if (getColorString() != "red")
@@ -70,34 +45,29 @@ void Player::playerInputs(GameObjectArray& objects) {
 }
 
 void Player::moveLeft()
-    {
-        double maxSpeed = 50.0;
-        double acceleration = 2.0;
-        double currentVelocity = getVelocityX();
+{
+    double maxSpeed = 50.0;
+    double acceleration = 2.0;
+    double currentVelocity = getVelocityX();
 
-        if (currentVelocity > -maxSpeed)
-        {
-            setVelocityX(currentVelocity - acceleration);
-        }
+    if (currentVelocity > -maxSpeed)
+    {
+        setVelocityX(currentVelocity - acceleration);
     }
+}
 
 void Player::moveRight()
-    {
-        double maxSpeed = 50.0;
-        double acceleration = 2.0;
-        double currentVelocity = getVelocityX();
+{
+    double maxSpeed = 50.0;
+    double acceleration = 2.0;
+    double currentVelocity = getVelocityX();
 
-        if (currentVelocity < maxSpeed)
-        {
-            setVelocityX(currentVelocity + acceleration);
-        }
-    }
+    if (currentVelocity < maxSpeed) setVelocityX(currentVelocity + acceleration);
+}
 
 void Player::jump(GameObjectArray& objects)
-    {
-        bool NotOnGround = !objects.isGrounded(*this);
-        
-        if (NotOnGround) return;
+    {        
+        if (!objects.isGrounded(*this)) return;
 
         setVelocityY(-16);
     }
@@ -113,7 +83,7 @@ void Player::interact(GameObjectArray& objects)
 
 void Player::friction()
 {
-    double frictionCoefficient = 0.25; // You can change this as needed
+    double frictionCoefficient = 0.25; // change this as needed
     double currentVelocityX = getVelocityX();
 
     // Apply friction
@@ -127,4 +97,5 @@ void Player::friction()
 
     setVelocityX(currentVelocityX);
 }
+
 Player::~Player() {}

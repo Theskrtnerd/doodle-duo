@@ -22,12 +22,9 @@ void Lever::turnOff(GameObjectArray& objects)
 
 void Lever::updateTexture()
 {
-    if(isOn)
-    {
-        this->setTextureFromFile(gameTextures, "Lever_On.png");
-    } else {
-        this->setTextureFromFile(gameTextures, "Lever_Off.png");
-    }
+    std::string textureFile = isOn ? "lever_on.png" : "lever_off.png";
+    this->setTextureFromFile(gameTextures, textureFile);
+
     this->setColor(color);
 }
 
@@ -38,7 +35,6 @@ color(colour),
 gameTextures(gameTextures),
 cooldown(0)
 {
-    this->setTextureFromFile(gameTextures, "Lever_Off.png");
     updateTexture();
 }
 
@@ -47,13 +43,11 @@ Lever::~Lever() {}
 void Lever::interactWith(GameObjectArray& objects)
 {
     if (cooldown > 0) return;
-    if (isOn)
-    {
-        turnOff(objects);
-    } else {
-        turnOn(objects);
-    }
+    
+    isOn ? turnOff(objects) : turnOn(objects);
+
     updateTexture();
+
     cooldown = 30;
 }
 
@@ -66,12 +60,6 @@ bool Lever::update(GameObjectArray& object)
     return false;
 }
 
-std::string Lever::collisionType()
-{
-    return "intractable";
-}
+std::string Lever::collisionType() { return "intractable"; }
 
-void Lever::reset(GameObjectArray& objects)
-{
-    turnOff(objects);
-}
+void Lever::reset(GameObjectArray& objects) { turnOff(objects); }

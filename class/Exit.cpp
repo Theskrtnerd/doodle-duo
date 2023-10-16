@@ -1,9 +1,22 @@
 #include "Exit.h"
 #include "GameEngine.h"
 
+bool Exit::offsetCollisionChecker(GameObjectArray& objects, int xOffset, int yOffset)
+{
+    int initalX = getX();
+    int initalY = getY();
+
+    setPosition(initalX + xOffset, initalY + yOffset);
+
+    bool collision = objects.isCollidingWith(*this, "player " + color);
+
+    setPosition(initalX, initalY);
+
+    return collision;
+}
+
 Exit::Exit(int x, int y, GameTextures& gameTextures, std::string colour)
-: ImmoveableObject(x, y, gameTextures),
-color(colour)
+: ImmoveableObject(x, y, gameTextures), color(colour)
 {
     this->setTextureFromFile(gameTextures, "Exit.png");
     this->setColor(color);
@@ -11,36 +24,14 @@ color(colour)
 
 Exit::~Exit() {}
 
-std::string Exit::collisionType()
-{
-    return "exit";
-}
+std::string Exit::collisionType() { return "exit"; }
 
 bool Exit::isReady(GameObjectArray& objects)
 {
-    bool output = true;
-    int initialX = getX();
-    int initialY = getY();
-
-    this->setPosition(initialX+15, initialY);
-    if (!objects.isCollidingWith(*this, "player " + color)) output = false;
-    this->setPosition(initialX, initialY);
-    if (!output) return false;
-
-    this->setPosition(initialX-15, initialY);
-    if (!objects.isCollidingWith(*this, "player " + color)) output = false;
-    this->setPosition(initialX, initialY);
-    if (!output) return false;
-
-    this->setPosition(initialX, initialY+15);
-    if (!objects.isCollidingWith(*this, "player " + color)) output = false;
-    this->setPosition(initialX, initialY);
-    if (!output) return false;
-
-    this->setPosition(initialX, initialY-15);
-    if (!objects.isCollidingWith(*this, "player " + color)) output = false;
-    this->setPosition(initialX, initialY);
-    if (!output) return false;
+    if (!offsetCollisionChecker(objects, -15, 0)) return false;
+    if (!offsetCollisionChecker(objects, 15, 0)) return false;
+    if (!offsetCollisionChecker(objects, 0, -15)) return false;
+    if (!offsetCollisionChecker(objects, 0, 15)) return false;
 
     return true;
 }

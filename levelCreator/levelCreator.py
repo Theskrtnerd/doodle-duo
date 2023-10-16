@@ -103,6 +103,7 @@ def createJsonFromCSV(level):
     with open(json_file_path, 'w') as json_file:
         json.dump(output, json_file)
 
+random.seed(0)
 createJsonFromCSV(1)
 createJsonFromCSV(2)
 createJsonFromCSV(3)

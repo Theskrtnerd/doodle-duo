@@ -35,7 +35,7 @@ void generateLevelMenu(int current_level);
 
 /// @brief Update user current level to the json file
 /// @param current_level Current level, filename to input Json
-void updateCurrentLevel(std::string& filename, int currentLevel);
+void updateCurrentLevel(int currentLevel);
 
 
 #endif

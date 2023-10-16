@@ -163,9 +163,10 @@ void generateLevelMenu(int max_level){
     outputFile.close();
 }
 
-void updateCurrentLevel(const std::string& filename, int newLevel) {
+void updateCurrentLevel(int newLevel) {
     Json::CharReaderBuilder reader;
     Json::Value root;
+    std::string filename = "user_data.json";
     std::ifstream file(filename, std::ifstream::binary);
     
     if (!file.is_open()) {

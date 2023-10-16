@@ -189,5 +189,5 @@ void GameEngine::resetLevel()
 
 void GameEngine::updateUserCurrentLevel()
 {
-    updateCurrentLevel("user_data.json", max_level);
+    updateCurrentLevel(max_level);
 }

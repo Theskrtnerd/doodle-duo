@@ -1,5 +1,5 @@
 # List of source files
-SOURCE_FILES = gametest.cpp class/Map.cpp class/GameObject.cpp ... class/Obstacle.cpp
+SOURCE_FILES = main.cpp class/GameObject.cpp class/GameObjectArray.cpp class/MoveableObject.cpp class/ImmoveableObject.cpp class/GameEngine.cpp class/Player.cpp class/functions.cpp class/Background.cpp class/Cell.cpp class/GameTextures.cpp class/ScreenButton.cpp class/Button.cpp class/Door.cpp class/Lever.cpp class/Exit.cpp class/Text.cpp class/Obstacle.cpp
 INCLUDES = -I/usr/include/jsoncpp
 LIBRARIES = -lsfml-graphics -lsfml-window -lsfml-system -ljsoncpp
 FLAGS = -Wpedantic
@@ -12,12 +12,22 @@ all: $(EXECUTABLE)
 $(EXECUTABLE): 
 	g++ $(FLAGS) -o $(EXECUTABLE) $(SOURCE_FILES) $(INCLUDES) $(LIBRARIES)
 
-# Run the executable
-run: 
-	./$(EXECUTABLE)
 
-# Clean up object files and executable
+
+# Debug target
+debug: FLAGS += -g
+debug: $(EXECUTABLE)
+
+# Release target
+release: FLAGS += -O3
+release: $(EXECUTABLE)
+
+# Clean
 clean:
 	rm -f $(EXECUTABLE)
 
-.PHONY: all run clean
+# Run the executable
+run: $(EXECUTABLE)
+	./$(EXECUTABLE)
+
+.PHONY: all run debug release clean

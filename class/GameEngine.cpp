@@ -147,6 +147,12 @@ void GameEngine::loadNextLevel()
             }   
         }
     }
+    else{
+        if(current_level < 6){
+            current_level++;
+            level_changed=true;
+        }
+    }
 }
 
 void GameEngine::setLevel(int target_level)

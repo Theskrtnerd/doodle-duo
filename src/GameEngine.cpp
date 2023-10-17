@@ -125,9 +125,9 @@ void GameEngine::loadNextLevel()
             if(max_level == 6 && current_level == max_level){
                 max_level++;
                 moveScreen("levelMenu");
-                gameObjects->clearObjects();
+                setLevel(1);
+                level_changed = true;
                 openScreen();
-                level_changed = false;
             }
             else{
                 if(current_level <6){
@@ -137,10 +137,17 @@ void GameEngine::loadNextLevel()
             }   
         }
     }
-    else if (current_level < 6) 
-    {
+    else {
+        if (current_level < 6) {
         current_level++;
         level_changed = true;
+        }
+        else{
+            moveScreen("levelMenu");
+            setLevel(1);
+            level_changed = true;
+            openScreen();
+        }
     }
 }
 

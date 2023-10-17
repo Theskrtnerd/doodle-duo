@@ -96,7 +96,7 @@ def createJsonFromCSV(level):
     # Add additional elements
     output.append({"type": "Text", "text": f"Lv. {level}", "x": 25, "y": 735, "fontSize": 44, "colour": "black"})
     output.append({"type": "ScreenButton", "texture": "SettingsGear.png", "action": "openSettings", "x": 1120, "y": 720})
-    output.append({"type": "ScreenButton", "texture": "3x2.png", "action": "EASTER", "x": 0, "y": 720})
+    output.append({"type": "ScreenButton", "texture": "3x2.png", "action": "debug", "x": 0, "y": 720})
     output.append({"type": "Background", "texture": "GameBackground.png"})
     
     # Save to JSON

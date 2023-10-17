@@ -44,6 +44,10 @@ class Door : public ImmoveableObject
         /// @param channel The channel on which the signal comes.
         /// @param signal The received signal.
         virtual void listen(std::string channel, std::string signal) override;
+
+        /// @brief Print the debug information about the given object.
+        /// @param objects Reference to the array of objects.
+        void debug(GameObjectArray& objects) override;
 };
 
 #endif

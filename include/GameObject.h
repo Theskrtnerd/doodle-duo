@@ -83,6 +83,9 @@ public:
     /// @param objects Reference to GameObjectArray.
     virtual void reset(GameObjectArray& objects);
 
+    /// @brief prints debug information. Abstract class; does nothing.
+    virtual void debug(GameObjectArray& objects);
+
     /// @brief Sets Color.
     /// @param color Desired color.
     void setColor(const std::string& color);

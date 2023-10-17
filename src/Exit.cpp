@@ -35,3 +35,12 @@ bool Exit::isReady(GameObjectArray& objects)
 
     return true;
 }
+
+void Exit::debug(GameObjectArray& objects)
+{
+    std::cout << "An exit exists" << std::endl;
+    std::cout << "Position: " << getX() << ", " << getY() << std::endl;
+    std::cout << "Color: " << color << std::endl;
+    std::cout << "correct player present: " << isReady(objects) << std::endl;
+    std::cout << std::endl;
+}

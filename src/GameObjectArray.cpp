@@ -101,6 +101,17 @@ void GameObjectArray::resetAll()
     }
 }
 
+void GameObjectArray::debugAll()
+{
+    for (int index = 0; index < max_objects; index++)
+    {
+        if (objects[index]!= nullptr)
+        {
+            objects[index]->debug(*this);
+        }
+    }
+}
+
 GameObject* GameObjectArray::findColliding(GameObject& object)
 {
     GameObject* otherObject;

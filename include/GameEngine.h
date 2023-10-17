@@ -56,8 +56,11 @@ public:
     /// @brief Loads the next game level.
     void loadNextLevel();
 
+    /// @brief Write and update the user's current level to json.
     void updateUserCurrentLevel();
 
+    /// @brief prints out debug information.
+    void debug();
 };
 
 #endif

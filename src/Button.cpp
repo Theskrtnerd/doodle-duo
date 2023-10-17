@@ -44,3 +44,14 @@ bool Button::update(GameObjectArray& objects) {
 }
 
 std::string Button::collisionType() { return "button"; }
+
+void Button::debug(GameObjectArray& objects)
+{
+    std::cout << "A button exists" << std::endl;
+    std::cout << "Position: " << this->getX() << ", " << this->getY() << std::endl;
+    std::cout << "Channel: " << color << std::endl;
+    std::cout << "Signal type: 'on', 'off'" << std::endl;
+    std::cout << "is pressed: " << pressed << std::endl;
+    std::cout << "Collision type: " << collisionType() << std::endl;
+    std::cout << std::endl;
+}

@@ -127,6 +127,11 @@ const std::map<std::string, std::function<void(GameEngine&)>> ScreenButton::acti
         {
         }
     },
+    {"debug", [](GameEngine& engine)
+        {
+        engine.debug();
+        }
+    },
     {"EASTER", [](GameEngine& engine)
         {
         std::cout << "Fireboy and Watergirl" << std::endl;

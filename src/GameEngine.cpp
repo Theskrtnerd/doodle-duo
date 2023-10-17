@@ -177,3 +177,5 @@ void GameEngine::setMaxLevel()
 void GameEngine::resetLevel() { gameObjects->resetAll(); }
 
 void GameEngine::updateUserCurrentLevel() { updateCurrentLevel(max_level); }
+
+void GameEngine::debug() { gameObjects->debugAll();}

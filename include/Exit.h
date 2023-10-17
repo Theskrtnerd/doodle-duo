@@ -37,6 +37,10 @@ class Exit : public ImmoveableObject
         /// @param objects Reference to the GameObjectArray.
         /// @return True if the player is ready, false otherwise.
         bool isReady(GameObjectArray& objects) override;
+
+        /// @brief Print the debug information about the given object.
+        /// @param objects Reference to the array of objects.
+        void debug(GameObjectArray& objects) override;
 };
 
 #endif

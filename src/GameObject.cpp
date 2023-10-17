@@ -73,6 +73,8 @@ bool GameObject::isReady(GameObjectArray& objects) { return true; }
 
 void GameObject::reset(GameObjectArray& objects) {}
 
+void GameObject::debug(GameObjectArray& objects) {}
+
 void GameObject::setColor(const std::string& color) { sprite.setColor(stringToColor(color)); }
 
 GameObject::~GameObject() {}

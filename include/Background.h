@@ -17,6 +17,10 @@ public:
     /// @brief Draws the background on the given window.
     /// @param window The window where the background will be drawn.
     virtual void draw(sf::RenderWindow &window) override;
+
+    /// @brief Print the debug information about the give object.
+    /// @param objects Reference to the array of objects.
+    void debug(GameObjectArray& objects) override;
 };
 
 #endif

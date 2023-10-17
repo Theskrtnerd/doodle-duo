@@ -51,6 +51,10 @@ public:
     /// @brief Resets the lever to its default state
     /// @param objects Reference to the GameObjectArray
     virtual void reset(GameObjectArray& objects) override;
+
+    /// @brief Print the debug information about the given object.
+    /// @param objects Reference to the array of objects.
+    void debug(GameObjectArray& objects) override;
 };
 
 #endif

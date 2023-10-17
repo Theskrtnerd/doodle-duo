@@ -99,3 +99,13 @@ void Player::friction()
 }
 
 Player::~Player() {}
+
+void Player::debug(GameObjectArray& objects)
+{
+    std::cout << "A player exists" << std::endl;
+    std::cout << "Position: " << getX() << ", " << getY() << std::endl;
+    std::cout << "Velocity: " << getVelocityX() << ", " << getVelocityY() << std::endl;
+    std::cout << "Standing on ground: " << objects.isGrounded(*this) << std::endl;
+    std::cout << "Color: " << getColorString() << std::endl;
+    std::cout << std::endl;
+}

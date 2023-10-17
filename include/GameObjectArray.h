@@ -65,6 +65,9 @@ class GameObjectArray
         /// @brief Resets all objects to their initial state
         void resetAll();
 
+        /// @brief Prints debug information for all objects
+        void debugAll();
+
         /// @brief Finds colliding object.
         /// @param object Object to test collision
         /// @return Pointer to colliding object. Null if no collision.

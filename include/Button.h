@@ -38,6 +38,10 @@ public:
     /// @brief Gets the collision type of the GameObject.
     /// @return A string, typically "button".
     virtual std::string collisionType() override;
+
+    /// @brief Print the debug information about the give object.
+    /// @param objects Reference to the array of objects.
+    void debug(GameObjectArray& objects) override;
 };
 
 #endif

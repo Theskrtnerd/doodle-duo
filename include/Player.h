@@ -57,6 +57,10 @@ public:
 
     /// @brief Destructs the player
     ~Player();
+
+    /// @brief Print the debug information about the given object.
+    /// @param objects Reference to the array of objects.
+    void debug(GameObjectArray& objects) override;
 };
 
 #endif

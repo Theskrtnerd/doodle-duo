@@ -3,7 +3,7 @@ SOURCE_FILES = src/GameObject.cpp src/GameObjectArray.cpp src/MoveableObject.cpp
 MAIN_SOURCE = main.cpp
 TESTING_SOURCE = tests/test.cpp
 INCLUDES = -I/usr/include/jsoncpp
-LIBRARIES = -lsfml-graphics -lsfml-window -lsfml-system -ljsoncpp
+LIBRARIES = -lsfml-graphics -lsfml-window -lsfml-system -ljsoncpp -lsfml-audio
 FLAGS = -Wpedantic
 EXECUTABLE = doodle_duo
 

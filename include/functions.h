@@ -9,6 +9,8 @@
 #include <unordered_map>
 #include <filesystem>
 #include <vector>
+#include <SFML/Audio.hpp>
+
 
 /// @brief Reads a JSON file and returns a JSON object.
 /// @param filePath Path to the JSON file.
@@ -36,6 +38,7 @@ void generateLevelMenu(int current_level);
 /// @brief Update user current level to the json file
 /// @param current_level Current level, filename to input Json
 void updateCurrentLevel(int currentLevel);
+
 
 
 #endif

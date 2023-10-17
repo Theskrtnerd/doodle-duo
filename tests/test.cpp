@@ -19,3 +19,20 @@
 #include "include/ImmoveableObject.h"
 #include "include/Text.h"
 
+TEST_CASE("Example Text Object") {
+    // Arrange: Set up the initial conditions
+    Text('Hello', 12, 12, )
+}
+
+TEST_CASE("Example Test Case 2") {
+    // Another test case
+    // Arrange
+    int a = 0;
+    int b = 42;
+
+    // Act
+    int result = divide(b, a); // Replace 'divide' with the actual function to test
+
+    // Assert
+    REQUIRE(result == 0);
+}

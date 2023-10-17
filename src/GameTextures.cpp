@@ -1,5 +1,5 @@
-#include "GameTextures.h"
-#include "functions.h"
+#include "include/GameTextures.h"
+#include "include/functions.h"
 
 void GameTextures::addTexture(const std::string& file_name) {
     std::string file_path = GetParentPath() + file_name;

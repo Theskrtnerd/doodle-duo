@@ -1,7 +1,7 @@
-#include "GameObjectArray.h"
-#include "Player.h"
-#include "GameEngine.h"
-#include "functions.h"
+#include "include/GameObjectArray.h"
+#include "include/Player.h"
+#include "include/GameEngine.h"
+#include "include/functions.h"
 
 typedef GameObject* (*CreateFunction)(Json::Value&, GameTextures& gameTextures);
 extern std::map<std::string, CreateFunction> createGameObject;

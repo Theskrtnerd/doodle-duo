@@ -1,6 +1,6 @@
-#include "GameObject.h"
-#include "GameObjectArray.h"
-#include "GameEngine.h"
+#include "include/GameObject.h"
+#include "include/GameObjectArray.h"
+#include "include/GameEngine.h"
 
 void GameObject::setTextureFromFile(GameTextures& gameTextures, const std::string& file_name)
 {

@@ -1,5 +1,5 @@
 # List of source files
-SOURCE_FILES = main.cpp class/GameObject.cpp class/GameObjectArray.cpp class/MoveableObject.cpp class/ImmoveableObject.cpp class/GameEngine.cpp class/Player.cpp class/functions.cpp class/Background.cpp class/Cell.cpp class/GameTextures.cpp class/ScreenButton.cpp class/Button.cpp class/Door.cpp class/Lever.cpp class/Exit.cpp class/Text.cpp class/Obstacle.cpp
+SOURCE_FILES = main.cpp src/GameObject.cpp src/GameObjectArray.cpp src/MoveableObject.cpp src/ImmoveableObject.cpp src/GameEngine.cpp src/Player.cpp src/functions.cpp src/Background.cpp src/Cell.cpp src/GameTextures.cpp src/ScreenButton.cpp src/Button.cpp src/Door.cpp src/Lever.cpp src/Exit.cpp src/Text.cpp src/Obstacle.cpp
 INCLUDES = -I/usr/include/jsoncpp
 LIBRARIES = -lsfml-graphics -lsfml-window -lsfml-system -ljsoncpp
 FLAGS = -Wpedantic

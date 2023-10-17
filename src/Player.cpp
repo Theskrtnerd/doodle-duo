@@ -1,6 +1,6 @@
-#include "Player.h"
+#include "include/Player.h"
 #include <SFML/Window/Keyboard.hpp>
-#include "GameObjectArray.h"
+#include "include/GameObjectArray.h"
 
 bool isKeyPressed(sf::Keyboard::Key key) { return sf::Keyboard::isKeyPressed(key); }
 

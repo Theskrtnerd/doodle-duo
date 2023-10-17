@@ -1,6 +1,6 @@
-#include "ScreenButton.h"
-#include "GameEngine.h"
-#include "GameObjectArray.h"
+#include "include/ScreenButton.h"
+#include "include/GameEngine.h"
+#include "include/GameObjectArray.h"
 
 ScreenButton::ScreenButton(const std::string& textureFile, GameTextures& gameTextures, int xPos, int yPos)
 : GameObject(xPos, yPos, gameTextures)

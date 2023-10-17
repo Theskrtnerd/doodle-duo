@@ -4,7 +4,6 @@
 #include "GameObject.h"
 #include "GameObjectArray.h"
 #include "functions.h"
-#include <SFML/Audio.hpp>
 
 /// @brief GameEngine class that runs the game loop and manages game state.
 class GameEngine
@@ -19,7 +18,6 @@ private:
     int current_level;              ///< The current level that the player is on.
     sf::RenderWindow window;        ///< The window that the game is running on.
     bool level_changed;             ///< Whether or not the player has changed levels.
-    sf::Music music_;
 
 
 public:
@@ -60,7 +58,6 @@ public:
 
     void updateUserCurrentLevel();
 
-    void playMusic();
 };
 
 #endif

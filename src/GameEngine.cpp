@@ -31,7 +31,6 @@ void GameEngine::run()
     Json::Value json_file = readJSONFile(json_path);
     max_level = json_file["currentLevel"].asInt();
 
-    playMusic();
 
     if(max_level < 7){
         std::string gameLevel = "assets/levels/level"+std::to_string(max_level)+".json";
@@ -178,12 +177,3 @@ void GameEngine::setMaxLevel()
 void GameEngine::resetLevel() { gameObjects->resetAll(); }
 
 void GameEngine::updateUserCurrentLevel() { updateCurrentLevel(max_level); }
-
-void GameEngine::playMusic(){
-    if (!music_.openFromFile("../assets/others/bg_music.mp3")) {
-        // Handle loading error
-    }
-
-    music_.setLoop(true);
-    music_.play();
-}

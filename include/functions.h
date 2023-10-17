@@ -9,7 +9,6 @@
 #include <unordered_map>
 #include <filesystem>
 #include <vector>
-#include <SFML/Audio.hpp>
 
 
 /// @brief Reads a JSON file and returns a JSON object.

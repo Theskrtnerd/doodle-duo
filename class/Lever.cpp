@@ -22,7 +22,7 @@ void Lever::turnOff(GameObjectArray& objects)
 
 void Lever::updateTexture()
 {
-    std::string textureFile = isOn ? "lever_on.png" : "lever_off.png";
+    std::string textureFile = isOn ? "Lever_On.png" : "Lever_Off.png";
     this->setTextureFromFile(gameTextures, textureFile);
 
     this->setColor(color);

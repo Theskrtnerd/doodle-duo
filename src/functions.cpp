@@ -1,6 +1,5 @@
 #include "../include/functions.h"
 
-// Function to read and parse a JSON file
 Json::Value readJSONFile(const std::string& filePath) {
     Json::CharReaderBuilder reader;
     Json::Value root;
@@ -8,17 +7,33 @@ Json::Value readJSONFile(const std::string& filePath) {
 
     std::ifstream jsonFile(filePath);
 
-    if (!jsonFile.is_open()) {
+    if (!jsonFile.is_open() && filePath == "user_data.json") {
+        // If the file doesn't exist and it's "user_data.json", create it with the initial content
+        std::ofstream newFile(filePath);
+        if (newFile.is_open()) {
+            Json::Value initialValue;
+            initialValue["currentLevel"] = 1;
+            Json::StreamWriterBuilder writer;
+            std::string jsonString = Json::writeString(writer, initialValue);
+            newFile << jsonString;
+            newFile.close();
+            return initialValue;
+        } else {
+            std::cerr << "Error creating and writing to JSON file: " << filePath << std::endl;
+            return Json::Value(); // Return an empty JSON value if an error occurs
+        }
+    } else if (!jsonFile.is_open()) {
         std::cerr << "Error opening JSON file: " << filePath << std::endl;
+    } else {
+        if (!Json::parseFromStream(reader, jsonFile, &root, &errors)) {
+            std::cerr << "Error parsing JSON file: " << errors << std::endl;
+        }
+        jsonFile.close();
     }
 
-    if (!Json::parseFromStream(reader, jsonFile, &root, &errors)) {
-        std::cerr << "Error parsing JSON file: " << errors << std::endl;
-    }
-
-    jsonFile.close();
     return root;
 }
+
 
 sf::Color stringToColor(const std::string& color)
 {
@@ -165,8 +180,19 @@ void updateCurrentLevel(int newLevel) {
     std::ifstream file(filename, std::ifstream::binary);
     
     if (!file.is_open()) {
-        std::cerr << "Failed to open the JSON file." << std::endl;
-        return;  // Change to void, so we just return without a value
+        // If the file doesn't exist, create it with the initial content
+        std::ofstream newFile(filename, std::ofstream::binary);
+        if (newFile.is_open()) {
+            Json::Value initialValue;
+            initialValue["currentLevel"] = newLevel;
+            Json::StreamWriterBuilder writer;
+            std::string jsonString = Json::writeString(writer, initialValue);
+            newFile << jsonString;
+            newFile.close();
+        } else {
+            std::cerr << "Failed to create and write to the JSON file." << std::endl;
+        }
+        return;
     }
     
     Json::String errs;
@@ -179,7 +205,7 @@ void updateCurrentLevel(int newLevel) {
         
         if (!outFile.is_open()) {
             std::cerr << "Failed to open the JSON file for writing." << std::endl;
-            return;  // Change to void, so we just return without a value
+            return;
         }
         
         Json::StreamWriterBuilder writer;
@@ -188,6 +214,6 @@ void updateCurrentLevel(int newLevel) {
         outFile.close();
     } else {
         std::cerr << "Failed to parse the JSON file: " << errs << std::endl;
-        return;  // Change to void, so we just return without a value
+        return;
     }
 }

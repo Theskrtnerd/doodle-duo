@@ -1,7 +1,7 @@
 # List of source files
 SOURCE_FILES = main.cpp src/GameObject.cpp src/GameObjectArray.cpp src/MoveableObject.cpp src/ImmoveableObject.cpp src/GameEngine.cpp src/Player.cpp src/functions.cpp src/Background.cpp src/Cell.cpp src/GameTextures.cpp src/ScreenButton.cpp src/Button.cpp src/Door.cpp src/Lever.cpp src/Exit.cpp src/Text.cpp src/Obstacle.cpp
 INCLUDES = -I/usr/include/jsoncpp
-LIBRARIES = -lsfml-graphics -lsfml-window -lsfml-system -ljsoncpp
+LIBRARIES = -lsfml-graphics -lsfml-window -lsfml-system -ljsoncpp -lsfml-audio
 FLAGS = -Wpedantic
 EXECUTABLE = doodle_duo
 

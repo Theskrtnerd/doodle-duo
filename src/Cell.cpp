@@ -1,4 +1,4 @@
-#include "include/Cell.h"
+#include "../include/Cell.h"
 
 Cell::Cell(int x, int y, GameTextures& gameTextures)
 : ImmoveableObject(x, y, gameTextures)

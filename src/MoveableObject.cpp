@@ -1,5 +1,5 @@
-#include "include/MoveableObject.h"
-#include "include/GameObjectArray.h"
+#include "../include/MoveableObject.h"
+#include "../include/GameObjectArray.h"
 
 MoveableObject::MoveableObject(int x, int y, GameTextures& gameTextures):
     GameObject(x, y, gameTextures),

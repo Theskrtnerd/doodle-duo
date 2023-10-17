@@ -1,5 +1,5 @@
-#include "include/Exit.h"
-#include "include/GameEngine.h"
+#include "../include/Exit.h"
+#include "../include/GameEngine.h"
 
 bool Exit::offsetCollisionChecker(GameObjectArray& objects, int xOffset, int yOffset)
 {

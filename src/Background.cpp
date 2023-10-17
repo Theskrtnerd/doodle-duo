@@ -1,4 +1,4 @@
-#include "include/Background.h"
+#include "../include/Background.h"
 
 Background::Background(const std::string& textureFile, GameTextures& gameTextures)
 : GameObject(0, 0, gameTextures)

@@ -1,6 +1,6 @@
-#include "include/Lever.h"
+#include "../include/Lever.h"
 #include <string>
-#include "include/GameObjectArray.h"
+#include "../include/GameObjectArray.h"
 
 void Lever::turnOn(GameObjectArray& objects)
 {

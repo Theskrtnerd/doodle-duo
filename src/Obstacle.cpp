@@ -1,4 +1,4 @@
-#include "include/Obstacle.h"
+#include "../include/Obstacle.h"
 #include <iostream>
 
 Obstacle::Obstacle(int x, int y, GameTextures& gameTextures, std::string colour)

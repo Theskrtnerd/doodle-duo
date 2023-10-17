@@ -1,4 +1,4 @@
-#include "include/Text.h"
+#include "../include/Text.h"
 
 Text::Text(int xPos, int yPos, GameTextures& gameTextures)
 : GameObject(xPos, yPos, gameTextures)

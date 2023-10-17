@@ -1,4 +1,4 @@
-#include "class/GameEngine.h"
+#include "include/GameEngine.h"
 #include <cstdlib>
 
 int main()

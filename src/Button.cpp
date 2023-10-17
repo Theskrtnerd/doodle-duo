@@ -1,6 +1,6 @@
-#include "include/Button.h"
+#include "../include/Button.h"
 #include <string>
-#include "include/GameObjectArray.h"
+#include "../include/GameObjectArray.h"
 
 void Button::press(GameObjectArray& objects)
 {

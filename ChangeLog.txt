@@ -1,0 +1,36 @@
+Background class added      Simply drawn on the background as this is not built into SFML
+GameObjectArray class added This was used for updateAll(), drawAll()
+GameTextures class added    This was added as load time for all textures being loaded every time was stacking up to about 10seconds this class was used to load in textures only once
+ScreenButton class added    This was added as a thing the player can click
+Text class added            Simply used to draw text onto the screen.
+
+Functions.cpp added for utility function
+
+Platform class removed      Changed to a bonus feature to be added to future versions
+Box class removed           Changed to a bonus to be added to future versions
+Map class removed           Was originally thought to be needed to draw in the walls
+Gem class removed           Was originally going to be used for player scoring but might be added to future versions
+Point class removed         Was originally thought to be used for x and y, but this was removed as x and y being seperated resulted in less mess
+
+Obstacle class role changed     The obstacle class was originally planed to be a second parent to objects such as CellObstacle, but as the collisionType() method was added this became less of a requirement
+
+
+GameObject abstract class method Changes
+    getPosition()               Broken into getX() and GetY() methods
+    setPosition(x, y)           Kept the same
+    virtual update()            Changed to include a reference to GameObject array to check for collisions
+    virtual interact()          Changed to interactWith() and include reference to GameObjectArray
+    virtual isTriggered()       Removed as the whole method of levers, buttons and doors was changed drastically
+    virtual draw()              Kept basically the same but needed a window reference.
+added
+    virtual isReady()           Used to check if the level is in a completed state
+    virtual debug()             Used to display information about the object
+    virtual collisionType()     Used to check what form of collision is needed between the objects
+    virtual listen()            Used to listen for signals and channels to detect state changes needed for doors and other channel objects
+    virtual click()             Mainly used for ScreenButton to be able to do what is required on click
+
+System Changes
+Lever, button and door signal Changes
+Any signal maker such as lever and button runs GameObjectArray.tellAll(channel, signal)
+Any signal receiver is told and GameObject.listen(channel, signal) to check if they should be responding or changing state based on the signal
+

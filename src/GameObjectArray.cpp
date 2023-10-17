@@ -169,11 +169,13 @@ bool GameObjectArray::isGrounded(GameObject& object) {
 
 bool GameObjectArray::levelCompleted()
 {
+    int nullCount = 0;
     for (int index = 0; index < max_objects; index++)
     {
-        if (objects[index] == nullptr) continue;
+        if (objects[index] == nullptr) {nullCount++; continue;};
         if (!objects[index]->isReady(*this)) return false;
     }
+    if (nullCount == max_objects) return false;
     std::cout << "Level completed!" << std::endl;
     return true;
 }

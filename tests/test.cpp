@@ -32,7 +32,7 @@
 #include "../src/Obstacle.cpp"  // Adjust the path
 #include "../src/Background.cpp"  // Adjust the path
 #include "../src/Cell.cpp"
-#include "../src/Screenbutton.cpp"
+#include "../src/ScreenButton.cpp"
 #include "../src/Button.cpp"
 #include "../src/Door.cpp"
 #include "../src/Lever.cpp"

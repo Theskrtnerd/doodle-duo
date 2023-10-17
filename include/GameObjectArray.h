@@ -21,7 +21,7 @@ class GameObjectArray
 {
     private:
         GameEngine* gameEnginePtr;                  ///< Pointer to the GameEngine
-        static constexpr int max_objects = 2048;    ///< Max number of objects in the array. Immutable.
+        static constexpr int max_objects = 800;    ///< Max number of objects in the array. Immutable.
         GameObject* objects[max_objects];           ///< Array of GameObject
         GameTextures gameTextures;                  ///< Pre-loaded game textures
     

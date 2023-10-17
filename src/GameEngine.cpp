@@ -6,8 +6,8 @@
 #include <string>
 
 const int cellSize = 40;
-const int initialPosX = 200;
-const int initialPosY = 200;
+const int initialPosX = 100;
+const int initialPosY = 100;
 
 GameEngine::GameEngine(int width, int height, const std::string &title)
 : window(sf::VideoMode(width, height), title),

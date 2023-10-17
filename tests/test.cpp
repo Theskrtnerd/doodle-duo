@@ -19,20 +19,30 @@
 #include "include/ImmoveableObject.h"
 #include "include/Text.h"
 
-TEST_CASE("Example Text Object") {
-    // Arrange: Set up the initial conditions
-    Text('Hello', 12, 12, )
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
+#include "../src/Player.cpp"  // Adjust the path
+
+TEST_CASE("Player Movement", "[Player]") {
+    GameTextures gameTextures;  // Mock this if needed
+    Player player(0, 0, "red", gameTextures);
+
+    SECTION("Move Left") {
+        player.moveLeft();
+        REQUIRE(player.getVelocityX() < 0);  // Replace with actual getter
+    }
+
+    SECTION("Move Right") {
+        player.moveRight();
+        REQUIRE(player.getVelocityX() > 0);  // Replace with actual getter
+    }
 }
 
-TEST_CASE("Example Test Case 2") {
-    // Another test case
-    // Arrange
-    int a = 0;
-    int b = 42;
+TEST_CASE("Player Jump", "[Player]") {
+    GameTextures gameTextures;  // Mock this if needed
+    Player player(0, 0, "red", gameTextures);
+    GameObjectArray objects;  // Mock this if needed
 
-    // Act
-    int result = divide(b, a); // Replace 'divide' with the actual function to test
-
-    // Assert
-    REQUIRE(result == 0);
+    player.jump(objects);
+    REQUIRE(player.getVelocityY() < 0);  // Replace with actual getter
 }
